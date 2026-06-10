@@ -41,3 +41,7 @@ htmlcov/
 
 # Logs
 *.log
+
+# Local work trees (real data) — never commit to external remote
+_backup/
+_release_candidate/
