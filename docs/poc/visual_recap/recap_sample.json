@@ -1,0 +1,48 @@
+{
+  "_poc_notice": "샘플/PoC 전용 — 가상 실행 결과. 실제 store 미연결, 실제 promotion 안 일어남. 아래 candidate·claim·count는 전부 가짜(synthetic_fixture). 사람이 승인한 것만 반영된다는 전제의 시연용 데이터.",
+  "recap_id": "recap:bid_review:20260622:001",
+  "plan_id": "plan:bid_review:20260622:001",
+  "pack_id": "bid_review_pack",
+  "data_class": "synthetic_fixture",
+  "executed_actions": [
+    { "action_id": "analyze_bid_notice", "status": "completed", "claims_created": 5 },
+    { "action_id": "check_qualification", "status": "completed", "claims_created": 1 }
+  ],
+  "used_evidence_refs": [
+    "evidence:bid:R26BK01234567:notice",
+    "evidence:bid:R26BK01234567:qual"
+  ],
+  "outputs": [
+    {
+      "claim_id": "claim:bid:cond:001",
+      "label": "기초금액 1.2억",
+      "promotion_status": "candidate",
+      "evidence_refs": ["evidence:bid:R26BK01234567:notice#L42"]
+    },
+    {
+      "claim_id": "claim:bid:cond:002",
+      "label": "마감 6/30 18:00",
+      "promotion_status": "candidate",
+      "evidence_refs": ["evidence:bid:R26BK01234567:notice#L08"]
+    },
+    {
+      "claim_id": "claim:bid:eligibility:001",
+      "label": "자격충족: 부분판정 (면허 evidence 누락)",
+      "promotion_status": "candidate",
+      "evidence_refs": ["evidence:bid:R26BK01234567:qual#L11"]
+    }
+  ],
+  "blocked_items": [
+    { "action_id": "check_qualification", "reason": "evidence:license:self:001 누락 → 부분판정만" }
+  ],
+  "review_required_items": [
+    { "claim_id": "claim:bid:eligibility:001", "decision": "candidate→validated 승인 필요" }
+  ],
+  "writeback_result": "not_executed",
+  "promotion_applied": false,
+  "human_approved_only": true,
+  "next_user_decision": [
+    "자격충족 판정을 validated로 승인하시겠습니까?",
+    "누락된 license evidence를 보강하시겠습니까?"
+  ]
+}

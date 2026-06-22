@@ -1,0 +1,39 @@
+# PoC — Pack Action Contract (review-only, NOT wired to execution).
+# Source: docs/OPENCRAB_PACK_ACTION_CONTRACT.md §8 (restaurant_startup_pack).
+action: pack_restaurant_startup
+version: "1.0"
+description: >-
+  Restaurant startup pack — representative action (analyze_local_concept).
+  Preview-only: assesses trade-area/competition/concept fit with dated sources.
+pack_id: restaurant_startup_pack
+preview_only: true
+requires_human_review: true
+promotion_allowed: false
+execution_mode: preview_only
+allowed_write_scopes: []
+risk_level: medium
+required_evidence_refs:
+  - "evidence:market:*"
+  - "evidence:competitor:*"
+parameters:
+  location:
+    type: string
+    required: true
+    description: Candidate location / trade area.
+  concept:
+    type: string
+    required: true
+    description: Store concept (e.g. grilled-meat).
+pack_actions:
+  - action_id: analyze_local_concept
+    purpose: 상권·경쟁·컨셉 적합도
+    risk_level: medium
+    required_evidence_refs: ["evidence:market:*", "evidence:competitor:*"]
+  - action_id: generate_menu_system
+    purpose: 메뉴 구성·원가·마진 초안
+    risk_level: low
+    required_evidence_refs: ["evidence:price:*", "evidence:recipe:*"]
+  - action_id: create_store_layout_plan
+    purpose: 매장 동선·좌석 배치 초안
+    risk_level: low
+    required_evidence_refs: ["evidence:layout_norm:*"]

@@ -1,0 +1,41 @@
+# PoC — Pack Action Contract (review-only, NOT wired to execution).
+# Source: docs/OPENCRAB_PACK_ACTION_CONTRACT.md §4 (bid_review_pack).
+# Loader compat: keeps flat `action`/`version`/`description`/`parameters`.
+# Invariants per §2/§4: preview_only + requires_human_review forced true.
+action: pack_bid_review
+version: "1.0"
+description: >-
+  Bid review pack — representative action (analyze_bid_notice). Preview-only:
+  extracts core notice conditions as candidate Claims with evidence refs.
+pack_id: bid_review_pack
+preview_only: true
+requires_human_review: true
+promotion_allowed: false
+execution_mode: preview_only
+allowed_write_scopes: []
+risk_level: low
+required_evidence_refs:
+  - "evidence:bid:<notice_id>:notice"
+parameters:
+  notice_id:
+    type: string
+    required: true
+    description: ID of the bid notice to analyze.
+  notice_text:
+    type: string
+    required: false
+    description: Raw notice text (fallback to evidence_refs when absent).
+# Sibling actions in this pack (§4) — documented, not separately loaded here:
+pack_actions:
+  - action_id: analyze_bid_notice
+    purpose: 공고 핵심조건 추출
+    risk_level: low
+    required_evidence_refs: ["evidence:bid:<id>:notice"]
+  - action_id: check_qualification
+    purpose: 보유 면허/실적 대비 자격충족 판정
+    risk_level: medium
+    required_evidence_refs: ["evidence:bid:<id>:qual", "evidence:license:*"]
+  - action_id: generate_submission_checklist
+    purpose: 제출서류 체크리스트 생성
+    risk_level: low
+    required_evidence_refs: ["evidence:bid:<id>:docs"]

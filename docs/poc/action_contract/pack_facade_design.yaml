@@ -1,0 +1,40 @@
+# PoC — Pack Action Contract (review-only, NOT wired to execution).
+# Source: docs/OPENCRAB_PACK_ACTION_CONTRACT.md §7 (facade_design_pack).
+action: pack_facade_design
+version: "1.0"
+description: >-
+  Facade design pack — representative action (map_paint_colors). Preview-only:
+  maps paint colors onto segmented facade regions; quantity estimates are
+  reference-only.
+pack_id: facade_design_pack
+preview_only: true
+requires_human_review: true
+promotion_allowed: false
+execution_mode: preview_only
+allowed_write_scopes: []
+risk_level: low
+required_evidence_refs:
+  - "evidence:photo:<photo_id>"
+  - "evidence:palette:*"
+parameters:
+  photo_id:
+    type: string
+    required: true
+    description: ID of the building facade photo.
+  palette_id:
+    type: string
+    required: true
+    description: ID of the paint color palette.
+pack_actions:
+  - action_id: segment_building_photo
+    purpose: 외벽 사진 영역 분할
+    risk_level: low
+    required_evidence_refs: ["evidence:photo:<id>"]
+  - action_id: map_paint_colors
+    purpose: 분할 영역에 도료 컬러 매핑
+    risk_level: low
+    required_evidence_refs: ["evidence:photo:<id>", "evidence:palette:*"]
+  - action_id: generate_design_proposal
+    purpose: 제안서 초안(컬러·물량·근거·참고 견적)
+    risk_level: medium
+    required_evidence_refs: ["evidence:photo:*", "evidence:palette:*"]

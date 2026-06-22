@@ -1,0 +1,75 @@
+// NOTE: 확장자가 `.yml.sample` 인 이유 = GitHub Actions 가 .github/workflows/*.yml 만
+// 트리거하므로, 이 파일은 절대 실행되지 않는 *초안* 이다. 실제 도입 시 owner 결정 후
+// `.github/workflows/preview_gate_ci.yml` 로 복사(push 는 별도 승인). 현재 PoC 단계 push 0.
+//
+// 아래는 YAML 본문(초안). (이 주석 줄들은 복사 시 제거)
+
+name: Preview Gate CI (8-suite, 3-OS matrix)
+
+# 트리거(초안) — 실제 도입 시 활성. PoC 단계에서는 미도입.
+on:
+  pull_request:
+    paths:
+      - "docs/poc/**"
+      - "opencrab/execution/guards_poc.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read          # read-only. write/promotion 권한 없음.
+
+jobs:
+  preview-gate:
+    name: ${{ matrix.os }} / py${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false     # 한 OS 실패해도 나머지 OS 결과 수집
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.11", "3.12", "3.13"]
+    env:
+      PYTHONUTF8: "1"                   # OS 무관 utf-8 출력(Windows cp1252 회피)
+      PYTHONDONTWRITEBYTECODE: "1"      # __pycache__ diff 미발생
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      # 1) 사전 환경 점검 — 깨질 요인 빠른 실패
+      - name: Preflight
+        run: python docs/poc/four_stage_gate/ci/preflight_check.py
+
+      # 2) 8스위트 + boundary + conformance 단일 command + artifact 보고서
+      - name: Run CI matrix (8 suites + boundary + conformance)
+        run: >
+          python docs/poc/four_stage_gate/ci/run_ci_matrix.py
+          --json artifacts/ci_report_${{ matrix.os }}_py${{ matrix.python }}.json
+
+      # 3) production 무수정 검증 — PoC 는 read-only. diff 발생 시 차단.
+      - name: Assert no production diff
+        shell: bash
+        run: |
+          DIRTY=$(git status --porcelain -- 'opencrab/*.py' 'schemas/actions/*.yaml' \
+            | grep -vE '__pycache__|\.pyc$' || true)
+          if [ -n "$DIRTY" ]; then
+            echo "production .py/.yaml 변경 감지 → merge 차단"; echo "$DIRTY"; exit 1
+          fi
+          echo "production 무수정 확인"
+
+      # 4) 보고서 artifact 업로드 (실패해도 업로드)
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-report-${{ matrix.os }}-py${{ matrix.python }}
+          path: artifacts/*.json
+          if-no-files-found: warn
+
+  # 모든 matrix 잡이 green 이어야 merge 게이트 통과(branch protection 의 required check).
+  gate-summary:
+    name: Gate Summary
+    needs: preview-gate
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "전 OS/py matrix green → merge 허용. 하나라도 실패 시 needs 가 막음."

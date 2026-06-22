@@ -1,0 +1,23 @@
+{
+  "_poc_notice": "검토용 가짜 sample. 실제 실행 결과 아님. writeback/promotion 0.",
+  "recap_id": "POC-RECAP-0001",
+  "plan_id": "POC-PLAN-0001",
+  "pack_id": "poc_demo_pack",
+  "data_class": "synthetic",
+  "execution_mode": "preview_only",
+  "writeback_mode": "none",
+  "promotion_allowed": false,
+  "candidate": true,
+  "requires_human_review": true,
+  "status": "candidate",
+  "evidence_refs": ["ev-poc-1", "ev-poc-2"],
+  "executed_actions": [],
+  "used_evidence_refs": ["ev-poc-1", "ev-poc-2"],
+  "outputs": [{"output_id": "o-1", "promotion_status": "candidate"}],
+  "blocked_items": [],
+  "review_required_items": ["o-1"],
+  "writeback_result": "not_executed",
+  "promotion_applied": false,
+  "human_approved_only": true,
+  "next_user_decision": "review pending outputs"
+}

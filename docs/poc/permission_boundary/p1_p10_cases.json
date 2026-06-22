@@ -1,0 +1,108 @@
+{
+  "_poc_notice": "Permission boundary fixture (synthetic). private pack 원문은 props 에만, 출력엔 refs.",
+  "cases": [
+    {
+      "name": "P1_public_any_namespace",
+      "expected": "GO",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_pub", "visibility": "public", "owner": "user_a"},
+        "nodes": [{"id": "n1", "props": {"title": "public body"}}],
+        "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}]
+      },
+      "requester": {"namespace": "user_b"}
+    },
+    {
+      "name": "P2_private_owner_match",
+      "expected": "GO",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_priv", "visibility": "private", "owner": "user_a"},
+        "nodes": [{"id": "n1", "props": {"title": "private body text here"}}],
+        "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}]
+      },
+      "requester": {"namespace": "user_a"}
+    },
+    {
+      "name": "P3_private_owner_mismatch",
+      "expected": "REJECTED",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_priv", "visibility": "private", "owner": "user_a"},
+        "nodes": [{"id": "n1", "props": {"title": "private body"}}],
+        "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}]
+      },
+      "requester": {"namespace": "user_b"}
+    },
+    {
+      "name": "P4_visibility_missing",
+      "expected": "HOLD",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_x", "owner": "user_a"},
+        "nodes": [{"id": "n1"}], "edges": [], "evidence": [{"evidence_id": "ev1"}]
+      },
+      "requester": {"namespace": "user_a"}
+    },
+    {
+      "name": "P5_owner_namespace_missing",
+      "expected": "REJECTED",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_x", "visibility": "private"},
+        "nodes": [{"id": "n1"}], "edges": [], "evidence": [{"evidence_id": "ev1"}]
+      },
+      "requester": {"namespace": "user_a"}
+    },
+    {
+      "name": "P6_mixed_set",
+      "expected_each": ["GO", "GO", "REJECTED"],
+      "requester": {"namespace": "user_a"},
+      "packs": [
+        {"manifest": {"pack_id": "user_b/pub", "visibility": "public", "owner": "user_b"},
+         "nodes": [{"id": "n1"}], "edges": [], "evidence": [{"evidence_id": "ev1"}]},
+        {"manifest": {"pack_id": "user_a/priv", "visibility": "private", "owner": "user_a"},
+         "nodes": [{"id": "n1"}], "edges": [], "evidence": [{"evidence_id": "ev1"}]},
+        {"manifest": {"pack_id": "user_c/priv", "visibility": "private", "owner": "user_c"},
+         "nodes": [{"id": "n1"}], "edges": [], "evidence": [{"evidence_id": "ev1"}]}
+      ]
+    },
+    {
+      "name": "P7_private_content_leak_in_grant",
+      "expected": "STOP",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_priv", "visibility": "private", "owner": "user_a"},
+        "nodes": [{"id": "n1", "props": {"secret_body": "confidential private payload body"}}],
+        "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "_inject_content_leak": true
+      },
+      "requester": {"namespace": "user_a"}
+    },
+    {
+      "name": "P8_private_refs_only",
+      "expected": "GO",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_priv", "visibility": "private", "owner": "user_a"},
+        "nodes": [{"id": "n1", "props": {"secret_body": "confidential private payload body"}}],
+        "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}]
+      },
+      "requester": {"namespace": "user_a"}
+    },
+    {
+      "name": "P9_namespace_spoofing",
+      "expected": "STOP",
+      "pack": {
+        "manifest": {"pack_id": "user_a/pack_x", "visibility": "private", "owner": "user_b"},
+        "nodes": [{"id": "n1"}], "edges": [], "evidence": [{"evidence_id": "ev1"}]
+      },
+      "requester": {"namespace": "user_a"}
+    },
+    {
+      "name": "P10_admission_go_permission_rejected",
+      "expected_forward": "blocked",
+      "requester": {"namespace": "user_b"},
+      "admission_desc": {
+        "manifest": {"pack_id": "user_a/pack_ok", "format_version": "v1", "visibility": "private", "owner": "user_a", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      }
+    }
+  ]
+}

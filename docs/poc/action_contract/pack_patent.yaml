@@ -1,0 +1,35 @@
+# PoC — Pack Action Contract (review-only, NOT wired to execution).
+# Source: docs/OPENCRAB_PACK_ACTION_CONTRACT.md §6 (patent_pack).
+action: pack_patent
+version: "1.0"
+description: >-
+  Patent pack — representative action (extract_claim_elements). Preview-only:
+  decomposes claim elements as candidate Claims; legal-judgment actions are
+  draft/review-only and presume attorney review.
+pack_id: patent_pack
+preview_only: true
+requires_human_review: true
+promotion_allowed: false
+execution_mode: preview_only
+allowed_write_scopes: []
+risk_level: low
+required_evidence_refs:
+  - "evidence:patent:<patent_id>:claims"
+parameters:
+  patent_id:
+    type: string
+    required: true
+    description: ID of the patent to analyze.
+pack_actions:
+  - action_id: extract_claim_elements
+    purpose: 청구항 구성요소 분해
+    risk_level: low
+    required_evidence_refs: ["evidence:patent:<id>:claims"]
+  - action_id: compare_prior_art
+    purpose: 선행기술 대비표
+    risk_level: medium
+    required_evidence_refs: ["evidence:patent:*:claims", "evidence:priorart:*"]
+  - action_id: generate_rejection_response_outline
+    purpose: 거절이유 대응 개요(초안·변호사 검토 전제)
+    risk_level: high
+    required_evidence_refs: ["evidence:rejection:<id>"]

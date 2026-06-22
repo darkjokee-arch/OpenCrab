@@ -1,0 +1,35 @@
+{
+  "_poc_notice": "검토용 가짜 sample. 실제 pack/데이터 아님. 실행/store write 0.",
+  "plan_id": "POC-PLAN-0001",
+  "pack_id": "poc_demo_pack",
+  "pack_type": "demo",
+  "data_class": "synthetic",
+  "execution_mode": "preview_only",
+  "writeback_mode": "none",
+  "promotion_allowed": false,
+  "candidate": true,
+  "requires_approval": true,
+  "requires_human_review": true,
+  "status": "candidate",
+  "evidence_refs": ["ev-poc-1", "ev-poc-2"],
+  "actions": [
+    {
+      "action_id": "act-1",
+      "order": 1,
+      "inputs_preview": {"note": "synthetic action 1"},
+      "risk_level": "low",
+      "requires_human_review": true,
+      "preview_only": true,
+      "evidence_refs": ["ev-poc-1"]
+    },
+    {
+      "action_id": "act-2",
+      "order": 2,
+      "inputs_preview": {"note": "synthetic action 2 (high risk but human-reviewed)"},
+      "risk_level": "high",
+      "requires_human_review": true,
+      "preview_only": true,
+      "evidence_refs": ["ev-poc-2"]
+    }
+  ]
+}

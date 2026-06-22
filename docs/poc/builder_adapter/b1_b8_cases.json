@@ -1,0 +1,102 @@
+{
+  "_poc_notice": "Synthetic PackView fixture. 실제 pack 데이터 아님. 변환 검증 전용.",
+  "cases": [
+    {
+      "name": "B1_normal_synthetic",
+      "expected": "GO",
+      "pack_view": {
+        "pack_id": "poc_demo", "pack_type": "demo", "data_class": "synthetic",
+        "nodes": [
+          {"node_id": "n1", "labels": ["Claim"], "props": {"title": "synthetic claim one"}},
+          {"node_id": "n2", "labels": ["Claim"], "props": {"title": "synthetic claim two"}}
+        ],
+        "edges": [{"edge_id": "e1", "source_id": "n1", "target_id": "n2", "relation": "supports", "props": {}}],
+        "evidence_index": [{"evidence_id": "ev1", "source_ref": "doc1", "kind": "text"}],
+        "manifest": {"evidence_coverage": 0.9},
+        "action_candidates": [
+          {"action_id": "a1", "node_refs": ["n1"], "edge_refs": ["e1"], "evidence_refs": ["ev1"], "risk_level": "low"}
+        ]
+      }
+    },
+    {
+      "name": "B2_origin_promoted_forced_candidate",
+      "expected": "GO",
+      "pack_view": {
+        "pack_id": "poc_b2", "pack_type": "demo", "data_class": "synthetic",
+        "nodes": [{"node_id": "n1", "labels": ["Claim"], "props": {"title": "node was promoted", "status": "promoted", "lifecycle_status": "confirmed"}}],
+        "edges": [],
+        "evidence_index": [{"evidence_id": "ev1", "source_ref": "doc1", "kind": "text"}],
+        "action_candidates": [{"action_id": "a1", "node_refs": ["n1"], "evidence_refs": ["ev1"], "risk_level": "low"}]
+      }
+    },
+    {
+      "name": "B3_origin_promotion_allowed_forced_false",
+      "expected": "GO",
+      "pack_view": {
+        "pack_id": "poc_b3", "pack_type": "demo", "data_class": "synthetic",
+        "promotion_allowed": true,
+        "nodes": [{"node_id": "n1", "labels": ["Claim"], "props": {"title": "promotion allowed origin"}}],
+        "edges": [],
+        "evidence_index": [{"evidence_id": "ev1", "source_ref": "doc1", "kind": "text"}],
+        "action_candidates": [{"action_id": "a1", "node_refs": ["n1"], "evidence_refs": ["ev1"], "risk_level": "low"}]
+      }
+    },
+    {
+      "name": "B4_exec_writeback_forced_safe",
+      "expected": "GO",
+      "pack_view": {
+        "pack_id": "poc_b4", "pack_type": "demo", "data_class": "synthetic",
+        "execution_mode": "execute", "writeback_mode": "commit",
+        "nodes": [{"node_id": "n1", "labels": ["Claim"], "props": {"title": "exec writeback origin"}}],
+        "edges": [],
+        "evidence_index": [{"evidence_id": "ev1", "source_ref": "doc1", "kind": "text"}],
+        "action_candidates": [{"action_id": "a1", "node_refs": ["n1"], "evidence_refs": ["ev1"], "risk_level": "high"}]
+      }
+    },
+    {
+      "name": "B5_action_without_evidence",
+      "expected": "STOP",
+      "pack_view": {
+        "pack_id": "poc_b5", "pack_type": "demo", "data_class": "synthetic",
+        "nodes": [{"node_id": "n1", "labels": ["Claim"], "props": {"title": "no evidence"}}],
+        "edges": [],
+        "evidence_index": [],
+        "action_candidates": [{"action_id": "a1", "node_refs": ["n1"], "evidence_refs": [], "risk_level": "low"}]
+      }
+    },
+    {
+      "name": "B6_dangling_ref",
+      "expected": "STOP",
+      "pack_view": {
+        "pack_id": "poc_b6", "pack_type": "demo", "data_class": "synthetic",
+        "nodes": [{"node_id": "n1", "labels": ["Claim"], "props": {"title": "node one"}}],
+        "edges": [],
+        "evidence_index": [{"evidence_id": "ev1", "source_ref": "doc1", "kind": "text"}],
+        "action_candidates": [{"action_id": "a1", "node_refs": ["ghost_node"], "evidence_refs": ["ev1"], "risk_level": "low"}]
+      }
+    },
+    {
+      "name": "B7_real_data_flag",
+      "expected": "STOP",
+      "pack_view": {
+        "pack_id": "poc_b7", "pack_type": "demo", "data_class": "real",
+        "real_data": true, "production_like": true,
+        "nodes": [{"node_id": "n1", "labels": ["Claim"], "props": {"title": "real data"}}],
+        "edges": [],
+        "evidence_index": [{"evidence_id": "ev1", "source_ref": "doc1", "kind": "text"}],
+        "action_candidates": [{"action_id": "a1", "node_refs": ["n1"], "evidence_refs": ["ev1"], "risk_level": "low"}]
+      }
+    },
+    {
+      "name": "B8_pii_secret_no_leak",
+      "expected": "GO",
+      "pack_view": {
+        "pack_id": "poc_b8", "pack_type": "demo", "data_class": "synthetic",
+        "nodes": [{"node_id": "n1", "labels": ["Claim"], "props": {"title": "looks normal", "api_key": "sk-deadbeefABCD1234", "rrn": "880101-1234567", "secret_note": "this is a confidential body text that must not leak"}}],
+        "edges": [],
+        "evidence_index": [{"evidence_id": "ev1", "source_ref": "doc1", "kind": "text"}],
+        "action_candidates": [{"action_id": "a1", "node_refs": ["n1"], "evidence_refs": ["ev1"], "risk_level": "low"}]
+      }
+    }
+  ]
+}

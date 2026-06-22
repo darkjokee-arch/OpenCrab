@@ -1,0 +1,185 @@
+{
+  "guard": "guard_no_auto_promotion",
+  "note": "검토용 PoC fixture. 각 STOP 케이스는 안전 baseline에서 한 필드만 위반시켜 격리 증명. 실제 실행/store write 없음.",
+  "safe_baseline": {
+    "execution_mode": "preview_only",
+    "promotion_allowed": false,
+    "candidate": true,
+    "writeback_mode": "none",
+    "requires_human_review": true,
+    "status": "candidate"
+  },
+  "cases": [
+    {
+      "name": "GO_all_safe",
+      "expected": "GO",
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "candidate"
+      }
+    },
+    {
+      "name": "GO_high_risk_with_human_review",
+      "expected": "GO",
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "candidate",
+        "risk": "high"
+      }
+    },
+    {
+      "name": "STOP_candidate_false",
+      "expected": "STOP",
+      "condition": 1,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": false,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "candidate"
+      }
+    },
+    {
+      "name": "STOP_promotion_allowed_true",
+      "expected": "STOP",
+      "condition": 2,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": true,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "candidate"
+      }
+    },
+    {
+      "name": "STOP_state_confirmed",
+      "expected": "STOP",
+      "condition": 3,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "confirmed"
+      }
+    },
+    {
+      "name": "STOP_state_promoted",
+      "expected": "STOP",
+      "condition": 3,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "target_status": "promoted"
+      }
+    },
+    {
+      "name": "STOP_state_validated",
+      "expected": "STOP",
+      "condition": 3,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "states": ["candidate", "validated"]
+      }
+    },
+    {
+      "name": "STOP_execution_mode_not_preview",
+      "expected": "STOP",
+      "condition": 4,
+      "payload": {
+        "execution_mode": "auto_execute",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "candidate"
+      }
+    },
+    {
+      "name": "STOP_writeback_not_none",
+      "expected": "STOP",
+      "condition": 5,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "commit",
+        "requires_human_review": true,
+        "status": "candidate"
+      }
+    },
+    {
+      "name": "STOP_requires_human_review_false",
+      "expected": "STOP",
+      "condition": 6,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": false,
+        "status": "candidate"
+      }
+    },
+    {
+      "name": "STOP_executable_without_approval",
+      "expected": "STOP",
+      "condition": 7,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "candidate",
+        "executable": true
+      }
+    },
+    {
+      "name": "STOP_auto_actor_promoter",
+      "expected": "STOP",
+      "condition": 8,
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": true,
+        "status": "candidate",
+        "promoted_by": "ai"
+      }
+    },
+    {
+      "name": "STOP_high_risk_no_human_review",
+      "expected": "STOP",
+      "condition": "high_risk",
+      "payload": {
+        "execution_mode": "preview_only",
+        "promotion_allowed": false,
+        "candidate": true,
+        "writeback_mode": "none",
+        "requires_human_review": false,
+        "status": "candidate",
+        "risk": "high"
+      }
+    }
+  ]
+}

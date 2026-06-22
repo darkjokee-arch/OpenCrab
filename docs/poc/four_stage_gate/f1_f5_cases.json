@@ -1,0 +1,92 @@
+{
+  "_doc": "4단 Preview Gate 전달 금지(단락평가) 실증 fixtures. 전부 합성. 각 단계가 비GO일 때 다음 단계 미호출(calls 로 추적)·plan/recap 미생성 검증.",
+  "cases": [
+    {
+      "name": "F1_redaction_block",
+      "_note": "STAGE1 redaction REJECTED(=false) → admission 미호출",
+      "expected_calls": ["redaction"],
+      "expected_stopped_at": "redaction",
+      "expected_generated": false,
+      "requester": {"namespace": "user_a"},
+      "descriptor": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_r", "visibility": "private", "owner": "user_a", "redaction_status": "false", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl", "manifest.json"],
+        "nodes": [{"id": "n1", "props": {"title": "x"}}],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      }
+    },
+    {
+      "name": "F2_admission_block",
+      "_note": "STAGE1 redaction GO, STAGE2 admission REJECTED(schema 미지원) → permission 미호출",
+      "expected_calls": ["redaction", "admission"],
+      "expected_stopped_at": "admission",
+      "expected_generated": false,
+      "requester": {"namespace": "user_a"},
+      "descriptor": {
+        "manifest": {"format_version": "99", "pack_id": "user_a/pack_a", "visibility": "public", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl", "manifest.json"],
+        "nodes": [{"id": "n1", "props": {"title": "공개"}}],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      }
+    },
+    {
+      "name": "F3_permission_block",
+      "_note": "STAGE1/2 GO, STAGE3 permission REJECTED(private 타 namespace) → builder 미호출",
+      "expected_calls": ["redaction", "admission", "permission"],
+      "expected_stopped_at": "permission",
+      "expected_generated": false,
+      "requester": {"namespace": "user_b"},
+      "descriptor": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_p", "visibility": "private", "owner": "user_a", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl", "manifest.json"],
+        "nodes": [{"id": "n1", "props": {"title": "비공개"}}],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      }
+    },
+    {
+      "name": "F4_builder_block",
+      "_note": "STAGE1/2/3 GO, STAGE4 builder REJECTED(data_class=real production-like) → Visual Plan/Recap 미생성",
+      "expected_calls": ["redaction", "admission", "permission", "builder"],
+      "expected_stopped_at": "builder",
+      "expected_generated": false,
+      "requester": {"namespace": "user_a"},
+      "descriptor": {
+        "data_class": "real",
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_b", "visibility": "public", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl", "manifest.json"],
+        "nodes": [{"id": "n1", "props": {"title": "공개"}}],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      }
+    },
+    {
+      "name": "F5_all_go",
+      "_note": "4단 전부 GO → Visual Plan/Recap 생성 가능",
+      "expected_calls": ["redaction", "admission", "permission", "builder"],
+      "expected_stopped_at": null,
+      "expected_generated": true,
+      "requester": {"namespace": "user_b"},
+      "descriptor": {
+        "data_class": "synthetic",
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_full", "visibility": "public", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl", "manifest.json"],
+        "nodes": [{"id": "n1", "props": {"title": "공개 요약"}}],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      }
+    }
+  ]
+}
