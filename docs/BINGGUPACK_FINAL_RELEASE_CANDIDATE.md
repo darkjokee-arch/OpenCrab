@@ -36,6 +36,12 @@
 - public route planner / method catalog / route provenance **개념만**. execution engine 아님.
   TLS impersonation/headless browser/WAF 우회/dep auto-install/scraping = disabled/HOLD.
 
+## 8-1. Release-Ready 상태 (2026-06-23)
+- **release_ready=false** (`BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`).
+- blocker: option3 SAVE BLOCKED(evidence mock_fallback) · option4 ingest BLOCKED(source HOLD 12) · cloud not approved.
+- blocker resolution preview(진단만·write 0): SAVE evidence는 ev-c0/ev-c2가 mock id로 실 ledger 불일치 →
+  실 대화 capture+ledger 매핑 선행 / source HOLD는 manual review+owner approval 필요(fetch 없이 ADMIT 불가).
+
 ## 9. 남은 금지선
 - actual SAVE / save_gate 호출 / memory write / OpenCrab ingest / promotion / production write /
   Cloud publish / network / crawl = **STOP/HOLD**. store/evidence/private 삭제 0.

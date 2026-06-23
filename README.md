@@ -83,6 +83,7 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 - Option 4 OpenCrab ingest preflight: **BLOCKED / SOURCE_HOLD** (source ADMIT 1/HOLD 12 · execution_allowed=false).
 - actual SAVE / OpenCrab ingest / production write / Cloud publish **not enabled**.
 - save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
+- **release_ready=false** — Option 3·4 BLOCKED + Cloud 미승인. blocker map: `docs/BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`.
 
 ## 7. 기본 사용 흐름
 

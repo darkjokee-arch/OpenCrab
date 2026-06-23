@@ -15,3 +15,6 @@
 | source/evidence/private data 삭제 | PROHIBITED | 전 단계 삭제 0. read-only adapter만. |
 | promotion 위험 | BLOCKED | promotion_allowed=false 기본. promotion 0. |
 | production write | BLOCKED | 전 단계 production write 0. owner approval 전 불가. |
+| release_ready 미충족 | ACTIVE(정직) | release_ready=false. Option 3·4 BLOCKED + cloud 미승인. blocker map으로 추적. |
+| SAVE evidence mock id 불일치 | ACTIVE | candidate refs(ev-c0/c2)가 mock id·실 ledger 불일치. 실 대화 capture+매핑 선행(조작 금지). |
+| source HOLD manual review 부담 | ACCEPTED | 12개 license/robots unknown. fetch 없이 ADMIT 불가·manual review+owner approval(discovery 자유/execution gate 분리). |

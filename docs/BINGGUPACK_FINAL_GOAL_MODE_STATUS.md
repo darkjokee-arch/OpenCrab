@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-8. Blocker Resolution Preview (2026-06-23, 진단만·write 0)
+- **release_ready=false** (binggupack_release_ready_check.py). blocker: option3 BLOCKED·option4 BLOCKED·cloud not approved.
+- SAVE evidence: c0/c2 refs(ev-c0/ev-c2)는 mock id·실 ledger evidence_id와 불일치(evidence_id_not_in_ledger)→
+  RESOLUTION_PREREQUISITES_REQUIRED. 실 대화 capture+ledger 매핑 선행 필요. evidence write 0.
+- source HOLD: 12개 전부 license_unknown+robots_unknown 기반·REVIEWABLE_HOLD·admit_candidate 0(fetch 없이 ADMIT 불가)·
+  manual review+owner approval 필요. fetch/network 0.
+- 문서: SAVE_EVIDENCE_RESOLUTION_PLAN / SOURCE_HOLD_RESOLUTION_PLAN / RELEASE_READY_BLOCKER_MAP.
+- PoC: layer1_save_evidence_resolution_preview.py / source_hold_resolution_preview.py / binggupack_release_ready_check.py.
+
 ## 11-7. goal 완료 = BINGGUPACK_FINAL_RELEASE_CANDIDATE_READY (2026-06-23)
 - Option 1·2 완료 / Option 3·4 preflight BLOCKED(정직) / final 마무리 문서 완료.
 - final 문서: FINAL_RELEASE_CANDIDATE / FINAL_HANDOFF / FINAL_RISK_REGISTER / QUICKSTART /

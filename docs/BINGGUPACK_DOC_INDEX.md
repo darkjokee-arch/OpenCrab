@@ -70,6 +70,10 @@
 - `BINGGUPACK_OPENCRAB_INGEST_BACKUP_PLAN.md` / `..._ROLLBACK_PLAN.md` / `..._AUDIT_LOG_PLAN.md` / `..._FINAL_CONFIRMATION.md`
 - PoC: `opencrab_ingest_real_preflight.py`
 
+## Blocker Resolution Preview (2026-06-23·release_ready=false)
+- `BINGGUPACK_SAVE_EVIDENCE_RESOLUTION_PLAN.md` / `BINGGUPACK_SOURCE_HOLD_RESOLUTION_PLAN.md` / `BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`
+- PoC: `layer1_save_evidence_resolution_preview.py`, `workflow_factory/source_hold_resolution_preview.py`, `release/binggupack_release_ready_check.py`
+
 ## 금지선 (전 문서 공통)
 actual SAVE / save_gate 호출 / memory write / OpenCrab ingest / cloud sync / promotion /
 production write / network — STOP/HOLD. 기존 BingguPack 수정 0.

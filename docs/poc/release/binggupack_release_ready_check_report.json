@@ -1,0 +1,28 @@
+{
+  "status": "release ready check (not executed)",
+  "release_ready": false,
+  "blockers": [
+    "option3_save_preflight_blocked(TOKEN_INVALID)",
+    "option4_ingest_preflight_blocked(TOKEN_MISSING)",
+    "cloud_publish_not_approved"
+  ],
+  "satisfied_conditions": [
+    "option1_ci",
+    "option2_readme"
+  ],
+  "option1_status": "PASS",
+  "option2_status": "APPLIED",
+  "option3_status": "TOKEN_INVALID",
+  "option4_status": "TOKEN_MISSING",
+  "cloud_publish_status": "NOT_APPROVED",
+  "next_required_actions": [
+    "resolve SAVE evidence (mock_fallback→resolved) + real save_plan_id",
+    "resolve source HOLD (12) + execution gate ADMIT",
+    "Cloud/Publish owner approval (release_ready 충족 후)"
+  ],
+  "actual_write_performed": false,
+  "save_gate_called": false,
+  "opencrab_ingest_performed": false,
+  "production_write_performed": false,
+  "cloud_publish_performed": false
+}
