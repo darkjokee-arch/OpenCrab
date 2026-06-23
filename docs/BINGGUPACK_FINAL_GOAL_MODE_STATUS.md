@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-12. Fast Execution Mode (2026-06-23)
+- Fast Lane(문서/스키마/러너/카탈로그/정리 바로 진행) vs Gate Lane(실 write/network/ingest/publish만 owner token).
+- **insane-search 반영**(코드 중심): route planner 14 method_family/6 route_phase enum·public_route_priority·
+  metadata_first·no_site_name_rule_compliant·route_provenance·3 출력. schema 20필드 확정. 실측 13 route(ADMIT 12/REJECT 1)·schema PASS·fetch/network 0.
+- **문서 정리**: 중간 산출물 31개 `docs/archive/obsolete/` 이동(`BINGGUPACK_DOC_TRIM_PLAN.md`·삭제 0).
+- **반복 preview→단일 산출물**: release_ready_status.json·evidence_capture_fast_plan.json·source_hold_fast_decision_table.json.
+- source HOLD fast: manual_check_priority_1 5·HOLD_METADATA_ONLY 3·reject_candidate 3·terminal_reject 1.
+- release_ready=false 유지. 실 SAVE/ingest/fetch/publish 0.
+
 ## 11-11. Decision Execution Preview (2026-06-23, token 들어왔을 때 무엇이 준비되는지·write 0)
 - **evidence capture decision exec**: token 없음→TOKEN_MISSING·capture 5/target 2·evidence_write_ready_preview=false·
   final confirmation token `OWNER_FINAL_CONFIRMS_BINGGUPACK_EVIDENCE_CAPTURE_WRITE:<date>:<capture_plan_id>:<preview_report_id>:<operator>`.

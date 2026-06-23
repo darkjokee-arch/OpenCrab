@@ -1,0 +1,14 @@
+{
+  "status": "FINAL_RELEASE_CANDIDATE_READY",
+  "release_ready": false,
+  "blockers": [
+    "evidence_capture_required",
+    "source_hold_manual_decision_required",
+    "cloud_publish_not_approved"
+  ],
+  "ci_status": "CI_RUN_DONE_POC_EXECUTED",
+  "readme_applied": true,
+  "actual_save": false,
+  "opencrab_ingest": false,
+  "production_write": false
+}

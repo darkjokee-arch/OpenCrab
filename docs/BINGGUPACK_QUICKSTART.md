@@ -35,17 +35,12 @@ owner token 필요. 현재 source HOLD 12/13 + execution_allowed=false → inges
 3-OS PoC 11/11 PASS·WSL SKIP. `BINGGUPACK_GITHUB_ACTIONS_CROSS_PLATFORM_TEST.md`.
 
 ## release_ready 인가요?
-- 아직 아님(**release_ready=false**). Option 3 SAVE·Option 4 ingest가 BLOCKED, Cloud 미승인.
-- 막힌 이유와 해소 조건: `BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`.
-  - SAVE: evidence가 mock id라 실 ledger 매핑 선행 필요. 매핑 후보조차 없어(token overlap 0) 실 대화 capture 선행
-    (`BINGGUPACK_EVIDENCE_LEDGER_RESOLUTION_PLAN.md`).
-  - ingest: source 12개 HOLD manual review table 제공(ADMIT 후보 5·REJECT 4 등, `BINGGUPACK_SOURCE_HOLD_MANUAL_REVIEW_PACKAGE.md`).
-  - 전환 조건표: `BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`.
-  - owner 결정 package: `BINGGUPACK_EVIDENCE_CAPTURE_OWNER_PACKAGE.md`(Layer1 unlock) /
-    `BINGGUPACK_SOURCE_HOLD_OWNER_DECISION_PACKAGE.md`(Layer2 unlock) / `BINGGUPACK_RELEASE_PATH_DECISION_MAP.md`(경로).
-  - next unlock = 자동화가 아니라 **owner decision**(evidence capture + source HOLD 결정).
-  - 3단 token 체계(preflight→plan ready→final confirmation): `BINGGUPACK_RELEASE_UNLOCK_PREVIEW.md`.
-    token 유효해도 final confirmation 없이는 실제 write/ADMIT 0.
+- 아직 아님(**release_ready=false**). 단일 상태: `docs/poc/release/binggupack_release_ready_status.json`.
+- blocker: evidence_capture_required · source_hold_manual_decision_required · cloud_publish_not_approved.
+- next unlock = **owner decision**(자동화 아님):
+  - SAVE: evidence가 mock id(실 ledger match_type=none)라 실 대화 capture 선행. `docs/poc/personal_ontology/evidence_capture_fast_plan.json`.
+  - ingest: source HOLD 12 fast decision(ADMIT 후보 5·metadata_only 3·reject 4). `docs/poc/workflow_factory/source_hold_fast_decision_table.json`.
+  - token 유효해도 final confirmation 없이는 실제 write/ADMIT 0. 게이트: `BINGGUPACK_APPROVAL_STATE_MACHINE.md`.
 
 ## README / docs 위치
 README.md(메인) / `docs/BINGGUPACK_DOC_INDEX.md`(전체 색인) / `docs/UPSTREAM_OPENCRAB_README.md`(OpenCrab 원본).

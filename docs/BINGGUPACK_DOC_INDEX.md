@@ -86,6 +86,13 @@
 - `BINGGUPACK_EVIDENCE_CAPTURE_DECISION_EXECUTION_PREVIEW.md` / `BINGGUPACK_SOURCE_HOLD_DECISION_EXECUTION_PREVIEW.md` / `BINGGUPACK_RELEASE_UNLOCK_PREVIEW.md`
 - PoC: `layer1_evidence_capture_decision_execution_preview.py`, `workflow_factory/source_hold_decision_execution_preview.py`, `release/binggupack_release_unlock_preview.py`
 
+## Fast Execution Mode (2026-06-23)
+- canonical 문서만 유지·중간 산출물 31개 `docs/archive/obsolete/`로 이동(`BINGGUPACK_DOC_TRIM_PLAN.md`).
+- 반복 preview 대체 단일 산출물: `docs/poc/release/binggupack_release_ready_status.json`,
+  `docs/poc/personal_ontology/evidence_capture_fast_plan.json`, `docs/poc/workflow_factory/source_hold_fast_decision_table.json`.
+- route planner: 14 method_family / 6 route_phase enum(`BINGGUPACK_AUTOCOLLECT_METHOD_CATALOG.md` Fast Mode 섹션).
+- 위 섹션들이 가리키던 일부 문서는 archive됨 → `docs/archive/obsolete/<name>.md`에서 조회(이동만·삭제 0).
+
 ## 금지선 (전 문서 공통)
 actual SAVE / save_gate 호출 / memory write / OpenCrab ingest / cloud sync / promotion /
 production write / network — STOP/HOLD. 기존 BingguPack 수정 0.

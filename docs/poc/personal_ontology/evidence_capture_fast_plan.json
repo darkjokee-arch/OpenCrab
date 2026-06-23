@@ -1,0 +1,15 @@
+{
+  "capture_plan_id": "<capture_plan_id>",
+  "target_candidates": [
+    "c0",
+    "c2"
+  ],
+  "proposed_evidence_sentences": [
+    "BingguPack의 주목표는 Personal Ontology AGI Core다.",
+    "OpenCrab Workflow Factory는 2차 commercial extension이다."
+  ],
+  "required_owner_token": "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<YYYY-MM-DD>:<capture_plan_id>:<operator>",
+  "reason": "c0/c2 mock_fallback·실 ledger match_type=none. mock id 치환 금지. 실 근거 대화 capture 필요.",
+  "would_write": false,
+  "save_preflight_after_capture": true
+}

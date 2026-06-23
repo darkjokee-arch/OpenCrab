@@ -83,9 +83,11 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 - Option 4 OpenCrab ingest preflight: **BLOCKED / SOURCE_HOLD** (source ADMIT 1/HOLD 12 · execution_allowed=false).
 - actual SAVE / OpenCrab ingest / production write / Cloud publish **not enabled**.
 - save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
-- **release_ready=false** — Option 3·4 BLOCKED + Cloud 미승인. blocker map: `docs/BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`.
-  전환 조건표/owner decision: `docs/BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`,
-  `docs/BINGGUPACK_RELEASE_PATH_DECISION_MAP.md`. next unlock = owner decision(evidence capture + source HOLD 결정).
+- **release_ready=false** — Option 3·4 BLOCKED + Cloud 미승인. 단일 상태:
+  `docs/poc/release/binggupack_release_ready_status.json`. blocker: evidence_capture_required ·
+  source_hold_manual_decision_required · cloud_publish_not_approved.
+- next unlock = owner decision: evidence capture(`docs/poc/personal_ontology/evidence_capture_fast_plan.json`) +
+  source HOLD 결정(`docs/poc/workflow_factory/source_hold_fast_decision_table.json`). 상세 `docs/BINGGUPACK_FINAL_RELEASE_CANDIDATE.md`.
 
 ## 7. 기본 사용 흐름
 
