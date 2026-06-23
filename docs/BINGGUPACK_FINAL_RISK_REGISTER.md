@@ -19,4 +19,5 @@
 | SAVE evidence mock id 불일치 | ACTIVE | candidate refs(ev-c0/c2)가 mock id·실 ledger 불일치. 실 대화 capture+매핑 선행(조작 금지). |
 | source HOLD manual review 부담 | ACCEPTED | 12개 license/robots unknown. fetch 없이 ADMIT 불가·manual review+owner approval(discovery 자유/execution gate 분리). table 제공(ADMIT후보5·PUBLIC_METADATA3·REJECT4). |
 | evidence mapping 후보 부재 | ACTIVE(정직) | candidate c0/c2 ↔ ledger token overlap 0(match_type=none). 단순 id 치환 불가·실 evidence capture 선행(조작 금지). owner decision package 제공. |
-| next unlock = owner decision | ACTIVE | 자동화 아닌 owner 결정 필요(evidence capture·source HOLD decision). decision package + path map 제공·token 명시. |
+| next unlock = owner decision | ACTIVE | 자동화 아닌 owner 결정 필요(evidence capture·source HOLD decision). decision package + path map + execution preview 제공·3단 token 명시. |
+| decision 적용 전 write 위험 | BLOCKED | decision execution preview는 plan만·token 유효해도 final confirmation 전 write/ADMIT 0(3단 token 분리). |

@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-11. Decision Execution Preview (2026-06-23, token 들어왔을 때 무엇이 준비되는지·write 0)
+- **evidence capture decision exec**: token 없음→TOKEN_MISSING·capture 5/target 2·evidence_write_ready_preview=false·
+  final confirmation token `OWNER_FINAL_CONFIRMS_BINGGUPACK_EVIDENCE_CAPTURE_WRITE:<date>:<capture_plan_id>:<preview_report_id>:<operator>`.
+- **source HOLD decision exec**: token 없음→TOKEN_MISSING·HOLD 12 action plan(admit_after_check 5·metadata_only 3·reject 4)·
+  final confirmation token `OWNER_FINAL_CONFIRMS_BINGGUPACK_SOURCE_HOLD_DECISION_APPLY:<date>:<decision_plan_id>:<preview_report_id>:<operator>`.
+- **combined release unlock**: release_ready=false·option3/4_unlock_possible_after_final_confirmation=false(token 미입력)·cloud_still_blocked=true.
+- 문서: EVIDENCE_CAPTURE_DECISION_EXECUTION_PREVIEW / SOURCE_HOLD_DECISION_EXECUTION_PREVIEW / RELEASE_UNLOCK_PREVIEW.
+- 실제 write/ADMIT/SAVE/ingest/publish = final confirmation token 없이 0.
+
 ## 11-10. Owner Decision Package — Evidence Capture + Source Review (2026-06-23, write 0)
 - **evidence capture owner package**: mock id 치환 금지(내용 불일치 조작)→실 근거 대화 capture가 정상 경로.
   capture 후보 5문장(c0/c2 target + 3 unmapped)·would_create_evidence=false. token `OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<date>:<capture_plan_id>:<operator>`.

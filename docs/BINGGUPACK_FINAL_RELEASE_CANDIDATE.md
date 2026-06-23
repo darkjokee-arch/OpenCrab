@@ -36,6 +36,12 @@
 - public route planner / method catalog / route provenance **개념만**. execution engine 아님.
   TLS impersonation/headless browser/WAF 우회/dep auto-install/scraping = disabled/HOLD.
 
+## 8-4. Decision Execution Preview (2026-06-23)
+- token 들어왔을 때 무엇이 준비되는지 preview. 현재 token 미입력 → 둘 다 TOKEN_MISSING·plan 단계.
+- evidence capture exec(5/target 2)·source HOLD decision exec(admit 5/metadata 3/reject 4)·unlock false(final confirmation 전).
+- 3단 token 체계: preflight → CAPTURE/DECISION_PLAN_READY → final confirmation → 실제 write/ADMIT.
+- 문서: EVIDENCE_CAPTURE_DECISION_EXECUTION_PREVIEW / SOURCE_HOLD_DECISION_EXECUTION_PREVIEW / RELEASE_UNLOCK_PREVIEW.
+
 ## 8-3. Owner Decision Package — Evidence Capture + Source Review (2026-06-23)
 - next unlock: **evidence capture**(Layer1) + **source HOLD owner decision**(Layer2). 필요한 건 owner decision.
 - evidence capture 후보 5문장(c0/c2 target)·실 capture/write 0. source HOLD 12 → ADMIT후보 5/PUBLIC_METADATA 3/REJECT 4.

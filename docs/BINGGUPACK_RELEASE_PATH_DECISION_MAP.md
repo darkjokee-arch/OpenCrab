@@ -44,6 +44,11 @@ OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:<date>:<product_id>:<pr
 OWNER_APPROVES_BINGGUPACK_CLOUD_PUBLISH_PACKAGE:<date>:<package_id>:<operator>
 ```
 
+## 4-1. Decision Execution Preview (2026-06-23)
+- 각 path는 3단 token: preflight token → PLAN_READY → final confirmation token → 실제 적용.
+- evidence capture: `OWNER_FINAL_CONFIRMS_BINGGUPACK_EVIDENCE_CAPTURE_WRITE:...` / source: `..._SOURCE_HOLD_DECISION_APPLY:...`.
+- 현재 token 미입력 → 전부 plan 단계·unlock false. `BINGGUPACK_RELEASE_UNLOCK_PREVIEW.md`.
+
 ## 5. 결론
 - **필요한 것은 더 많은 자동화가 아니라 owner decision.**
 - Option 3 = 실제 근거 대화 capture / Option 4 = source HOLD 12개 owner manual decision.
