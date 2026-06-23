@@ -59,6 +59,19 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-13. Master Goal Mode 병렬 진행 (2026-06-23) — overall = BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN
+- **Gate 1 Evidence Capture: 진행·해소**. owner-declared principle evidence 5개를 **fork 내 safe store**
+  (`owner_declared_evidence_store.jsonl`)에 생성(기존 BingguPack ledger read-only·미수정). c0→OEV/c2→OEV refs update plan.
+- **SAVE Preflight Retry: BLOCKED→SAVE_PREFLIGHT_READY** (eligible 2/blocked 0·evidence resolved_owner_declared).
+  save_plan_id 생성. **단 save_gate 호출 0·final confirmation 후 실저장**.
+- **Gate 2 Source HOLD Decision: 진행·기록**. MANUAL_CHECK_REQUIRED 5·HOLD_METADATA_ONLY 3·REJECT_CANDIDATE 3·TERMINAL_REJECT 1.
+  실제 ADMIT/fetch 0.
+- **OpenCrab Ingest Preflight Retry: BLOCKED 유지**(reject 4 정리·still_hold 8·admitted 0·manual check 전이라 정직). ingest 0.
+- **release 재판정**: release_ready=false·release_ready_candidate=false·overall **BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN**.
+  resolved: evidence_capture. 잔존: opencrab_ingest_blocked(source manual check)·cloud_publish_not_approved.
+- 무결성: 기존 ledger 미수정(Jun17)·candidate canonical 미수정·save_gate 0·ingest 0·fetch/network 0·production write 0.
+- PoC: evidence_capture_fast_apply.py·save_preflight_retry.py·source_hold_decision_fast_apply.py·opencrab_ingest_preflight_retry.py.
+
 ## 11-12. Fast Execution Mode (2026-06-23)
 - Fast Lane(문서/스키마/러너/카탈로그/정리 바로 진행) vs Gate Lane(실 write/network/ingest/publish만 owner token).
 - **insane-search 반영**(코드 중심): route planner 14 method_family/6 route_phase enum·public_route_priority·

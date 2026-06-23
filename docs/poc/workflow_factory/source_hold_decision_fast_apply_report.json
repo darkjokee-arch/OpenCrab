@@ -1,0 +1,90 @@
+{
+  "status": "source hold decision fast apply (no fetch·no admit change)",
+  "total_sources": 12,
+  "decisions": [
+    {
+      "source_id": "src-002",
+      "decision_status": "REJECT_CANDIDATE",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": false
+    },
+    {
+      "source_id": "src-003",
+      "decision_status": "HOLD_METADATA_ONLY",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    },
+    {
+      "source_id": "src-004",
+      "decision_status": "MANUAL_CHECK_REQUIRED",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    },
+    {
+      "source_id": "src-005",
+      "decision_status": "REJECT_CANDIDATE",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": false
+    },
+    {
+      "source_id": "src-006",
+      "decision_status": "REJECT_CANDIDATE",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": false
+    },
+    {
+      "source_id": "src-007",
+      "decision_status": "HOLD_METADATA_ONLY",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    },
+    {
+      "source_id": "src-008",
+      "decision_status": "MANUAL_CHECK_REQUIRED",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    },
+    {
+      "source_id": "src-009",
+      "decision_status": "MANUAL_CHECK_REQUIRED",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    },
+    {
+      "source_id": "src-010",
+      "decision_status": "HOLD_METADATA_ONLY",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    },
+    {
+      "source_id": "src-011",
+      "decision_status": "TERMINAL_REJECT",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": false
+    },
+    {
+      "source_id": "src-012",
+      "decision_status": "MANUAL_CHECK_REQUIRED",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    },
+    {
+      "source_id": "src-013",
+      "decision_status": "MANUAL_CHECK_REQUIRED",
+      "execution_admission_now": "HOLD",
+      "metadata_only_candidate": true
+    }
+  ],
+  "decision_distribution": {
+    "REJECT_CANDIDATE": 3,
+    "HOLD_METADATA_ONLY": 3,
+    "MANUAL_CHECK_REQUIRED": 5,
+    "TERMINAL_REJECT": 1
+  },
+  "admitted_now_count": 0,
+  "source_fetch_performed": false,
+  "robots_license_auto_checked": false,
+  "execution_admission_changed": false,
+  "network_performed": false,
+  "note": "decision status 확정 기록만. 실제 ADMIT/fetch/network 0. MANUAL_CHECK는 license/robots 확인+gate 후 ADMIT."
+}

@@ -1,22 +1,24 @@
 {
   "status": "FINAL_RELEASE_CANDIDATE_READY",
+  "overall_status": "BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN",
   "release_ready": false,
+  "release_ready_candidate": false,
+  "cloud_publish_ready": false,
+  "save_preflight_status": "SAVE_PREFLIGHT_READY",
+  "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
   "blockers": [
-    "evidence_capture_required",
-    "source_hold_manual_decision_required",
+    "opencrab_ingest_opencrab_ingest_preflight_blocked",
     "cloud_publish_not_approved"
+  ],
+  "resolved": [
+    "evidence_capture(owner_declared·SAVE_PREFLIGHT_READY)"
   ],
   "ci_status": "CI_RUN_DONE_POC_EXECUTED",
   "readme_applied": true,
   "actual_save": false,
+  "save_gate_called": false,
   "opencrab_ingest": false,
   "production_write": false,
-  "gate_decision_sheet": "docs/BINGGUPACK_GATE_DECISION_SHEET.md",
-  "recommended_gate_order": [
-    "evidence_capture",
-    "source_hold_decision",
-    "save_preflight",
-    "ingest_preflight",
-    "cloud_publish"
-  ]
+  "source_fetch": false,
+  "gate_decision_sheet": "docs/BINGGUPACK_GATE_DECISION_SHEET.md"
 }

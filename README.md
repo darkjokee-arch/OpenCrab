@@ -85,7 +85,10 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 - save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
 - **Fast Execution Mode**: 문서·스키마·러너 정리는 바로 진행하고, 실제 write/network/ingest/publish만 owner gate가 필요하다.
   (docs/schema/runner cleanup proceeds directly; only real write/network/ingest/publish requires owner gate.)
-- **release_ready=false** — Option 3·4 BLOCKED + Cloud 미승인. 단일 상태:
+- **overall: BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN** (2026-06-23 Master Goal): Gate 1 evidence capture 해소
+  → **SAVE_PREFLIGHT_READY**(owner-declared evidence·save_gate 호출 0). Gate 2 source decision 기록 →
+  ingest는 source manual check 전이라 **BLOCKED 유지**. 잔존 blocker: opencrab_ingest · cloud_publish.
+- **release_ready=false** — ingest BLOCKED + Cloud 미승인. 단일 상태:
   `docs/poc/release/binggupack_release_ready_status.json`. blocker: evidence_capture_required ·
   source_hold_manual_decision_required · cloud_publish_not_approved.
 - gate 한눈 결정: `docs/BINGGUPACK_GATE_DECISION_SHEET.md` + token `docs/poc/release/binggupack_owner_token_templates.json`.
