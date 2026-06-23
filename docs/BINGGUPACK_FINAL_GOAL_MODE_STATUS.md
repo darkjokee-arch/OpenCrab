@@ -59,6 +59,13 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-4. Option 2 README Apply 결과 (2026-06-23, README 실반영 완료)
+- token `OWNER_APPROVES_BINGGUPACK_README_APPLY:2026-06-23:BingGu`(valid)·README 실반영만 승인.
+- README.md = BingguPack 중심 재구성(9섹션: 정의/2-layer/재사용/insane-search 경계/CI/실행상태/사용흐름/token/safety).
+  CI 결과 정직 반영(3-OS 11/11 PASS·**WSL은 SKIP_WITH_REASON·PASS 아님**·insane-search 실행엔진 아님·SAVE/ingest not enabled).
+- 기존 OpenCrab 원본 README는 `docs/UPSTREAM_OPENCRAB_README.md`로 보존(손실 0). GitHub description은 후보 문서만(repo settings 미변경).
+- 무결성: README overwrite=true(승인됨)·save_gate_called=false·actual write 0(README/docs 외)·ingest/promotion/production write 0·Option 3/4 미실행·upstream push 0.
+
 ## 11-3. Option 1 CI PoC Retry 결과 (2026-06-23, CI_RUN_DONE_POC_EXECUTED)
 - run 28008873839 (commit `1538715`, PoC 11개+의존+fixtures+schemas 포함). 전체 ✓.
 - **3-OS 전부 PoC 11개 실제 실행: run=11 passed=11 warned=0 failed=0** (ubuntu/macos/windows).
