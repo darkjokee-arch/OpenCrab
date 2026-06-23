@@ -4,7 +4,7 @@
 
 | 리스크 | 상태 | 대응 |
 | --- | --- | --- |
-| SAVE real write risk | BLOCKED | preflight + final confirmation token 2단. evidence resolved 선행. save_gate 호출 0. |
+| SAVE real write risk | DONE(2026-06-23·격리) | owner final token 후 save_gate real run·**기존 binggu_save_gate 재사용·BINGGU_HOME=fork 격리·사장님 실제 ~/.binggupack 미변경**·candidate 2 fork store 저장·promotion/confirmed false·rollback backup 있음. |
 | SAVE evidence mock_fallback blocker | RESOLVED(2026-06-23) | owner-declared principle evidence를 fork safe store에 생성→c0/c2 resolved_owner_declared→**SAVE_PREFLIGHT_READY**. 단 save_gate 호출은 final confirmation 후. |
 | owner-declared evidence 신뢰성 | ACCEPTED | non-private/public principle만·fork safe store(기존 ledger 미수정)·confirmed/promotion false·data_class=owner_declared_public_principle. |
 | OpenCrab ingest write risk | BLOCKED | preflight + final confirmation token 2단. source ADMIT + execution_allowed 선행. ingest 호출 0. |

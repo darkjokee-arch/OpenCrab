@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-15. Option 3 SAVE Gate Real Run — DONE (2026-06-23, actual SAVE 최초 실행)
+- owner final token(splan-40b1b7246a73:spfr-8d68c22f87) 검증 통과 → **SAVE_REAL_RUN_DONE**.
+- **기존 binggu_save_gate 흐름 재사용**(gate_record 실호출·신규 안만듦)·**BINGGU_HOME=fork 격리**로
+  사장님 실제 `~/.binggupack` **미변경**(save_gate_log 1027 Jun17 동일). candidate 2(c0/c2) fork store 저장.
+- saved 2·skipped 0·save_gate_called=true·actual_save=true·promotion/confirmed false·backup/audit/rollback ready.
+- 산출물(fork 격리): save_real_run_home/{candidate_store,save_gate_log,backup}·save_gate_real_run_report/audit.json.
+- **release_ready=false 유지**(ingest blocker 잔존). save_gate_done=true.
+- 금지 유지: OpenCrab ingest 0·source fetch 0·production write 0·Cloud publish 0·confirmed promotion 0·실제 ~/.binggupack 변경 0.
+
 ## 11-14. SAVE Final Confirmation Prep + Source Manual Check (2026-06-23)
 - **SAVE**: SAVE_PREFLIGHT_READY·preflight_report_id=spfr-8d68c22f87·final token template 완성→
   `OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:2026-06-23:splan-40b1b7246a73:spfr-8d68c22f87:<op>`.

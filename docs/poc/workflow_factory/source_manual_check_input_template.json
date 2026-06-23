@@ -1,0 +1,72 @@
+[
+  {
+    "source_id": "src-004",
+    "source_url": "search:제주 가족 호텔 추천",
+    "license_checked": null,
+    "robots_checked": null,
+    "auth_paywall_checked": null,
+    "owner_decision": null,
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ]
+  },
+  {
+    "source_id": "src-008",
+    "source_url": "search:장소",
+    "license_checked": null,
+    "robots_checked": null,
+    "auth_paywall_checked": null,
+    "owner_decision": null,
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ]
+  },
+  {
+    "source_id": "src-009",
+    "source_url": "https://www.example.com/unknown",
+    "license_checked": null,
+    "robots_checked": null,
+    "auth_paywall_checked": null,
+    "owner_decision": null,
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ]
+  },
+  {
+    "source_id": "src-012",
+    "source_url": "search:동선",
+    "license_checked": null,
+    "robots_checked": null,
+    "auth_paywall_checked": null,
+    "owner_decision": null,
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ]
+  },
+  {
+    "source_id": "src-013",
+    "source_url": "https://www.example.com/unknown",
+    "license_checked": null,
+    "robots_checked": null,
+    "auth_paywall_checked": null,
+    "owner_decision": null,
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ]
+  }
+]
