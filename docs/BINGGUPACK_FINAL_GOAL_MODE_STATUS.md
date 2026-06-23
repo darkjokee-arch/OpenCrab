@@ -59,6 +59,16 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-16. Option 4 Source Manual Check + Ingest Preflight Retry (2026-06-23) — ingest BLOCKED 유지(정직)
+- source 5 manual check **정적 판정**(실 URL fetch 0·network 0·manual_check_performed=true):
+  src-004/008/012=`search:` 쿼리(구체 source 미정)→KEEP_HOLD·src-009/013=`example.com/unknown`(IANA 예약 예시 도메인 placeholder)→REJECT_SOURCE.
+- **admitted 0**(fixture가 search 쿼리·example.com placeholder라 실 ADMIT 대상 없음). decision: REJECT_CANDIDATE 5·HOLD_METADATA_ONLY 3·KEEP_HOLD 3·TERMINAL_REJECT 1.
+- ingest preflight retry → **OPENCRAB_INGEST_PREFLIGHT_BLOCKED 유지**(no_admitted_source·still_hold 3). ingest 0.
+- release_ready=false·candidate=false·overall BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN. 잔존: opencrab_ingest·cloud_publish.
+- **fixture 한계 명시**: 현 source는 PoC 여행팩 placeholder(search/example.com)라 ADMIT 불가. 실 운영 source URL이면 license/robots 확인 후 ADMIT 가능.
+- ingest final token template(wfp-001): `OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:<preflight_report_id>:<op>`(READY 후 의미).
+- insane-search 원칙 유지(public route/metadata-first/method_family/No-Site-Name·TLS/browser/scraping 0).
+
 ## 11-15. Option 3 SAVE Gate Real Run — DONE (2026-06-23, actual SAVE 최초 실행)
 - owner final token(splan-40b1b7246a73:spfr-8d68c22f87) 검증 통과 → **SAVE_REAL_RUN_DONE**.
 - **기존 binggu_save_gate 흐름 재사용**(gate_record 실호출·신규 안만듦)·**BINGGU_HOME=fork 격리**로

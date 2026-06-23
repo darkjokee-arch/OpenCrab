@@ -13,9 +13,10 @@
   },
   {
     "source_id": "src-004",
-    "decision_status": "MANUAL_CHECK_REQUIRED",
+    "decision_status": "KEEP_HOLD",
     "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true
+    "metadata_only_candidate": true,
+    "manual_check_performed": true
   },
   {
     "source_id": "src-005",
@@ -37,15 +38,17 @@
   },
   {
     "source_id": "src-008",
-    "decision_status": "MANUAL_CHECK_REQUIRED",
+    "decision_status": "KEEP_HOLD",
     "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true
+    "metadata_only_candidate": true,
+    "manual_check_performed": true
   },
   {
     "source_id": "src-009",
-    "decision_status": "MANUAL_CHECK_REQUIRED",
+    "decision_status": "REJECT_CANDIDATE",
     "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true
+    "metadata_only_candidate": true,
+    "manual_check_performed": true
   },
   {
     "source_id": "src-010",
@@ -61,14 +64,16 @@
   },
   {
     "source_id": "src-012",
-    "decision_status": "MANUAL_CHECK_REQUIRED",
+    "decision_status": "KEEP_HOLD",
     "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true
+    "metadata_only_candidate": true,
+    "manual_check_performed": true
   },
   {
     "source_id": "src-013",
-    "decision_status": "MANUAL_CHECK_REQUIRED",
+    "decision_status": "REJECT_CANDIDATE",
     "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true
+    "metadata_only_candidate": true,
+    "manual_check_performed": true
   }
 ]

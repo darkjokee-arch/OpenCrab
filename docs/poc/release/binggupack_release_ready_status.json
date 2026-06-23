@@ -7,7 +7,7 @@
   "save_preflight_status": "SAVE_PREFLIGHT_READY",
   "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
   "blockers": [
-    "opencrab_ingest_opencrab_ingest_preflight_blocked",
+    "opencrab_ingest_preflight_blocked(no_admitted_source·manual check후 전부 HOLD/REJECT)",
     "cloud_publish_not_approved"
   ],
   "resolved": [
@@ -26,5 +26,8 @@
   "save_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:2026-06-23:splan-40b1b7246a73:spfr-8d68c22f87:BingGu",
   "save_gate_done": true,
   "save_real_run_status": "SAVE_REAL_RUN_DONE",
-  "saved_candidate_count": 2
+  "saved_candidate_count": 2,
+  "source_manual_check_done": true,
+  "admitted_source_count": 0,
+  "ingest_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:<preflight_report_id>:BingGu"
 }
