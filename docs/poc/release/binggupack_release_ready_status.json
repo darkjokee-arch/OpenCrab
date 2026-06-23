@@ -10,5 +10,13 @@
   "readme_applied": true,
   "actual_save": false,
   "opencrab_ingest": false,
-  "production_write": false
+  "production_write": false,
+  "gate_decision_sheet": "docs/BINGGUPACK_GATE_DECISION_SHEET.md",
+  "recommended_gate_order": [
+    "evidence_capture",
+    "source_hold_decision",
+    "save_preflight",
+    "ingest_preflight",
+    "cloud_publish"
+  ]
 }

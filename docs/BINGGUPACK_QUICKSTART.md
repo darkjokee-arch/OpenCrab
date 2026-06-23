@@ -35,7 +35,9 @@ owner token 필요. 현재 source HOLD 12/13 + execution_allowed=false → inges
 3-OS PoC 11/11 PASS·WSL SKIP. `BINGGUPACK_GITHUB_ACTIONS_CROSS_PLATFORM_TEST.md`.
 
 ## release_ready 인가요?
+- **Fast Execution Mode**: 문서·스키마·러너 정리는 바로 진행하고, 실제 write/network/ingest/publish만 owner gate가 필요하다.
 - 아직 아님(**release_ready=false**). 단일 상태: `docs/poc/release/binggupack_release_ready_status.json`.
+- gate 한눈 결정: `BINGGUPACK_GATE_DECISION_SHEET.md` + token `docs/poc/release/binggupack_owner_token_templates.json`.
 - blocker: evidence_capture_required · source_hold_manual_decision_required · cloud_publish_not_approved.
 - next unlock = **owner decision**(자동화 아님):
   - SAVE: evidence가 mock id(실 ledger match_type=none)라 실 대화 capture 선행. `docs/poc/personal_ontology/evidence_capture_fast_plan.json`.

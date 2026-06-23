@@ -118,5 +118,7 @@
   ],
   "source_fetch_performed": false,
   "source_admit_changed": false,
-  "execution_admission_changed": false
+  "execution_admission_changed": false,
+  "gate": "Gate 2 Source HOLD Manual Review",
+  "gate_decision_sheet": "docs/BINGGUPACK_GATE_DECISION_SHEET.md"
 }

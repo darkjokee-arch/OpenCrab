@@ -1,0 +1,7 @@
+{
+  "evidence_capture": "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:2026-06-23:<capture_plan_id>:BingGu",
+  "source_hold_decision": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:2026-06-23:<decision_plan_id>:BingGu",
+  "save_final": "OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:2026-06-23:<save_plan_id>:<preflight_report_id>:BingGu",
+  "ingest_final": "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:<product_id>:<preflight_report_id>:BingGu",
+  "cloud_publish": "OWNER_APPROVES_BINGGUPACK_CLOUD_PUBLISH_PACKAGE:2026-06-23:<package_id>:BingGu"
+}
