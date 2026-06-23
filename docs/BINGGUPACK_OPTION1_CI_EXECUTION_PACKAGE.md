@@ -41,6 +41,13 @@ gh workflow run binggupack-cross-platform.yml
 - ubuntu / macOS / windows-latest 결과 각각 기록.
 - WSL = Windows runner optional subcheck → PASS / FAIL / SKIP_WITH_REASON 기록.
 
+### 5-1. 실제 실행 결과 (2026-06-23)
+- 1차 run 28007503114: **CI_RUN_DONE_HARNESS_ONLY** — PoC 파일 미커밋으로 3-OS 전부 run=0 warned=11(실행 0).
+- PoC Retry run 28008873839 (commit `1538715`): **CI_RUN_DONE_POC_EXECUTED** —
+  3-OS 전부 **run=11 passed=11 failed=0**. WSL = SKIP_WITH_REASON(배포판 미설치).
+- 교훈: CI smoke 하네스만 커밋하면 PoC는 missing_optional WARN으로 스킵됨 → PoC 대상 파일/fixture/schema
+  포함 필요. `--list-scripts`로 required 산출 후 커밋.
+
 ## 6. 위험도
 - **낮음**: read-only smoke(subprocess로 PoC 11개 실행·write 0). production/SAVE/ingest 아님.
 - commit/push는 fork 대상이며 upstream 영향 0.

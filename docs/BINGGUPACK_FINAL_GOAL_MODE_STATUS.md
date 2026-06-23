@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-3. Option 1 CI PoC Retry 결과 (2026-06-23, CI_RUN_DONE_POC_EXECUTED)
+- run 28008873839 (commit `1538715`, PoC 11개+의존+fixtures+schemas 포함). 전체 ✓.
+- **3-OS 전부 PoC 11개 실제 실행: run=11 passed=11 warned=0 failed=0** (ubuntu/macos/windows).
+  → Linux/macOS/Windows **actual PoC runtime 검증 완료**(로컬 Mac 없이 macos-latest runner로 확보).
+- required files: `--list-scripts`로 산출(required 16·fixtures 10·schemas 2·missing_required 0·추측 add 아님).
+- WSL optional: windows runner 배포판 미설치 → **SKIP_WITH_REASON(no_distribution_installed)**(1차 wslpath FAIL→fix).
+  main 3-OS와 분리·non-blocking.
+- README 실반영 미실행(Option 2 미승인). SAVE/ingest HOLD 유지.
+
 ## 11-2. Option 1 CI Run 실행 결과 (2026-06-23, CI_RUN_DONE)
 - run 28007503114 (commit `c7c0169`, fork darkjokee-arch PR #1, pull_request 트리거). 전체 ✓ exit 0.
 - ubuntu/macos/windows 본 smoke 하네스 실행됨(**OS runtime+Python 작동 확인**) / WSL optional FAIL(wslpath, non-blocking).

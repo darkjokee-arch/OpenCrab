@@ -44,14 +44,25 @@ jobs:
         if: runner.os == 'Windows'
         shell: pwsh
         run: |
-          wsl --status
-          if ($LASTEXITCODE -ne 0) {
+          # WSL "기능 enabled"(wsl --status)와 "Linux 배포판 설치됨"은 다름.
+          # GitHub windows runner는 WSL 기능은 있으나 배포판이 없어 wsl bash/wslpath가 실패함.
+          # 실제 가용성 = 설치된 배포판 존재 여부로 판정 → 없으면 SKIP_WITH_REASON(FAIL 아님).
+          $distros = (wsl -l -q 2>$null | Out-String) -replace "`0",""
+          $distros = $distros.Trim()
+          if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($distros)) {
             echo "WSL_AVAILABLE=false" >> $env:GITHUB_ENV
-            echo "WSL not available on this runner -> SKIP_WITH_REASON"
+            echo "WSL_REASON=no_distribution_installed" >> $env:GITHUB_ENV
+            Write-Host "WSL 기능은 있으나 Linux 배포판 미설치 -> SKIP_WITH_REASON(no_distribution_installed)"
           } else {
             echo "WSL_AVAILABLE=true" >> $env:GITHUB_ENV
+            Write-Host "WSL distributions: $distros"
           }
         continue-on-error: true
+
+      - name: WSL subcheck skipped (no distribution)
+        if: runner.os == 'Windows' && env.WSL_AVAILABLE != 'true'
+        shell: pwsh
+        run: Write-Host "WSL_RESULT=SKIP_WITH_REASON (reason=$env:WSL_REASON). main 3-OS matrix와 분리·non-blocking."
 
       - name: Run BingguPack smoke inside WSL (optional)
         if: runner.os == 'Windows' && env.WSL_AVAILABLE == 'true'

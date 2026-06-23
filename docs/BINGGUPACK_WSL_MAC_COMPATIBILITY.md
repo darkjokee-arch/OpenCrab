@@ -49,3 +49,10 @@
   - 결론: **Local WSL/Mac runtime NOT_EXECUTED → GitHub Actions로 3-OS runtime(하네스) 실행 완료**.
     개별 PoC 11개의 3-OS 실행은 PoC 파일 재커밋 후 가능(별도 owner 승인).
   상세: `BINGGUPACK_GITHUB_ACTIONS_CROSS_PLATFORM_TEST.md`.
+
+- **CI PoC Retry 결과: CI_RUN_DONE_POC_EXECUTED** (2026-06-23, run 28008873839, commit `1538715`).
+  - ubuntu/macos/windows: **PoC 11개 실제 실행 run=11 passed=11 failed=0** = 3-OS actual PoC runtime 검증 완료.
+  - macOS는 GitHub-hosted macos-latest runner에서 실제 실행됨(로컬 Mac 없이 actual runtime 확보).
+  - WSL optional: GitHub windows runner에 **Linux 배포판 미설치** → **SKIP_WITH_REASON(no_distribution_installed)**.
+    (1차엔 wslpath 에러로 FAIL이었으나 availability 판정을 배포판 존재 기준으로 수정.) main 3-OS와 분리·non-blocking.
+  - verdict 갱신: Linux/macOS/Windows actual PoC runtime = **검증 완료**. WSL은 배포판 부재로 SKIP(과장 없음).

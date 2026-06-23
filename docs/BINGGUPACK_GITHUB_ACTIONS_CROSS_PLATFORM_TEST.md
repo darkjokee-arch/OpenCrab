@@ -35,6 +35,25 @@ GitHub → Actions → "BingguPack Cross Platform Runtime" → Run workflow
 ```
 - 단 워크플로우가 원격에 반영(push)돼야 실행 가능. 현재 로컬 생성·미push(트리거 0).
 
+## 8. CI PoC Retry 결과 — CI_RUN_DONE_POC_EXECUTED (2026-06-23, Option 1 PoC Retry)
+- run **28008873839** (commit `1538715`, PoC 11개 + 의존 + fixtures + schemas 포함). 전체 ✓ exit 0.
+- required files 산출: `binggupack_ci_cross_platform_smoke.py --list-scripts` → required_scripts 16·fixtures 10·
+  schemas 2·**missing_required 0** (`binggupack_ci_required_files_report.json`). 추측 add 아님.
+
+| OS | job | PoC 실행 | 결과 |
+|---|---|---|---|
+| ubuntu-latest | ✓ | **run=11 passed=11 warned=0 failed=0** | PASS |
+| macos-latest | ✓ | **run=11 passed=11 warned=0 failed=0** | PASS |
+| windows-latest | ✓ | **run=11 passed=11 warned=0 failed=0** | PASS |
+| WSL optional | — | 배포판 미설치 | 1차 FAIL(wslpath)→fix 후 **SKIP_WITH_REASON(no_distribution_installed)** |
+
+- **PoC actual execution: 11 (3-OS 각각)**. missing_required=0. missing_optional=0.
+- 검증된 것: 3-OS에서 PoC 11개(Layer1/Layer2/backtest)가 실제 subprocess 실행·전부 exit 0·
+  save_gate/write/ingest/promotion/network 0.
+- WSL: GitHub windows runner는 WSL **기능은 enabled이나 Linux 배포판 미설치** → `wsl bash`/`wslpath` 실패.
+  availability 판정을 `wsl -l -q`(배포판 존재)로 수정 → **SKIP_WITH_REASON(no_distribution_installed)**.
+  main 3-OS PASS와 분리·non-blocking. "WSL 완전 검증" 과장 안 함.
+
 ## 7. 현재 상태 — CI_RUN_DONE (2026-06-23, Option 1 실행)
 - run: darkjokee-arch/OpenCrab Actions run **28007503114** (fork 내부 PR #1, pull_request 트리거).
 - commit: `c7c0169` ("Add BingguPack cross-platform CI smoke"). branch `ci/preview-gate-activation`.
