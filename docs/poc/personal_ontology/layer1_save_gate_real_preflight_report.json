@@ -1,0 +1,41 @@
+{
+  "status": "save gate real preflight (not executed)",
+  "token_present": true,
+  "token_format_valid": false,
+  "token_save_plan_id": null,
+  "computed_save_plan_id": "splan-40b1b7246a73",
+  "save_plan_id_match": false,
+  "approved_candidate_ids": [
+    "c0",
+    "c2"
+  ],
+  "eligible_candidate_count": 0,
+  "blocked_candidate_count": 2,
+  "blockers": [
+    {
+      "id": "c0",
+      "blockers": [
+        "evidence_not_resolved(mock_fallback)"
+      ]
+    },
+    {
+      "id": "c2",
+      "blockers": [
+        "evidence_not_resolved(mock_fallback)"
+      ]
+    }
+  ],
+  "backup_plan_ready": true,
+  "dry_run_diff_ready": true,
+  "rollback_plan_ready": true,
+  "audit_plan_ready": true,
+  "final_confirmation_required": true,
+  "preflight_status": "TOKEN_INVALID",
+  "save_gate_called": false,
+  "actual_write_performed": false,
+  "memory_write_performed": false,
+  "opencrab_ingest_performed": false,
+  "promotion_performed": false,
+  "production_write_performed": false,
+  "note": "preflight only. token 유효+match여도 PREFLIGHT_READY까지만. 실제 save_gate는 final confirmation token 별도 요구(OWNER_FINAL_CONFIRMS_...)."
+}

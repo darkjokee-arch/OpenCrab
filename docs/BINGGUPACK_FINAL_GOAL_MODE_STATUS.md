@@ -59,6 +59,14 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-5. Option 3 SAVE Gate Real Preflight (2026-06-23, preflight only·save_gate 호출 0)
+- token `OWNER_APPROVES_BINGGUPACK_SAVE_GATE_REAL_RUN:<date>:<save_plan_id>:<operator>`·**real preflight만**(실제 save_gate 0).
+- checker `layer1_save_gate_real_preflight.py`: token 형식+save_plan_id match+candidate 자격(evidence resolved/Layer1/promotion_allowed false/candidate true/PII clean)+backup/dry-run/rollback/audit ready.
+- **preflight 결과(정직)**: approved c0,c2 모두 **evidence_status=mock_fallback**(resolved 아님)→eligible=0·blocked=2. token placeholder/없음→TOKEN_INVALID/MISSING. → **PREFLIGHT_BLOCKED**. 실제 저장 자격 없음.
+- **final confirmation token 별도 요구**: `OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:<date>:<save_plan_id>:<preflight_report_id>:<operator>`. preflight 통과만으로 save_gate 호출 안 함.
+- 문서: BACKUP_PLAN/ROLLBACK_PLAN/AUDIT_LOG_PLAN/FINAL_CONFIRMATION. 실 backup/save output 0.
+- Option 4(OpenCrab ingest) **HOLD 유지**. actual save still disabled.
+
 ## 11-4. Option 2 README Apply 결과 (2026-06-23, README 실반영 완료)
 - token `OWNER_APPROVES_BINGGUPACK_README_APPLY:2026-06-23:BingGu`(valid)·README 실반영만 승인.
 - README.md = BingguPack 중심 재구성(9섹션: 정의/2-layer/재사용/insane-search 경계/CI/실행상태/사용흐름/token/safety).

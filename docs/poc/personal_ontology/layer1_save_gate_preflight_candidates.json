@@ -1,0 +1,22 @@
+{
+  "approved_candidate_ids": [
+    "c0",
+    "c2"
+  ],
+  "eligible_candidate_count": 0,
+  "blocked": [
+    {
+      "id": "c0",
+      "blockers": [
+        "evidence_not_resolved(mock_fallback)"
+      ]
+    },
+    {
+      "id": "c2",
+      "blockers": [
+        "evidence_not_resolved(mock_fallback)"
+      ]
+    }
+  ],
+  "computed_save_plan_id": "splan-40b1b7246a73"
+}
