@@ -1,0 +1,76 @@
+name: BingguPack Cross Platform Runtime
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "schemas/**"
+      - ".github/workflows/binggupack-cross-platform.yml"
+      - "README.md"
+
+permissions:
+  contents: read
+
+jobs:
+  runtime:
+    name: ${{ matrix.os }} / py3.11
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    env:
+      BINGGUPACK_ROOT: ${{ github.workspace }}
+      OPENCRAB_ROOT: ${{ github.workspace }}
+      BINGGUPACK_CI_MODE: "1"
+      BINGGUPACK_NO_NETWORK: "1"
+      BINGGUPACK_PREVIEW_ONLY: "1"
+      PYTHONUTF8: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Linux/macOS/Windows actual runtime smoke (stdlib only·network 0·write 0)
+      - name: Cross-platform runtime smoke
+        run: python docs/poc/backtest/binggupack_ci_cross_platform_smoke.py
+
+      # Windows runner: WSL optional subcheck
+      - name: Check WSL availability (Windows only)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          wsl --status
+          if ($LASTEXITCODE -ne 0) {
+            echo "WSL_AVAILABLE=false" >> $env:GITHUB_ENV
+            echo "WSL not available on this runner -> SKIP_WITH_REASON"
+          } else {
+            echo "WSL_AVAILABLE=true" >> $env:GITHUB_ENV
+          }
+        continue-on-error: true
+
+      - name: Run BingguPack smoke inside WSL (optional)
+        if: runner.os == 'Windows' && env.WSL_AVAILABLE == 'true'
+        shell: pwsh
+        run: |
+          wsl bash -lc "python3 --version && cd '$(wslpath '${{ github.workspace }}')' && BINGGUPACK_ROOT=. python3 docs/poc/backtest/binggupack_ci_cross_platform_smoke.py"
+        continue-on-error: true
+
+      - name: Upload smoke report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: binggupack-ci-smoke-${{ matrix.os }}
+          path: docs/poc/backtest/binggupack_ci_cross_platform_smoke_report.json
+          if-no-files-found: warn
+
+  summary:
+    name: Cross-Platform Summary
+    needs: runtime
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Linux/macOS/Windows actual runtime smoke 완료. WSL은 Windows runner optional subcheck."
