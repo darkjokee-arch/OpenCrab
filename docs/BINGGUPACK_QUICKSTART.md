@@ -41,6 +41,9 @@ owner token 필요. 현재 source HOLD 12/13 + execution_allowed=false → inges
     (`BINGGUPACK_EVIDENCE_LEDGER_RESOLUTION_PLAN.md`).
   - ingest: source 12개 HOLD manual review table 제공(ADMIT 후보 5·REJECT 4 등, `BINGGUPACK_SOURCE_HOLD_MANUAL_REVIEW_PACKAGE.md`).
   - 전환 조건표: `BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`.
+  - owner 결정 package: `BINGGUPACK_EVIDENCE_CAPTURE_OWNER_PACKAGE.md`(Layer1 unlock) /
+    `BINGGUPACK_SOURCE_HOLD_OWNER_DECISION_PACKAGE.md`(Layer2 unlock) / `BINGGUPACK_RELEASE_PATH_DECISION_MAP.md`(경로).
+  - next unlock = 자동화가 아니라 **owner decision**(evidence capture + source HOLD 결정).
 
 ## README / docs 위치
 README.md(메인) / `docs/BINGGUPACK_DOC_INDEX.md`(전체 색인) / `docs/UPSTREAM_OPENCRAB_README.md`(OpenCrab 원본).

@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-10. Owner Decision Package — Evidence Capture + Source Review (2026-06-23, write 0)
+- **evidence capture owner package**: mock id 치환 금지(내용 불일치 조작)→실 근거 대화 capture가 정상 경로.
+  capture 후보 5문장(c0/c2 target + 3 unmapped)·would_create_evidence=false. token `OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<date>:<capture_plan_id>:<operator>`.
+- **source HOLD owner decision package**: HOLD 12 → APPROVE_MANUAL_LICENSE_ROBOTS_CHECK 5·APPROVE_PUBLIC_METADATA_ONLY 3·
+  REJECT_COPYRIGHT_RISK 3·REJECT_AUTH_PAYWALL 1. token `OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<date>:<decision_plan_id>:<operator>`(즉시 fetch/ADMIT 아님).
+- **release path decision map**: Path A(Layer1)·B(Layer2) 병렬 가능·C(publish) 후. recommended order 5단계.
+- 문서: EVIDENCE_CAPTURE_OWNER_PACKAGE / SOURCE_HOLD_OWNER_DECISION_PACKAGE / RELEASE_PATH_DECISION_MAP.
+- **핵심: 필요한 건 자동화가 아니라 owner decision.** release_ready=false 유지·write 0.
+
 ## 11-9. Evidence Resolution + Source Manual Review Plan (2026-06-23, owner decision package·write 0)
 - **evidence ledger mapping**: candidate c0/c2 text ↔ 실 ledger 2건 token overlap **0(match_type=none)**→매핑 후보 없음.
   단순 id 치환 불가(내용 불일치)·실 evidence capture 선행 필요. proposal만·candidate/ledger write 0.

@@ -1,0 +1,79 @@
+{
+  "status": "evidence capture owner preview (no capture·no write)",
+  "why_mapping_failed": "candidate text ↔ 기존 ledger token overlap 0(match_type=none). 기존 ledger evidence는 다른 내용. 단순 id 치환=잘못된 근거 조작.",
+  "why_no_id_swap": "mock id(ev-c0/ev-c2)를 EVC-id로 치환하면 candidate에 무관한 근거를 붙이게 됨(금지).",
+  "capture_candidates": [
+    {
+      "capture_candidate_id": "cap-1",
+      "proposed_evidence_text": "BingguPack의 주목표는 Personal Ontology AGI Core다.",
+      "target_candidate_id": "c0",
+      "would_create_evidence": false,
+      "would_update_candidate_refs": false,
+      "owner_approval_required": true,
+      "required_token_format": "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<YYYY-MM-DD>:<capture_plan_id>:<operator>"
+    },
+    {
+      "capture_candidate_id": "cap-2",
+      "proposed_evidence_text": "OpenCrab Workflow Factory는 2차 commercial extension이다.",
+      "target_candidate_id": "c2",
+      "would_create_evidence": false,
+      "would_update_candidate_refs": false,
+      "owner_approval_required": true,
+      "required_token_format": "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<YYYY-MM-DD>:<capture_plan_id>:<operator>"
+    },
+    {
+      "capture_candidate_id": "cap-3",
+      "proposed_evidence_text": "기존 BingguPack 기능은 새로 만들지 않고 재사용한다.",
+      "target_candidate_id": null,
+      "would_create_evidence": false,
+      "would_update_candidate_refs": false,
+      "owner_approval_required": true,
+      "required_token_format": "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<YYYY-MM-DD>:<capture_plan_id>:<operator>"
+    },
+    {
+      "capture_candidate_id": "cap-4",
+      "proposed_evidence_text": "semantic은 save authority가 아니다.",
+      "target_candidate_id": null,
+      "would_create_evidence": false,
+      "would_update_candidate_refs": false,
+      "owner_approval_required": true,
+      "required_token_format": "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<YYYY-MM-DD>:<capture_plan_id>:<operator>"
+    },
+    {
+      "capture_candidate_id": "cap-5",
+      "proposed_evidence_text": "source discovery는 자유지만 execution은 gate로 통제한다.",
+      "target_candidate_id": null,
+      "would_create_evidence": false,
+      "would_update_candidate_refs": false,
+      "owner_approval_required": true,
+      "required_token_format": "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<YYYY-MM-DD>:<capture_plan_id>:<operator>"
+    }
+  ],
+  "capture_candidate_count": 5,
+  "evidence_fields_after_capture": [
+    "evidence_id",
+    "evidence_meta",
+    "item_id",
+    "source",
+    "text"
+  ],
+  "evidence_refs_update_procedure": [
+    "owner가 capture 승인(token)",
+    "실제 대화 capture→ledger 정상 기록(watcher 경로)",
+    "새 evidence_id를 candidate.evidence_refs에 연결",
+    "read-only adapter로 resolved 확인",
+    "SAVE preflight 재시도"
+  ],
+  "save_preflight_retry_conditions": [
+    "evidence_status=resolved",
+    "PII clean",
+    "Layer1 only",
+    "save_plan_id 존재"
+  ],
+  "would_create_evidence": false,
+  "would_update_candidate_refs": false,
+  "actual_capture_performed": false,
+  "save_gate_called": false,
+  "network_performed": false,
+  "note": "preview package만. 실제 capture/write/candidate 수정 0. owner approval token 후 별도 단계."
+}

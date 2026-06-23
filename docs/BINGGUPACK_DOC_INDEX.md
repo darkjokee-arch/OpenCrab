@@ -78,6 +78,10 @@
 - `BINGGUPACK_EVIDENCE_LEDGER_RESOLUTION_PLAN.md` / `BINGGUPACK_SOURCE_HOLD_MANUAL_REVIEW_PACKAGE.md` / `BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`
 - PoC: `layer1_evidence_ledger_mapping_preview.py`, `workflow_factory/source_hold_manual_review_table.py`, `release/binggupack_release_ready_transition_preview.py`
 
+## Owner Decision Package (2026-06-23·next unlock=owner decision)
+- `BINGGUPACK_EVIDENCE_CAPTURE_OWNER_PACKAGE.md` / `BINGGUPACK_SOURCE_HOLD_OWNER_DECISION_PACKAGE.md` / `BINGGUPACK_RELEASE_PATH_DECISION_MAP.md`
+- PoC: `layer1_evidence_capture_owner_preview.py`, `workflow_factory/source_hold_owner_decision_preview.py`, `release/binggupack_release_path_decision_preview.py`
+
 ## 금지선 (전 문서 공통)
 actual SAVE / save_gate 호출 / memory write / OpenCrab ingest / cloud sync / promotion /
 production write / network — STOP/HOLD. 기존 BingguPack 수정 0.

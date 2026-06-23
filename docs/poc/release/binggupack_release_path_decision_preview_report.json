@@ -1,0 +1,54 @@
+{
+  "status": "release path decision preview (not executed)",
+  "current_release_ready": false,
+  "current_state": {
+    "ci": "PASS",
+    "readme": "APPLIED",
+    "option3": "BLOCKED",
+    "option4": "BLOCKED",
+    "cloud": "NOT_release_ready"
+  },
+  "available_paths": [
+    "A_layer1_first",
+    "B_layer2_first",
+    "C_publish_later"
+  ],
+  "paths": {
+    "A_layer1_first": [
+      "evidence capture approval (token)",
+      "evidence ledger resolved",
+      "SAVE preflight retry",
+      "SAVE final confirmation 검토"
+    ],
+    "B_layer2_first": [
+      "source HOLD owner decision (token)",
+      "license/robots manual check",
+      "source ADMIT/HOLD/REJECT 정리",
+      "OpenCrab ingest preflight retry"
+    ],
+    "C_publish_later": [
+      "Option 3·4 해소",
+      "Cloud/Publish package approval",
+      "release_ready 검토"
+    ]
+  },
+  "blocked_paths": [],
+  "recommended_order": [
+    "1. Evidence capture owner decision",
+    "2. Source HOLD owner decision",
+    "3. SAVE preflight retry",
+    "4. OpenCrab ingest preflight retry",
+    "5. Cloud/Publish review"
+  ],
+  "required_owner_tokens": [
+    "OWNER_APPROVES_BINGGUPACK_EVIDENCE_CAPTURE:<date>:<capture_plan_id>:<operator>",
+    "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<date>:<decision_plan_id>:<operator>",
+    "OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:<date>:<save_plan_id>:<preflight_report_id>:<operator>",
+    "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:<date>:<product_id>:<preflight_report_id>:<operator>",
+    "OWNER_APPROVES_BINGGUPACK_CLOUD_PUBLISH_PACKAGE:<date>:<package_id>:<operator>"
+  ],
+  "actual_write_performed": false,
+  "save_gate_called": false,
+  "opencrab_ingest_performed": false,
+  "cloud_publish_performed": false
+}

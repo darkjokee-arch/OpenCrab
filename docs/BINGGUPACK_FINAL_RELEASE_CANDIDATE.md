@@ -36,6 +36,12 @@
 - public route planner / method catalog / route provenance **개념만**. execution engine 아님.
   TLS impersonation/headless browser/WAF 우회/dep auto-install/scraping = disabled/HOLD.
 
+## 8-3. Owner Decision Package — Evidence Capture + Source Review (2026-06-23)
+- next unlock: **evidence capture**(Layer1) + **source HOLD owner decision**(Layer2). 필요한 건 owner decision.
+- evidence capture 후보 5문장(c0/c2 target)·실 capture/write 0. source HOLD 12 → ADMIT후보 5/PUBLIC_METADATA 3/REJECT 4.
+- release path: A(Layer1)·B(Layer2) 병렬·C(publish) 후. 문서 EVIDENCE_CAPTURE_OWNER_PACKAGE /
+  SOURCE_HOLD_OWNER_DECISION_PACKAGE / RELEASE_PATH_DECISION_MAP.
+
 ## 8-2. Evidence Resolution + Source Manual Review (2026-06-23, owner decision package)
 - evidence mapping: candidate c0/c2 ↔ ledger token overlap 0(match_type=none)→매핑 후보 없음·실 evidence capture 선행.
 - source HOLD 12 분류: ADMIT 후보 5 / PUBLIC_METADATA 3 / REJECT(copyright 3·auth 1). owner 수동 결정 table.

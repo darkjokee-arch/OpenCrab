@@ -84,7 +84,8 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 - actual SAVE / OpenCrab ingest / production write / Cloud publish **not enabled**.
 - save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
 - **release_ready=false** — Option 3·4 BLOCKED + Cloud 미승인. blocker map: `docs/BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`.
-  전환 조건표/owner decision: `docs/BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`.
+  전환 조건표/owner decision: `docs/BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`,
+  `docs/BINGGUPACK_RELEASE_PATH_DECISION_MAP.md`. next unlock = owner decision(evidence capture + source HOLD 결정).
 
 ## 7. 기본 사용 흐름
 
