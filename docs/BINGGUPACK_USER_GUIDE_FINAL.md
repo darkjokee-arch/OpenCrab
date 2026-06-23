@@ -65,7 +65,15 @@ semantic은 helper(save 권한 없음). Layer1/Layer2 혼입 금지.
 - 실제 저장은 preflight 통과 후 **final confirmation token**(`OWNER_FINAL_CONFIRMS_...`) + 별도 owner 승인 필요.
 - eligible이 되려면 evidence ledger 실연결(resolved)이 선행돼야 함.
 
-## 14-1. 현재 상태 = OWNER_REVIEW_READY (Option 1·2 완료 / Option 3 preflight BLOCKED / Option 4 HOLD)
+## 13-3. OpenCrab ingest real preflight (Option 4, 고위험)
+- preflight token으로 자격검사만(실제 ingest 0). product의 source가 전부 ADMIT + execution_allowed=true +
+  evidence plan ready여야 eligible. 현재 source HOLD 12/13 + execution_allowed=false → **SOURCE_HOLD(BLOCKED)**.
+- 실제 ingest는 preflight 통과 후 final confirmation token(`OWNER_FINAL_CONFIRMS_...`) + 별도 owner 지시 필요.
+
+## 13-4. Cloud/Publish
+- packaging plan만 존재. 실제 publish 0. release_ready 조건(Option 1~4 충족) 미달이라 현재 NOT release_ready.
+
+## 14-1. 현재 상태 = BINGGUPACK_FINAL_RELEASE_CANDIDATE_READY (Option 1·2 완료 / Option 3·4 preflight BLOCKED / publish HOLD)
 - owner는 `BINGGUPACK_OWNER_APPROVAL_PACKAGE.md`에서 승인 옵션 4개(CI 실행/README 반영/SAVE real 준비/
   OpenCrab ingest 준비) 중 선택. token 입력해도 preflight+final confirmation 거쳐야 실제 실행.
 

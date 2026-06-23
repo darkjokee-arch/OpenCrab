@@ -77,13 +77,12 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 
 ## 6. 현재 실행 상태
 
-- preview / dry-run / productization-ready.
-- **OWNER_REVIEW_READY.**
-- actual SAVE **not enabled**.
-- OpenCrab ingest **not enabled**.
-- production write **not enabled**.
-- save_gate real run requires **owner token**.
-- OpenCrab ingest real run requires **owner token**.
+- preview / dry-run / productization-ready. 상태 **BINGGUPACK_FINAL_RELEASE_CANDIDATE_READY**.
+- Option 1 CI: 완료(3-OS 11/11 PASS). Option 2 README: 완료.
+- Option 3 SAVE preflight: **BLOCKED** (evidence mock_fallback — resolve evidence ledger 선행 필요).
+- Option 4 OpenCrab ingest preflight: **BLOCKED / SOURCE_HOLD** (source ADMIT 1/HOLD 12 · execution_allowed=false).
+- actual SAVE / OpenCrab ingest / production write / Cloud publish **not enabled**.
+- save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
 
 ## 7. 기본 사용 흐름
 

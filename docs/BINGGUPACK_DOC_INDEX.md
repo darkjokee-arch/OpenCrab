@@ -57,6 +57,19 @@
 - `BINGGUPACK_SAVE_GATE_REAL_RUN_READY_FOR_OWNER.md` / `BINGGUPACK_OPENCRAB_INGEST_READY_FOR_OWNER.md`
 - PoC: `docs/poc/owner_approval/binggupack_owner_approval_preview.py`, `layer1_save_gate_owner_token_preview.py`, `opencrab_ingest_owner_token_preview.py`
 
+## Final Release (2026-06-23·BINGGUPACK_FINAL_RELEASE_CANDIDATE_READY)
+- `BINGGUPACK_FINAL_RELEASE_CANDIDATE.md` / `BINGGUPACK_FINAL_HANDOFF.md` / `BINGGUPACK_FINAL_RISK_REGISTER.md`
+- `BINGGUPACK_QUICKSTART.md` / `BINGGUPACK_GITHUB_DESCRIPTION_APPLY_GUIDE.md` / `BINGGUPACK_CLOUD_PUBLISH_PACKAGING_PLAN.md`
+
+## Option 3 SAVE real preflight (BLOCKED)
+- `BINGGUPACK_SAVE_GATE_BACKUP_PLAN.md` / `..._ROLLBACK_PLAN.md` / `..._AUDIT_LOG_PLAN.md` / `..._FINAL_CONFIRMATION.md`
+- `BINGGUPACK_SAVE_GATE_EVIDENCE_RESOLUTION_REQUIREMENT.md`
+- PoC: `layer1_save_gate_real_preflight.py`, `layer1_save_gate_evidence_resolution_check.py`
+
+## Option 4 OpenCrab ingest real preflight (BLOCKED·SOURCE_HOLD)
+- `BINGGUPACK_OPENCRAB_INGEST_BACKUP_PLAN.md` / `..._ROLLBACK_PLAN.md` / `..._AUDIT_LOG_PLAN.md` / `..._FINAL_CONFIRMATION.md`
+- PoC: `opencrab_ingest_real_preflight.py`
+
 ## 금지선 (전 문서 공통)
 actual SAVE / save_gate 호출 / memory write / OpenCrab ingest / cloud sync / promotion /
 production write / network — STOP/HOLD. 기존 BingguPack 수정 0.

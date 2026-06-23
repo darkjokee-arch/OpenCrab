@@ -28,8 +28,9 @@
 ## 7-0. 진행 현황 (2026-06-23)
 - **Option 1 (CI 실행): 완료** — CI_RUN_DONE_POC_EXECUTED·3-OS 11/11 PASS·WSL SKIP_WITH_REASON.
 - **Option 2 (README 반영): 완료** — README BingguPack 중심 반영·OpenCrab 원본 보존.
-- **Option 3 (SAVE gate real): preflight 완료·BLOCKED** — candidate evidence_status=mock_fallback(resolved 아님)→eligible 0. actual save still disabled. final confirmation token 별도 요구.
-- **Option 4 (OpenCrab ingest): HOLD.**
+- **Option 3 (SAVE gate real): preflight 완료·SAVE_GATE_PREFLIGHT_BLOCKED** — candidate evidence_status=mock_fallback(resolved 아님)→eligible 0. next: resolve evidence ledger. final confirmation token 별도 요구.
+- **Option 4 (OpenCrab ingest): preflight 완료·OPENCRAB_INGEST_PREFLIGHT_BLOCKED/SOURCE_HOLD** — source ADMIT 1/HOLD 12·execution_allowed=false→eligible product 0. next: source 전부 ADMIT + execution gate. final confirmation token 별도 요구.
+- goal 완료 = **BINGGUPACK_FINAL_RELEASE_CANDIDATE_READY**(final 마무리 문서 완료·실저장/ingest/publish 0).
 
 ## 7-1. Recommended path (권장 순서)
 1. **Option 1 (CI 실행)** — 3-OS runtime 실제 검증 먼저.

@@ -1,0 +1,47 @@
+{
+  "status": "evidence resolution check (diagnose only·no write)",
+  "approved_candidate_ids": [
+    "c0",
+    "c2"
+  ],
+  "rows": [
+    {
+      "id": "c0",
+      "evidence_status": "mock_fallback",
+      "evidence_refs": [
+        "ev-c0"
+      ],
+      "ontology_layer": "personal_ontology_core",
+      "save_eligible_now": false,
+      "resolution_prerequisites": [
+        "connect_real_evidence_ledger",
+        "evidence_id_must_exist_in_ledger",
+        "candidate.evidence_refs match ledger evidence_id"
+      ]
+    },
+    {
+      "id": "c2",
+      "evidence_status": "mock_fallback",
+      "evidence_refs": [
+        "ev-c2"
+      ],
+      "ontology_layer": "personal_ontology_core",
+      "save_eligible_now": false,
+      "resolution_prerequisites": [
+        "connect_real_evidence_ledger",
+        "evidence_id_must_exist_in_ledger",
+        "candidate.evidence_refs match ledger evidence_id"
+      ]
+    }
+  ],
+  "resolved_count": 0,
+  "mock_fallback_count": 2,
+  "missing_count": 0,
+  "save_eligible_count": 0,
+  "verdict": "EVIDENCE_RESOLUTION_REQUIRED",
+  "evidence_written": false,
+  "evidence_forced_resolved": false,
+  "save_gate_called": false,
+  "actual_write_performed": false,
+  "note": "mock_fallback evidence는 저장 자격 없음. resolved는 실 ledger 연결로만 달성(여기선 진단·조작 0)."
+}

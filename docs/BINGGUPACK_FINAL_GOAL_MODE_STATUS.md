@@ -59,7 +59,26 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-7. goal 완료 = BINGGUPACK_FINAL_RELEASE_CANDIDATE_READY (2026-06-23)
+- Option 1·2 완료 / Option 3·4 preflight BLOCKED(정직) / final 마무리 문서 완료.
+- final 문서: FINAL_RELEASE_CANDIDATE / FINAL_HANDOFF / FINAL_RISK_REGISTER / QUICKSTART /
+  GITHUB_DESCRIPTION_APPLY_GUIDE / CLOUD_PUBLISH_PACKAGING_PLAN.
+- 실제 SAVE/OpenCrab ingest/production write/Cloud publish 0(전부 owner final confirmation 대기).
+
+## 11-6. Option 4 OpenCrab Ingest Real Preflight (2026-06-23, preflight only·ingest 호출 0)
+- token `OWNER_APPROVES_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:<date>:<product_id>:<operator>`·**preflight만**.
+- checker `opencrab_ingest_real_preflight.py`: token+product_id match+execution_allowed+source admission+evidence plan+schema.
+- **결과(정직)**: product wfp-001·source admission **ADMIT 1 / HOLD 12 / REJECT 0**·execution_allowed=false →
+  **SOURCE_HOLD / OPENCRAB_INGEST_PREFLIGHT_BLOCKED**·eligible product 0. token 없음→TOKEN_MISSING.
+- final confirmation token 별도: `OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:<date>:<product_id>:<preflight_report_id>:<operator>`.
+- 문서: INGEST_BACKUP/ROLLBACK/AUDIT_LOG_PLAN / FINAL_CONFIRMATION. 실 backup/ingest 0.
+- next requirement: source 전부 ADMIT + execution_allowed=true + evidence plan ready.
+
 ## 11-5. Option 3 SAVE Gate Real Preflight (2026-06-23, preflight only·save_gate 호출 0)
+> Option 3 status = **SAVE_GATE_PREFLIGHT_BLOCKED** / reason = `evidence_not_resolved(mock_fallback) + token invalid`
+> / next requirement = **resolve evidence ledger before real SAVE**. evidence 진단 PoC
+> `layer1_save_gate_evidence_resolution_check.py` verdict=EVIDENCE_RESOLUTION_REQUIRED(resolved 0/mock 2).
+
 - token `OWNER_APPROVES_BINGGUPACK_SAVE_GATE_REAL_RUN:<date>:<save_plan_id>:<operator>`·**real preflight만**(실제 save_gate 0).
 - checker `layer1_save_gate_real_preflight.py`: token 형식+save_plan_id match+candidate 자격(evidence resolved/Layer1/promotion_allowed false/candidate true/PII clean)+backup/dry-run/rollback/audit ready.
 - **preflight 결과(정직)**: approved c0,c2 모두 **evidence_status=mock_fallback**(resolved 아님)→eligible=0·blocked=2. token placeholder/없음→TOKEN_INVALID/MISSING. → **PREFLIGHT_BLOCKED**. 실제 저장 자격 없음.
