@@ -36,6 +36,12 @@
 - public route planner / method catalog / route provenance **개념만**. execution engine 아님.
   TLS impersonation/headless browser/WAF 우회/dep auto-install/scraping = disabled/HOLD.
 
+## 8-2. Evidence Resolution + Source Manual Review (2026-06-23, owner decision package)
+- evidence mapping: candidate c0/c2 ↔ ledger token overlap 0(match_type=none)→매핑 후보 없음·실 evidence capture 선행.
+- source HOLD 12 분류: ADMIT 후보 5 / PUBLIC_METADATA 3 / REJECT(copyright 3·auth 1). owner 수동 결정 table.
+- release_ready_possible_now=false. owner decision 3건 대기. 문서: EVIDENCE_LEDGER_RESOLUTION_PLAN /
+  SOURCE_HOLD_MANUAL_REVIEW_PACKAGE / RELEASE_READY_TRANSITION_CHECKLIST.
+
 ## 8-1. Release-Ready 상태 (2026-06-23)
 - **release_ready=false** (`BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`).
 - blocker: option3 SAVE BLOCKED(evidence mock_fallback) · option4 ingest BLOCKED(source HOLD 12) · cloud not approved.

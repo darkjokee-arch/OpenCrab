@@ -37,8 +37,10 @@ owner token 필요. 현재 source HOLD 12/13 + execution_allowed=false → inges
 ## release_ready 인가요?
 - 아직 아님(**release_ready=false**). Option 3 SAVE·Option 4 ingest가 BLOCKED, Cloud 미승인.
 - 막힌 이유와 해소 조건: `BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`.
-  - SAVE: evidence가 mock id라 실 ledger 매핑 선행 필요(`BINGGUPACK_SAVE_EVIDENCE_RESOLUTION_PLAN.md`).
-  - ingest: source 12개 HOLD(license/robots unknown) manual review 필요(`BINGGUPACK_SOURCE_HOLD_RESOLUTION_PLAN.md`).
+  - SAVE: evidence가 mock id라 실 ledger 매핑 선행 필요. 매핑 후보조차 없어(token overlap 0) 실 대화 capture 선행
+    (`BINGGUPACK_EVIDENCE_LEDGER_RESOLUTION_PLAN.md`).
+  - ingest: source 12개 HOLD manual review table 제공(ADMIT 후보 5·REJECT 4 등, `BINGGUPACK_SOURCE_HOLD_MANUAL_REVIEW_PACKAGE.md`).
+  - 전환 조건표: `BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`.
 
 ## README / docs 위치
 README.md(메인) / `docs/BINGGUPACK_DOC_INDEX.md`(전체 색인) / `docs/UPSTREAM_OPENCRAB_README.md`(OpenCrab 원본).

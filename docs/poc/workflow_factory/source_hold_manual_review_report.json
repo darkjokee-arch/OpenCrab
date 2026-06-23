@@ -1,0 +1,347 @@
+{
+  "status": "source hold manual review table (no fetch·no network)",
+  "total_sources": 13,
+  "hold_count": 12,
+  "table": [
+    {
+      "source_id": "src-002",
+      "source_name": "네이버 지도 숙소",
+      "source_url": "https://map.naver.com",
+      "source_type": "commercial_site",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "copyright_bulk_risk"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "possible",
+      "public_route_candidate": [
+        "dynamic_render",
+        "static_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots"
+      ],
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-003",
+      "source_name": "숙소 블로그 후기",
+      "source_url": null,
+      "source_type": "blog",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "possible",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "static_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-004",
+      "source_name": "'제주 가족 호텔 추천' 검색",
+      "source_url": "search:제주 가족 호텔 추천",
+      "source_type": "search_query",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "search_then_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots"
+      ],
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-005",
+      "source_name": "카카오맵 맛집",
+      "source_url": "https://map.kakao.com",
+      "source_type": "commercial_site",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "copyright_bulk_risk"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "possible",
+      "public_route_candidate": [
+        "dynamic_render",
+        "static_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots"
+      ],
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-006",
+      "source_name": "식당 리뷰 사이트",
+      "source_url": "https://www.example-review.com",
+      "source_type": "review_site",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible",
+        "copyright_bulk_risk"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "possible",
+      "copyright_risk": "possible",
+      "public_route_candidate": [
+        "dynamic_render"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-007",
+      "source_name": "맛집 커뮤니티",
+      "source_url": "https://cafe.example.com",
+      "source_type": "forum",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "possible",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "static_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-008",
+      "source_name": "'장소' 웹 검색",
+      "source_url": "search:장소",
+      "source_type": "search_query",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "search_then_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots"
+      ],
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-009",
+      "source_name": "장소 임의 참고 URL",
+      "source_url": "https://www.example.com/unknown",
+      "source_type": "unknown_url",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "static_extract",
+        "manual_guide"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots"
+      ],
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-010",
+      "source_name": "임의 혼잡도 블로그",
+      "source_url": "https://blog.example.com/jeju-crowd",
+      "source_type": "blog",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "possible",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "static_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-011",
+      "source_name": "로그인 필요 통계 플랫폼",
+      "source_url": "https://stats.example.com/login",
+      "source_type": "platform",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "login_required_possible"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "possible",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "dynamic_render"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots",
+        "auth_boundary"
+      ],
+      "possible_decision": "REJECT_AUTH_PAYWALL",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-012",
+      "source_name": "'동선' 웹 검색",
+      "source_url": "search:동선",
+      "source_type": "search_query",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "search_then_extract"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots"
+      ],
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_action_needed": true
+    },
+    {
+      "source_id": "src-013",
+      "source_name": "동선 임의 참고 URL",
+      "source_url": "https://www.example.com/unknown",
+      "source_type": "unknown_url",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "license_status": "unknown",
+      "robots_status": "unknown",
+      "auth_risk": "none",
+      "paywall_risk": "none",
+      "pii_risk": "none",
+      "copyright_risk": "none",
+      "public_route_candidate": [
+        "static_extract",
+        "manual_guide"
+      ],
+      "required_manual_check": [
+        "license",
+        "robots"
+      ],
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_action_needed": true
+    }
+  ],
+  "possible_decision_distribution": {
+    "REJECT_COPYRIGHT_RISK": 3,
+    "PUBLIC_METADATA_ONLY": 3,
+    "ADMIT_AFTER_LICENSE_ROBOTS_CHECK": 5,
+    "REJECT_AUTH_PAYWALL": 1
+  },
+  "actual_fetch_performed": false,
+  "network_performed": false,
+  "robots_license_auto_checked": false,
+  "source_admit_changed": false,
+  "note": "owner 수동 검토 table만. fetch/network/robots·license 자동확인 0·ADMIT 변경 0."
+}

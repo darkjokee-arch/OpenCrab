@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-9. Evidence Resolution + Source Manual Review Plan (2026-06-23, owner decision package·write 0)
+- **evidence ledger mapping**: candidate c0/c2 text ↔ 실 ledger 2건 token overlap **0(match_type=none)**→매핑 후보 없음.
+  단순 id 치환 불가(내용 불일치)·실 evidence capture 선행 필요. proposal만·candidate/ledger write 0.
+- **source HOLD manual review table**: HOLD 12 분류 — ADMIT_AFTER_LICENSE_ROBOTS_CHECK 5·PUBLIC_METADATA_ONLY 3·
+  REJECT_COPYRIGHT_RISK 3·REJECT_AUTH_PAYWALL 1. owner 수동 결정용·fetch/network 0·ADMIT 변경 0.
+- **release_ready transition checklist**: release_ready_possible_now=false·layer1/layer2/cloud blocker 체크리스트.
+- 문서: EVIDENCE_LEDGER_RESOLUTION_PLAN / SOURCE_HOLD_MANUAL_REVIEW_PACKAGE / RELEASE_READY_TRANSITION_CHECKLIST.
+- PoC: layer1_evidence_ledger_mapping_preview.py / source_hold_manual_review_table.py / binggupack_release_ready_transition_preview.py.
+
 ## 11-8. Blocker Resolution Preview (2026-06-23, 진단만·write 0)
 - **release_ready=false** (binggupack_release_ready_check.py). blocker: option3 BLOCKED·option4 BLOCKED·cloud not approved.
 - SAVE evidence: c0/c2 refs(ev-c0/ev-c2)는 mock id·실 ledger evidence_id와 불일치(evidence_id_not_in_ledger)→

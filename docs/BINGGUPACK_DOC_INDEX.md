@@ -74,6 +74,10 @@
 - `BINGGUPACK_SAVE_EVIDENCE_RESOLUTION_PLAN.md` / `BINGGUPACK_SOURCE_HOLD_RESOLUTION_PLAN.md` / `BINGGUPACK_RELEASE_READY_BLOCKER_MAP.md`
 - PoC: `layer1_save_evidence_resolution_preview.py`, `workflow_factory/source_hold_resolution_preview.py`, `release/binggupack_release_ready_check.py`
 
+## Evidence Resolution + Source Manual Review (2026-06-23·owner decision package)
+- `BINGGUPACK_EVIDENCE_LEDGER_RESOLUTION_PLAN.md` / `BINGGUPACK_SOURCE_HOLD_MANUAL_REVIEW_PACKAGE.md` / `BINGGUPACK_RELEASE_READY_TRANSITION_CHECKLIST.md`
+- PoC: `layer1_evidence_ledger_mapping_preview.py`, `workflow_factory/source_hold_manual_review_table.py`, `release/binggupack_release_ready_transition_preview.py`
+
 ## 금지선 (전 문서 공통)
 actual SAVE / save_gate 호출 / memory write / OpenCrab ingest / cloud sync / promotion /
 production write / network — STOP/HOLD. 기존 BingguPack 수정 0.
