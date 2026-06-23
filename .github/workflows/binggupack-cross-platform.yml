@@ -57,7 +57,24 @@ jobs:
         if: runner.os == 'Windows' && env.WSL_AVAILABLE == 'true'
         shell: pwsh
         run: |
-          wsl bash -lc "python3 --version && cd '$(wslpath '${{ github.workspace }}')' && BINGGUPACK_ROOT=. python3 docs/poc/backtest/binggupack_ci_cross_platform_smoke.py"
+          $workspace = $env:GITHUB_WORKSPACE
+          # 1) wsl wslpath -a 로 변환 시도 (PowerShell에서 wsl 직접 호출, 따옴표 중첩 회피)
+          $wslPath = (wsl wslpath -a "$workspace" 2>$null | Out-String).Trim()
+          if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($wslPath)) {
+            Write-Host "wslpath failed; trying manual /mnt conversion"
+            # 2) /mnt/<drive>/<path> 수동 변환 fallback
+            $drive = $workspace.Substring(0,1).ToLower()
+            $rest = $workspace.Substring(2).Replace('\','/')
+            $wslPath = "/mnt/$drive$rest"
+          }
+          Write-Host "WSL workspace path: $wslPath"
+          wsl bash -lc "python3 --version && cd '$wslPath' && BINGGUPACK_ROOT=. python3 docs/poc/backtest/binggupack_ci_cross_platform_smoke.py"
+          if ($LASTEXITCODE -ne 0) {
+            # 3) path 변환·실행 실패 → non-blocking FAIL (main 3-OS와 분리)
+            Write-Host "WSL_RESULT=FAIL (wsl run failed, non-blocking; main 3-OS matrix와 분리)"
+          } else {
+            Write-Host "WSL_RESULT=PASS"
+          }
         continue-on-error: true
 
       - name: Upload smoke report

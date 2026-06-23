@@ -42,8 +42,84 @@ def _repo_root() -> Path:
     return _HERE.parents[3]
 
 
+import re
+
+# repo 밖(기존 BingguPack)·mock fallback이라 commit 대상 아님(required 아님).
+_EXTERNAL_PREFIXES = ("binggu_",)
+
+
+def _list_required_files(repo: Path) -> dict:
+    """SCRIPTS를 시작점으로 docs/poc 트리 내 .py 의존을 transitive 수집 +
+    참조 fixtures/schemas 수집. 추측 add 방지용 명시 목록 산출."""
+    poc_py = {p.name: p for p in (repo / "docs" / "poc").rglob("*.py")}
+    seen, queue = set(), list(SCRIPTS)
+    required_scripts, missing_required = [], []
+    while queue:
+        rel = queue.pop(0)
+        if rel in seen:
+            continue
+        seen.add(rel)
+        path = repo / rel
+        if not path.exists():
+            missing_required.append(rel)
+            continue
+        required_scripts.append(rel)
+        text = path.read_text(encoding="utf-8", errors="replace")
+        # 텍스트에서 .py 토큰 추출 → docs/poc 트리 내 실존 basename이면 의존
+        for tok in re.findall(r"[A-Za-z0-9_]+\.py", text):
+            if tok.startswith(_EXTERNAL_PREFIXES):
+                continue
+            dep = poc_py.get(tok)
+            if dep is not None:
+                drel = dep.relative_to(repo).as_posix()
+                if drel not in seen and drel != rel:
+                    queue.append(drel)
+    # fixtures: required scripts가 있는 디렉토리의 fixtures + 명시 참조
+    fixtures, schemas, docs_ref = set(), set(), set()
+    for rel in required_scripts:
+        text = (repo / rel).read_text(encoding="utf-8", errors="replace")
+        base_dir = (repo / rel).parent
+        for fx in (base_dir / "fixtures").rglob("*") if (base_dir / "fixtures").exists() else []:
+            if fx.is_file():
+                fixtures.add(fx.relative_to(repo).as_posix())
+        for s in re.findall(r"schemas/[A-Za-z0-9_.]+\.json", text):
+            if (repo / s).exists():
+                schemas.add(s)
+        for d in re.findall(r"docs/[A-Za-z0-9_/]+\.md", text):
+            if (repo / d).exists():
+                docs_ref.add(d)
+    required_commit = sorted(set(required_scripts) | fixtures | schemas
+                             | {"docs/poc/backtest/binggupack_ci_cross_platform_smoke.py"})
+    return {
+        "required_scripts": sorted(required_scripts),
+        "required_fixtures": sorted(fixtures),
+        "required_schemas": sorted(schemas),
+        "required_docs": sorted(docs_ref),
+        "missing_required": sorted(missing_required),
+        "optional_external_skipped": "binggu_*.py (기존 BingguPack·repo 밖·mock fallback)",
+        "required_commit_files": required_commit,
+    }
+
+
 if __name__ == "__main__":
     repo = _repo_root()
+
+    if "--list-scripts" in sys.argv:
+        info = _list_required_files(repo)
+        (OUT / "binggupack_ci_required_files_report.json").write_text(
+            json.dumps(info, ensure_ascii=False, indent=2), encoding="utf-8")
+        print("=== BingguPack CI required files ===")
+        print(f"required_scripts={len(info['required_scripts'])} "
+              f"fixtures={len(info['required_fixtures'])} schemas={len(info['required_schemas'])} "
+              f"missing_required={len(info['missing_required'])}")
+        for f in info["required_commit_files"]:
+            print(f"  {f}")
+        if info["missing_required"]:
+            print("MISSING REQUIRED:")
+            for m in info["missing_required"]:
+                print(f"  ! {m}")
+        sys.exit(0)
+
     env = {**os.environ, "PYTHONUTF8": "1", "PYTHONDONTWRITEBYTECODE": "1",
            "BINGGUPACK_CI_MODE": "1", "BINGGUPACK_NO_NETWORK": "1", "BINGGUPACK_PREVIEW_ONLY": "1"}
     env.setdefault("BINGGUPACK_ROOT", str(repo))

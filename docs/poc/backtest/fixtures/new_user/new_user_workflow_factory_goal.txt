@@ -1,0 +1,2 @@
+제주 가족여행 자동 일정 워크플로우를 만들고 싶다.
+source discovery는 자유롭게 하되 execution은 통제한다.

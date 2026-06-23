@@ -1,0 +1,4 @@
+Workflow Factory는 빙구팩의 2차 확장이다.
+source discovery는 자유롭게 하되 execution은 통제한다.
+commercial 워크플로우 데이터 자체는 Layer2로 분리한다.
+유료 워크플로우 상품화는 개인 온톨로지와 독립이다.

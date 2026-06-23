@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://binggupack/schemas/source_candidate.schema.json",
+  "title": "SourceCandidate",
+  "description": "BingguPack Workflow Factory Extension - source discovery candidate. discovery는 자유(임의 URL 허용), execution은 별도 gate. candidate=true / promotion_allowed=false 강제. network/crawl/ingest 0.",
+  "type": "object",
+  "required": [
+    "source_id", "source_name", "source_type", "trust_tier",
+    "whitelist_status", "license_status", "robots_status", "pii_risk",
+    "access_risk", "risk_labels", "collection_method_candidate",
+    "execution_admission", "reason", "candidate", "promotion_allowed"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "source_id": {"type": "string", "description": "후보 식별자(refs-only)"},
+    "source_name": {"type": "string"},
+    "source_url": {"type": ["string", "null"], "description": "임의 URL 허용(whitelist 무관). 미상이면 null/검색쿼리"},
+    "source_type": {
+      "type": "string",
+      "enum": ["official_api", "official_doc", "public_dataset", "user_upload",
+               "commercial_site", "review_site", "blog", "forum",
+               "search_query", "unknown_url", "platform"]
+    },
+    "trust_tier": {
+      "type": "string",
+      "enum": ["verified", "unverified", "untrusted"],
+      "description": "whitelist 없음 = unverified (차단 아님, 신호)"
+    },
+    "whitelist_status": {
+      "type": "string",
+      "enum": ["on_whitelist", "unknown", "off_whitelist"],
+      "description": "discovery blocker 아님. trust_tier 입력 신호"
+    },
+    "license_status": {
+      "type": "string",
+      "enum": ["public_api_tos_ok", "official_doc", "self_uploaded", "cc_like",
+               "unknown", "prohibited"]
+    },
+    "robots_status": {
+      "type": "string",
+      "enum": ["allow", "unknown", "disallow"]
+    },
+    "pii_risk": {
+      "type": "string",
+      "enum": ["none", "possible", "likely"]
+    },
+    "access_risk": {
+      "type": "string",
+      "enum": ["open", "login_required_possible", "paywall_possible", "unknown"]
+    },
+    "risk_labels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["official_api", "official_doc", "public_dataset", "user_upload",
+                 "commercial_site", "review_site", "blog", "forum",
+                 "unknown_url", "login_required_possible", "paywall_possible",
+                 "license_unknown", "license_prohibited", "robots_unknown",
+                 "robots_disallow", "pii_possible", "copyright_bulk_risk",
+                 "rate_limit_sensitive"]
+      }
+    },
+    "collection_method_candidate": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["public_api_call", "official_doc_download", "user_upload_ingest",
+                 "static_extract", "dynamic_render", "search_then_extract",
+                 "manual_guide"]
+      },
+      "description": "수집 방법 후보(dry-run plan용). 실제 실행 아님"
+    },
+    "execution_admission": {
+      "type": "string",
+      "enum": ["ADMIT", "HOLD", "REJECT"],
+      "description": "실행 단계가 열렸을 때의 판정 신호. candidate 생성과 무관(생성은 항상 허용). 기본 HOLD if unverified"
+    },
+    "reason": {"type": "string", "description": "trust_tier/execution_admission 산출 사유"},
+    "expected_data": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "이 source에서 기대하는 자료 항목"
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "refs-only. 본문/원문 미포함"
+    },
+    "candidate": {"const": true},
+    "promotion_allowed": {"const": false}
+  }
+}
