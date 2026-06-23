@@ -59,6 +59,13 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-2. Option 1 CI Run 실행 결과 (2026-06-23, CI_RUN_DONE)
+- run 28007503114 (commit `c7c0169`, fork darkjokee-arch PR #1, pull_request 트리거). 전체 ✓ exit 0.
+- ubuntu/macos/windows 본 smoke 하네스 실행됨(**OS runtime+Python 작동 확인**) / WSL optional FAIL(wslpath, non-blocking).
+- **정직 한계**: PoC 11개 미커밋 → 3-OS 모두 `run=0 passed=0 warned=11`(missing_optional_script), **실제 PoC 실행 0**.
+  "11/11 PASS" 아님. OS runtime 하네스만 검증. 상세 `BINGGUPACK_GITHUB_ACTIONS_CROSS_PLATFORM_TEST.md §7`.
+- README 실반영 미실행(Option 2 미승인). SAVE/ingest HOLD 유지.
+
 ## 11-1. Option 1/2 Execution Package (2026-06-23)
 - recommended path: **Option 1(CI 실행) → Option 2(README 반영) → Option 3/4(HOLD)**.
 - Option 1: `BINGGUPACK_OPTION1_CI_EXECUTION_PACKAGE.md` + PoC `option1_ci_token_preview.py`(token 형식검증만·git/gh 실행 0).

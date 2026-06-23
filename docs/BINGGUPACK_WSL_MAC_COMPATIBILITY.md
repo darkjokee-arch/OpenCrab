@@ -41,5 +41,11 @@
   > 로컬 환경에서는 WSL/Mac을 직접 실행하지 않았지만, GitHub Actions 3-OS matrix를 통해 Linux/macOS/Windows
   > runtime smoke를 수행하도록 workflow를 제공한다. WSL은 Windows runner에서 사용 가능 여부를 확인한 뒤
   > 가능하면 실행하고, 불가능하면 SKIP_WITH_REASON으로 기록한다.
-- 실제 CI run 결과: **CI_WORKFLOW_CREATED_NOT_RUN** (push 후 owner 실행 시 OS별 PASS/FAIL 갱신).
+- 실제 CI run 결과: **CI_RUN_DONE** (2026-06-23, run 28007503114, commit `c7c0169`, fork PR #1).
+  - ubuntu-latest ✓ / macos-latest ✓ / windows-latest ✓ (본 smoke 하네스 실행됨 = **OS runtime + Python 작동 확인**).
+  - WSL optional: **FAIL**(non-blocking) — WSL 가용했으나 `wslpath` 변환 에러 exit 1, continue-on-error.
+  - **정직 한계**: PoC 11개 대상 파일이 이번 commit 미포함 → 3-OS 모두 `run=0 passed=0 warned=11`(전부
+    missing_optional_script WARN), **실제 PoC 실행 0**. "11/11 PASS" 아님. OS runtime 자체는 검증됨.
+  - 결론: **Local WSL/Mac runtime NOT_EXECUTED → GitHub Actions로 3-OS runtime(하네스) 실행 완료**.
+    개별 PoC 11개의 3-OS 실행은 PoC 파일 재커밋 후 가능(별도 owner 승인).
   상세: `BINGGUPACK_GITHUB_ACTIONS_CROSS_PLATFORM_TEST.md`.

@@ -35,6 +35,28 @@ GitHub → Actions → "BingguPack Cross Platform Runtime" → Run workflow
 ```
 - 단 워크플로우가 원격에 반영(push)돼야 실행 가능. 현재 로컬 생성·미push(트리거 0).
 
-## 7. 현재 상태
-- workflow + CI smoke script 생성 완료. 로컬 CI smoke **11/11 PASS**(Windows py3.14).
-- 실제 3-OS CI run = **CI_WORKFLOW_CREATED_NOT_RUN**(push 후 owner 실행 시 PASS/FAIL 갱신).
+## 7. 현재 상태 — CI_RUN_DONE (2026-06-23, Option 1 실행)
+- run: darkjokee-arch/OpenCrab Actions run **28007503114** (fork 내부 PR #1, pull_request 트리거).
+- commit: `c7c0169` ("Add BingguPack cross-platform CI smoke"). branch `ci/preview-gate-activation`.
+- 전체 결과: **CI_RUN_DONE** (모든 job ✓, exit 0).
+
+### 7-1. OS별 결과 (정직)
+| OS | job | 본 smoke 하네스 | 세부 |
+|---|---|---|---|
+| ubuntu-latest | ✓ | 실행됨(OS runtime+Python 작동) | `run=0 passed=0 warned=11 failed=0` |
+| macos-latest | ✓ | 실행됨 | `run=0 passed=0 warned=11 failed=0` |
+| windows-latest | ✓ | 실행됨 | `run=0 passed=0 warned=11 failed=0` |
+| WSL optional | — | FAIL(non-blocking) | WSL_AVAILABLE=true였으나 `wslpath` 변환 에러 exit 1·continue-on-error |
+
+### 7-2. 정직 한계 (과장 금지)
+- **PoC 11개 실제 실행 = 0**: 이번 commit(9개)에 PoC 대상 파일(`docs/poc/personal_ontology/*`,
+  `docs/poc/workflow_factory/*`, `docs/poc/backtest/binggupack_*backtest.py` 등 11개)이 미포함 →
+  repo workspace에 없어서 전부 `missing_optional_script` WARN. smoke는 failed=0이라 exit 0(통과)이나
+  **"11/11 PASS"가 아니라 "11 WARN(파일 미커밋)·실제 PoC 실행 0"**.
+- 검증된 것: 3-OS runtime에서 Python + smoke 하네스 스크립트 자체는 동작(OS runtime 작동 확인).
+- 미검증: 개별 PoC 11개의 3-OS 실제 실행(파일 미커밋으로 스킵).
+- WSL: 가용했으나 wslpath 스크립트 에러로 FAIL(optional·non-blocking). SKIP 아닌 FAIL.
+
+### 7-3. 다음 (별도 owner 승인 필요)
+- PoC 11개 대상 파일 포함 재커밋/재push → 3-OS에서 실제 PoC 실행(현 9개 승인 범위 초과·재승인 요).
+- WSL subcheck wslpath 명령 수정(`$(wslpath ...)` PowerShell 이스케이프).
