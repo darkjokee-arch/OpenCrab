@@ -20,5 +20,8 @@
   "opencrab_ingest": false,
   "production_write": false,
   "source_fetch": false,
-  "gate_decision_sheet": "docs/BINGGUPACK_GATE_DECISION_SHEET.md"
+  "gate_decision_sheet": "docs/BINGGUPACK_GATE_DECISION_SHEET.md",
+  "save_gate_final_confirmation_pending": true,
+  "opencrab_ingest_blocked_by_manual_check": true,
+  "save_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:2026-06-23:splan-40b1b7246a73:spfr-8d68c22f87:BingGu"
 }

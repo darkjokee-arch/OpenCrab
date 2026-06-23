@@ -59,6 +59,17 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-14. SAVE Final Confirmation Prep + Source Manual Check (2026-06-23)
+- **SAVE**: SAVE_PREFLIGHT_READY·preflight_report_id=spfr-8d68c22f87·final token template 완성→
+  `OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:2026-06-23:splan-40b1b7246a73:spfr-8d68c22f87:<op>`.
+  status=**SAVE_FINAL_CONFIRMATION_PENDING**(token 없음)·backup/diff/audit ready·save_gate 호출 0.
+- **Source manual check package**: MANUAL_CHECK_REQUIRED 5(src-004/008/009/012/013)·license/robots 확인 항목·
+  owner action choices(ADMIT_AFTER_MANUAL_CHECK/METADATA_ONLY/KEEP_HOLD/REJECT_SOURCE). 실 fetch/robots auto 0.
+  가이드 `BINGGUPACK_SOURCE_MANUAL_CHECK_GUIDE.md`.
+- **ingest retry readiness**: retry_possible_now=false·blocker manual_check_required_sources_remaining+no_admitted_source.
+- release_ready=false·save_gate_final_confirmation_pending=true·opencrab_ingest_blocked_by_manual_check=true.
+- PoC: save_final_confirmation_ready.json·source_manual_check_package.json·opencrab_ingest_retry_readiness.json.
+
 ## 11-13. Master Goal Mode 병렬 진행 (2026-06-23) — overall = BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN
 - **Gate 1 Evidence Capture: 진행·해소**. owner-declared principle evidence 5개를 **fork 내 safe store**
   (`owner_declared_evidence_store.jsonl`)에 생성(기존 BingguPack ledger read-only·미수정). c0→OEV/c2→OEV refs update plan.

@@ -1,0 +1,18 @@
+{
+  "current_ingest_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
+  "manual_check_required_count": 5,
+  "admitted_source_count": 0,
+  "rejected_source_count": 4,
+  "metadata_only_count": 3,
+  "retry_possible_now": false,
+  "retry_blockers": [
+    "manual_check_required_sources_remaining",
+    "no_admitted_source"
+  ],
+  "required_owner_actions": [
+    "source_manual_check_5(license/robots)",
+    "then OpenCrab ingest preflight retry"
+  ],
+  "opencrab_ingest_performed": false,
+  "source_fetch_performed": false
+}

@@ -1,0 +1,14 @@
+{
+  "save_plan_id": "splan-40b1b7246a73",
+  "preflight_report_id": "spfr-8d68c22f87",
+  "eligible_candidate_count": 2,
+  "evidence_status": "resolved_owner_declared",
+  "final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_SAVE_GATE_REAL_RUN:2026-06-23:splan-40b1b7246a73:spfr-8d68c22f87:BingGu",
+  "backup_ready": true,
+  "diff_ready": true,
+  "audit_ready": true,
+  "save_final_confirmation_status": "SAVE_FINAL_CONFIRMATION_PENDING",
+  "save_gate_called": false,
+  "actual_save_performed": false,
+  "note": "token 없으면 PENDING. token+final confirmation 후에만 save_gate real. backup/diff/audit plan ready."
+}
