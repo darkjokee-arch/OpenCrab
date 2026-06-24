@@ -86,9 +86,8 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 - **Fast Execution Mode**: 문서·스키마·러너 정리는 바로 진행하고, 실제 write/network/ingest/publish만 owner gate가 필요하다.
   (docs/schema/runner cleanup proceeds directly; only real write/network/ingest/publish requires owner gate.)
 - **overall: BINGGUPACK_RELEASE_READY_CANDIDATE** (2026-06-24): Option 3 SAVE = **SAVE_REAL_RUN_DONE**(fork 격리·~/.binggupack 미변경).
-  Option 4 = `search:` query는 **discovery_intent**→route candidate 18→shortlist→select→manual check(static policy)
-  → official_public_api 3 ADMIT_METADATA_ROUTE → **INGEST_PREFLIGHT_PARTIAL_READY**(admitted 3·실 API/network 0).
-  잔존: ingest_final_confirmation · cloud_publish. 실 ingest/fetch/publish 0.
+  Option 4 OpenCrab ingest = **OPENCRAB_INGEST_REAL_RUN_DONE**(metadata-only·fork 격리·OpenCrab production 미변경·실 API/source content 0).
+  잔존 blocker: **cloud_publish_not_approved**만. release_ready_candidate=true·cloud_publish_ready_candidate=true. 실 publish/production write 0.
 - **release_ready=false** — ingest BLOCKED + Cloud 미승인. 단일 상태:
   `docs/poc/release/binggupack_release_ready_status.json`. blocker: evidence_capture_required ·
   source_hold_manual_decision_required · cloud_publish_not_approved.

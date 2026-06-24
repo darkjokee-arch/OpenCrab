@@ -7,7 +7,6 @@
   "save_preflight_status": "SAVE_PREFLIGHT_READY",
   "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY",
   "blockers": [
-    "ingest_final_confirmation",
     "cloud_publish_not_approved"
   ],
   "resolved": [
@@ -34,5 +33,10 @@
   "route_selection_done": true,
   "manual_check_pending": false,
   "opencrab_ingest_preflight_partial_ready": true,
-  "ingest_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:ipfr-c3c355c79c:BingGu"
+  "opencrab_ingest_done": true,
+  "opencrab_ingest_real_run_status": "OPENCRAB_INGEST_REAL_RUN_DONE",
+  "cloud_publish_ready_candidate": true,
+  "remaining_blockers": [
+    "cloud_publish_not_approved"
+  ]
 }

@@ -59,6 +59,16 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-22. Option 4 OpenCrab Ingest Real Run — DONE (2026-06-24, metadata-only·fork 격리)
+- owner final token(wfp-001:ipfr-c3c355c79c) 검증 통과 → **OPENCRAB_INGEST_REAL_RUN_DONE**.
+- **기존 OpenCrab ingest adapter contract 재사용**(신규 엔진 안만듦)·**실제 OpenCrab production/MCP ontology store 미변경**
+  (opencrab/·schemas/actions git diff 0)→fork 격리 store(opencrab_ingest_store/)에 **metadata-only ingest**.
+- ingest 대상: product preview object·required packs/data·evidence plan refs·admitted source route descriptor 3(official_public_api·
+  public_api_metadata_only)·execution gate metadata. **실 API response/source content/commercial 0**. ingested 1·admitted 3·skipped 9.
+- ingest_called=true·performed=true·**production_write=false·confirmed_promotion=false·cloud_publish=false·actual_api_data=false**·backup/audit/rollback ready.
+- **release 재판정**: release_ready=false·**release_ready_candidate=true·cloud_publish_ready_candidate=true**·overall BINGGUPACK_RELEASE_READY_CANDIDATE·remaining **cloud_publish_not_approved**만.
+- 정직: metadata-only ingest(실 API 데이터 호출 아님)·실 source content는 별도 gate. SAVE+ingest 둘 다 fork 격리·원본 미변경.
+
 ## 11-21. Official API Manual Check Fast Apply → INGEST PARTIAL_READY → RELEASE_READY_CANDIDATE (2026-06-24)
 - selected route 3(official_public_api) manual check → **ADMIT_METADATA_ROUTE**(manual_check_mode=**static_policy_no_network**·
   decision_basis=official_public_api_static_policy·scope=public_api_metadata_only). **실 API 호출/network/robots 웹조회 0**.

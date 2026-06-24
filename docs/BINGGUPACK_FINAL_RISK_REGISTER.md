@@ -7,7 +7,7 @@
 | SAVE real write risk | DONE(2026-06-23·격리) | owner final token 후 save_gate real run·**기존 binggu_save_gate 재사용·BINGGU_HOME=fork 격리·사장님 실제 ~/.binggupack 미변경**·candidate 2 fork store 저장·promotion/confirmed false·rollback backup 있음. |
 | SAVE evidence mock_fallback blocker | RESOLVED(2026-06-23) | owner-declared principle evidence를 fork safe store에 생성→c0/c2 resolved_owner_declared→**SAVE_PREFLIGHT_READY**. 단 save_gate 호출은 final confirmation 후. |
 | owner-declared evidence 신뢰성 | ACCEPTED | non-private/public principle만·fork safe store(기존 ledger 미수정)·confirmed/promotion false·data_class=owner_declared_public_principle. |
-| OpenCrab ingest write risk | BLOCKED | preflight + final confirmation token 2단. source ADMIT + execution_allowed 선행. ingest 호출 0. |
+| OpenCrab ingest write risk | DONE(2026-06-24·격리) | owner final token 후 ingest real run·**기존 adapter contract 재사용·fork 격리 store·실제 OpenCrab production/MCP 미변경**·metadata-only(실 API data/source content 0)·production_write/confirmed_promotion/cloud false·rollback backup 있음. |
 | source candidate execution risk | HOLD | discovery 자유 / execution gate 분리. 13 source 중 HOLD 12. ADMIT만 진행 가능. |
 | insane-search 오해 위험 | MITIGATED | route planner 개념만. execution engine 아님 README/문서 명시. TLS/browser/WAF/dep-install disabled. |
 | WSL optional SKIP | ACCEPTED | GitHub windows runner 배포판 미설치 → SKIP_WITH_REASON. main 3-OS PASS와 분리. PASS로 표기 안 함. |
