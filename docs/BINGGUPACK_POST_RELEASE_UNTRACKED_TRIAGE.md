@@ -5,6 +5,8 @@
 >
 > 📎 **다음 릴리스 후보 선별:** [`docs/BINGGUPACK_NEXT_RELEASE_CANDIDATE_TRIAGE.md`](BINGGUPACK_NEXT_RELEASE_CANDIDATE_TRIAGE.md)
 > — 105개 보존 후보를 rc.1 / stable / feature branch / 로컬 보존 / 삭제 / 실행 위험으로 분류.
+>
+> **버전 라인 정렬:** 정식 = **v1.8.0-rc.1** (본체 **v1.7.2** 합류). `v1.0.0-rc`/`v1.0.0-rc.1`은 provisional(superseded, 삭제 안 함).
 
 ## 릴리스 컨텍스트
 

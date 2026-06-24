@@ -46,5 +46,10 @@
   "github_release_prerelease": true,
   "github_release_url": "https://github.com/darkjokee-arch/OpenCrab/releases/tag/v1.0.0-rc",
   "github_release_created_at": "2026-06-24",
-  "post_release_status": "GITHUB_RELEASE_CREATED"
+  "post_release_status": "GITHUB_RELEASE_CREATED",
+  "release_version": "1.8.0-rc.1",
+  "owner_declared_core_baseline": "1.7.2",
+  "previous_provisional_releases": ["v1.0.0-rc", "v1.0.0-rc.1"],
+  "version_line_status": "BINGGUPACK_VERSION_LINE_RECONCILED",
+  "provisional_note": "github_release_* fields above record the provisional v1.0.0-rc; superseded by v1.8.0-rc.1 (not deleted)."
 }

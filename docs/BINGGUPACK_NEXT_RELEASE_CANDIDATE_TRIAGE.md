@@ -4,6 +4,8 @@
 > (`v1.0.0-rc.1` / `v1.0.0 stable` / feature branch)를 위한 105개 보존 후보 **선별 검토**다.
 > **읽기 전용 분류만 한다 — 이번 턴에 commit/삭제/실행/수집은 없다.**
 > 원천 목록: [`docs/BINGGUPACK_POST_RELEASE_UNTRACKED_TRIAGE.md`](BINGGUPACK_POST_RELEASE_UNTRACKED_TRIAGE.md)
+>
+> **버전 라인 정렬:** 정식 = **v1.8.0-rc.1** (본체 **v1.7.2** 합류). `v1.0.0-rc`/`v1.0.0-rc.1`은 provisional(superseded, 삭제 안 함).
 
 ## 고정 컨텍스트 (수정 금지)
 

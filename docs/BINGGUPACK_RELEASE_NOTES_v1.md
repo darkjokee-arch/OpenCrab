@@ -1,8 +1,12 @@
 # BingguPack Release Notes v1
 
-- **release_state:** `BINGGUPACK_RELEASE_READY`
+> **버전 라인 정렬:** 정식 버전은 기존 본체 **v1.7.2**에 합류한 **v1.8.0-rc.1**.
+> 아래 `1.0.0-rc` 표기는 version-misaligned **provisional**(삭제 안 함, v1.8.0-rc.1로 superseded).
+
+- **release_state:** `BINGGUPACK_RELEASE_READY` · `BINGGUPACK_VERSION_LINE_RECONCILED`
 - **package_id:** `bgpk-a9450aa942`
-- **package_version:** `1.0.0-rc`
+- **package_version:** `1.8.0-rc.1` (provisional: `1.0.0-rc`)
+- **owner_declared_core_baseline:** `1.7.2`
 - **release_ready:** `true`
 - **blockers:** `[]`
 - **date:** 2026-06-24

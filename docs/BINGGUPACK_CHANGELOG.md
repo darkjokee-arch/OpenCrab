@@ -2,9 +2,33 @@
 
 본 changelog는 Keep a Changelog 형식을 따른다. 날짜는 절대 날짜(YYYY-MM-DD).
 
+> **버전 라인 정렬 (2026-06-24):** 기존 BingguPack 본체 최신 = **v1.7.2** (owner-declared).
+> 이번 OpenCrab workflow-to-pack factory / insane-search optional adapter 작업은 본체의
+> **minor feature expansion** → **v1.8.0-rc.1**로 정렬. 아래 `[1.0.0-rc]` / `[1.0.0-rc.1]`은
+> **version-misaligned provisional prerelease**이며 v1.8.0-rc.1로 **superseded**(삭제하지 않음).
+
 ---
 
-## [1.0.0-rc] — 2026-06-24 — `BINGGUPACK_RELEASE_READY`
+## [1.8.0-rc.1] — 2026-06-24 — `BINGGUPACK_VERSION_LINE_RECONCILED`
+
+기존 BingguPack 본체(**v1.7.2**) 라인에 합류한 정식 RC. 별도 adapter 제품이 아니라 **본체 기능 확장**.
+
+### Added (v1.8.0 라인 신규 기능)
+- **OpenCrab workflow-to-pack factory** — 본체 BingguPack의 Layer2 확장.
+- **insane-search optional evidence discovery adapter** — actual API collection은 **release requirement 아님**(optional backend).
+- **evidence preview-only boundary** — search/collection 결과는 candidate/evidence preview only.
+- **collection readiness gate** — OpenCrab ingest/save/promotion/production write는 별도 owner 승인 전 금지.
+- **productization / runbook / release docs**, rc.1 docs closeout.
+
+### Changed
+- 버전 라인 `1.0.0-rc` 계열 → **`1.8.0-rc.1`** 정렬 (본체 v1.7.2 합류).
+
+### Note
+- `[1.0.0-rc]`, `[1.0.0-rc.1]`은 provisional/misaligned로 보존. 정식 라인은 `1.8.0-rc.1`.
+
+---
+
+## [1.0.0-rc] — 2026-06-24 — `BINGGUPACK_RELEASE_READY` *(provisional, superseded by 1.8.0-rc.1)*
 
 `package_id=bgpk-a9450aa942` · `release_ready=true` · `blockers=[]`
 

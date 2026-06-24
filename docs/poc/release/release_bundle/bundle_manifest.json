@@ -1,6 +1,8 @@
 {
   "package_id": "bgpk-a9450aa942",
-  "package_version": "1.0.0-rc",
+  "package_version": "1.8.0-rc.1",
+  "owner_declared_core_baseline": "1.7.2",
+  "previous_provisional_versions": ["1.0.0-rc", "1.0.0-rc.1"],
   "release_state": "BINGGUPACK_RELEASE_READY",
   "included_data_classes": [
     "owner_declared_public_principle",

@@ -1,14 +1,18 @@
 {
   "package_id": "bgpk-a9450aa942",
   "package_title": "BingguPack Release Package",
-  "release_version": "1.0.0-rc",
+  "release_version": "1.8.0-rc.1",
+  "version_line": "BingguPack core (owner-declared baseline v1.7.2) + this expansion = v1.8.0-rc.1",
+  "owner_declared_core_baseline": "1.7.2",
+  "previous_provisional_releases": ["1.0.0-rc", "1.0.0-rc.1"],
+  "provisional_note": "v1.0.0-rc / v1.0.0-rc.1 are version-misaligned provisional prereleases, superseded by v1.8.0-rc.1 (not deleted).",
   "release_state": "BINGGUPACK_RELEASE_READY",
   "release_date": "2026-06-24",
   "schema_version": 1,
   "components": [
-    { "name": "Layer1 Personal Ontology AGI Core", "version": "1.0.0-rc", "status": "release_ready" },
-    { "name": "Layer2 Workflow Factory", "version": "1.0.0-rc", "status": "release_ready" },
-    { "name": "Public Route Planning Add-on", "version": "1.0.0-rc", "status": "release_ready" }
+    { "name": "Layer1 Personal Ontology AGI Core", "version": "1.8.0-rc.1", "status": "release_ready" },
+    { "name": "Layer2 Workflow Factory", "version": "1.8.0-rc.1", "status": "release_ready" },
+    { "name": "Public Route Planning Add-on", "version": "1.8.0-rc.1", "status": "release_ready" }
   ],
   "products": [
     { "id": "WP-CORE", "name": "Personal Ontology Core Kit", "layer": 1 },
@@ -47,7 +51,7 @@
     "EVIDENCE_PREVIEW_ONLY"
   ],
   "next_version_candidates": {
-    "1.0.0": "GitHub release 실제 생성 후 (actual API collection은 release 필수 아님 — optional)",
-    "1.1.0": "paid marketplace listing / 결제 연동 후"
+    "1.8.0": "v1.8.0-rc.1 검증 통과 + stable queue 11개 검증 후 stable 승격 (actual API collection은 stable에서도 optional — 필수 아님)",
+    "1.9.0": "paid marketplace listing / 결제 연동 후"
   }
 }
