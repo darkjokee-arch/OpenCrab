@@ -58,6 +58,10 @@ collection_plan 작성 (plan_id)
 
 체크 실패(어느 항목이든) → `ACTUAL_API_COLLECTION_BLOCKED`, 실행 0.
 
+> ⚠️ **`READY`는 "실행 허가"가 아니다.** readiness runner의 `status=ACTUAL_API_COLLECTION_READY`는
+> "checklist 10항목 + token 형식이 준비됨"이라는 뜻이며, `execution_authorized=false`다.
+> 실제 API call은 이 판정 이후 owner가 **별도로 명시 개시**해야 시작된다. readiness 통과 자체로는 network/수집이 일어나지 않는다.
+
 ---
 
 ## 5. 안전 원칙 (불변)

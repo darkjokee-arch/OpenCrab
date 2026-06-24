@@ -54,6 +54,8 @@
     "docs/poc/release/binggupack_cloud_publish_manifest.json",
     "docs/poc/release/binggupack_cloud_publish_report.json",
     "docs/poc/release/binggupack_release_ready_status.json",
+    "docs/poc/release/binggupack_release_inventory.json",
+    "docs/poc/release/binggupack_version_manifest.json",
     "docs/poc/workflow_factory/api_collection_gate_readiness.py",
     "docs/poc/release/release_bundle/"
   ],

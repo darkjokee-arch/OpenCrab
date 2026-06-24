@@ -2,6 +2,9 @@
 
 > ⚠️ **DRAFT만.** 실제 GitHub release 생성은 owner 승인 전 금지.
 > 아래는 release 생성 시 그대로 사용할 제목/태그/본문 초안이다.
+>
+> 🔒 **owner 명시 승인 전 금지 (전부):** `git push` · `git tag` 생성/푸시 · GitHub release 생성(`gh release create` / release API) · 태그 푸시.
+> 본 문서는 텍스트 초안일 뿐이며, 어떤 명령도 실행하지 않는다.
 
 ---
 
@@ -60,4 +63,4 @@ Actual API Collection Gate / Operator Runbook / User Onboarding / Artifact Inven
 4. release bundle 첨부 여부 결정 (fork 격리 bundle은 metadata only).
 5. 생성 후 inventory의 `gates_remaining`에서 `github_release_actual_creation` 제거.
 
-> 승인 전에는 `gh release create` / release API 호출 금지.
+> 승인 전에는 `git push` / `git tag` / `gh release create` / release API 호출 **전부 금지**.

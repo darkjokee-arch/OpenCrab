@@ -71,9 +71,17 @@ def check_plan(plan, token):
         "token_ready": token_ok,
         "ready": ready,
         "status": "ACTUAL_API_COLLECTION_READY" if ready else "ACTUAL_API_COLLECTION_BLOCKED",
+        # READY = readiness checklist 통과일 뿐, 실제 수집 실행 허가가 아니다.
+        # 실 API call은 별도 실행 단계에서 owner가 명시적으로 개시해야 한다.
+        "readiness_only": True,
+        "execution_authorized": False,
         "network_performed": False,
         "actual_api_call_performed": False,
-        "note": "readiness 정적 판정만. 실 API call/network 미수행.",
+        "note": (
+            "readiness 정적 판정만. 실 API call/network 미수행. "
+            "status=READY는 '준비 완료'이지 '실행 허가'가 아니다 "
+            "(execution_authorized=false). 실제 수집은 owner가 별도로 개시."
+        ),
     }
 
 
