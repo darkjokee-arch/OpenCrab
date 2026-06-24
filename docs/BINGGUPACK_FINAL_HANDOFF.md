@@ -12,6 +12,8 @@
 >   의미: AI는 preview/dry-run/build/validate/consumer까지 가능, **실저장/write는 human actor 승인 경로에서만**(`save_candidate` actual write는 `G4_no_auto`로 AI 차단). sandbox home(`C:\Users\PC\binggupack_sandbox_home`)만 사용, 운영 `~/.binggupack` 불변.
 > ⚠️ **이전 결함→해결:** 초기 `MCP_OPERATIONAL_PARTIAL_HOME_NOT_ISOLATED`의 원인은 코드 결함이 아니라 테스트 env 이름 오류였음. 올바른 env = **`BINGGU_HOME`**(이미 `binggu_platform.binggu_home()`이 지원, 25개 모듈 공유). 해결: sandbox MCP config `env.BINGGU_HOME` 주입+재시작(owner 운영, 완료). 코드 패치 0. 상세: `BINGGUPACK_MCP_SANDBOX_HOME_FIX.md`. 상태: `MCP_SANDBOX_HOME_SUPPORTED` → 격리 실증 완료.
 
+> **MCP 설치 구조 (2026-06-24 공식화):** ⚠️ **OpenCrab clone만으로는 MCP 서버가 설치되지 않음** — `openbinggu_mcp_server.py`는 OpenCrab repo 밖(`C:\Users\PC\binggupack`). 운영 MCP 2개가 그 폴더 실행 중이라 rename/delete 금지. `claude mcp add` 후 Claude 재시작 필요. 상세 `BINGGUPACK_MCP_INSTALL_ARCHITECTURE.md` · 신규/재설치 절차 `BINGGUPACK_MCP_CLEAN_REINSTALL_RUNBOOK.md`. 상태: `MCP_INSTALL_ARCHITECTURE_CLARIFIED` · `OPENCRAB_CLONE_NOT_SUFFICIENT_FOR_MCP_NOTED` · `OPERATING_MCP_PROTECTION_RECORDED` · `CLAUDE_RESTART_REQUIRED_NOTED` · `CLEAN_REINSTALL_RUNBOOK_RECORDED`.
+
 ## BingguPack 정의
 Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 commercial·Layer2).
 사용자 온톨로지를 evidence-node-edge로 축적해 개인 AGI화. fork: darkjokee-arch/OpenCrab(upstream push 금지).

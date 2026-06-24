@@ -11,6 +11,8 @@ cd OpenCrab
 git checkout v1.8.0
 ```
 
+- ⚠️ **OpenCrab clone만으로는 BingguPack MCP 서버가 설치되지 않는다.** MCP 서버(`openbinggu_mcp_server.py`)는 OpenCrab repo **밖**의 BingguPack 본체(`C:\Users\PC\binggupack`)에 있다. 위 clone은 release/docs/adapter/workflow factory 라인용. MCP를 띄우려면 본체 서버 소스가 별도로 필요하다. 상세: `BINGGUPACK_MCP_INSTALL_ARCHITECTURE.md` · 신규/재설치 절차: `BINGGUPACK_MCP_CLEAN_REINSTALL_RUNBOOK.md`.
+- ⚠️ **`claude mcp add` 후 Claude Code 재시작 필요** — MCP 도구는 세션 시작 시 고정이라 등록 직후 같은 세션에선 도구가 안 뜬다.
 - **별도 dependency install 불필요.** BingguPack 러너는 Python **stdlib only**(`json`/`pathlib`/`re`/`sys`).
   → `pip install` / `npm install` 없이 바로 실행 가능. (OpenCrab 본체 CLI/web은 별개이며 BingguPack 신규 흐름엔 불필요.)
 - **prerequisite:** Python 3.10+ · Git. (WSL Ubuntu / macOS / Linux 공통. Windows는 Git Bash 또는 WSL 권장.)

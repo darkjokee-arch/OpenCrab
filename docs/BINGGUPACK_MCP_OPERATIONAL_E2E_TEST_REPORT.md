@@ -105,3 +105,13 @@
 
 ### 8-6. 무결성 (이번 후속)
 `G4 우회=0` · `AI 실저장 허용=0` · `actual API call=0` · `source fetch/network=0`(git push 제외) · `insane-search 외부=0` · `OpenCrab real ingest=0` · `production write=0` · `upload script=0` · `release/tag 수정=0` · `운영 ~/.binggupack write=0` · 실데이터/PII/secret 입력=0(synthetic만).
+
+## 9. Clean Reinstall 시도 → 설계결함 3개 공식화 (2026-06-24)
+
+clean reinstall E2E(완전 제거 후 신규 설치) 강행 전 read-only 실측에서 **설치 구조 결함 3개** 확인 → 강행 보류, 문서화로 전환.
+1. **OpenCrab clone ≠ MCP 설치** — `openbinggu_mcp_server.py`는 OpenCrab repo 밖(`C:\Users\PC\binggupack`)에만 존재(`opencrab\scripts\...py`=False 실측). clone+checkout v1.8.0으로는 서버 없음.
+2. **운영 MCP 폴더 잠금** — `openbinggu-local`+`openbinggu-local-sandbox` 둘 다 `C:\Users\PC\binggupack\...py` 실행 중 → 폴더 rename/delete 시 운영 MCP 파손.
+3. **재시작 경계** — MCP 도구는 세션 시작 시 고정. `claude mcp add` 후 재시작 전에는 같은 세션서 도구 미노출.
+
+상세/해소 방향: `BINGGUPACK_MCP_INSTALL_ARCHITECTURE.md` · 안전 절차: `BINGGUPACK_MCP_CLEAN_REINSTALL_RUNBOOK.md`.
+상태: `MCP_INSTALL_ARCHITECTURE_CLARIFIED` · `OPENCRAB_CLONE_NOT_SUFFICIENT_FOR_MCP_NOTED` · `OPERATING_MCP_PROTECTION_RECORDED` · `CLAUDE_RESTART_REQUIRED_NOTED` · `CLEAN_REINSTALL_RUNBOOK_RECORDED`.

@@ -12,7 +12,7 @@
 ## 2. 임시 홈 사용 원칙 (필수)
 사용자 실제 `~/.binggupack`을 절대 건드리지 않는다.
 ```bash
-export BINGGUPACK_HOME="$(mktemp -d)"
+export BINGGU_HOME="$(mktemp -d)"   # 올바른 env = BINGGU_HOME (BINGGUPACK_HOME 아님). MCP 경유 시 셸 export 미전달 → MCP config env 블록 사용 + 재시작. clone≠MCP설치: BINGGUPACK_MCP_INSTALL_ARCHITECTURE.md 참조.
 export OPENCRAB_HOME="$(mktemp -d)"
 export XDG_CACHE_HOME="$(mktemp -d)"
 ```
