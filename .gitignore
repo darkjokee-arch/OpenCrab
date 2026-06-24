@@ -51,4 +51,5 @@ builds/
 binggu_workspace/
 _binggu_ingest_poc/
 opencrab_data_backup_20260615_ingest_poc/
+_mcp_sandbox_temp/
 *.bak_*
