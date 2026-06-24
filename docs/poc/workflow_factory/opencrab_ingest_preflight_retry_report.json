@@ -3,7 +3,6 @@
   "product_id": "wfp-001",
   "decision_distribution": {
     "ADMIT_METADATA_ROUTE": 3,
-    "HOLD_MANUAL_LICENSE_ROBOTS_CHECK": 1,
     "REJECT_PLACEHOLDER": 2,
     "REJECT_CANDIDATE": 3,
     "HOLD_METADATA_ONLY": 3,

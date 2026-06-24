@@ -1,12 +1,12 @@
 {
-  "current_ingest_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
-  "admitted_source_count": 0,
+  "current_ingest_status": "OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY",
+  "admitted_source_count": 3,
   "route_candidate_preview_count": 18,
   "metadata_only_count": 3,
   "rejected_source_count": 6,
-  "retry_possible_now": false,
+  "retry_possible_now": true,
   "retry_blockers": [
-    "manual_check_results_pending"
+    "source_still_hold(3)"
   ],
   "required_owner_actions": [
     "route candidate 중 실제 public route 선택",
@@ -15,5 +15,6 @@
   ],
   "opencrab_ingest_performed": false,
   "source_fetch_performed": false,
-  "selected_for_manual_check_count": 3
+  "preflight_report_id": "ipfr-c3c355c79c",
+  "ingest_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:ipfr-c3c355c79c:BingGu"
 }

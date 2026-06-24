@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-21. Official API Manual Check Fast Apply → INGEST PARTIAL_READY → RELEASE_READY_CANDIDATE (2026-06-24)
+- selected route 3(official_public_api) manual check → **ADMIT_METADATA_ROUTE**(manual_check_mode=**static_policy_no_network**·
+  decision_basis=official_public_api_static_policy·scope=public_api_metadata_only). **실 API 호출/network/robots 웹조회 0**.
+- 절차 정상 경유: discovery_intent→route candidate 18→shortlist→auto-select→manual check(정적). admitted 3.
+- ingest preflight retry → **OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY**(admitted 3·still_hold 3 metadata_only). ingest 0.
+- **release_ready_candidate=true**·overall **BINGGUPACK_RELEASE_READY_CANDIDATE**. 잔존 ingest_final_confirmation·cloud_publish.
+- ingest final token: `OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:ipfr-c3c355c79c:<op>`.
+- 정직: static policy ADMIT은 metadata-only preflight용·실 API 호출은 ingest final confirmation 후 별도 gate.
+
 ## 11-20. Route Auto-Select for Manual Check (2026-06-24, Fast)
 - 각 discovery_intent top 1 recommended route(official_public_api 3) → **SELECT_FOR_MANUAL_CHECK** 자동선택·나머지 KEEP_HOLD.
 - **ADMIT 아님**: route_manual_check_input.json(selected 3·owner_manual_result=null·allowed ADMIT_METADATA_ROUTE/METADATA_ONLY/KEEP_HOLD/REJECT_ROUTE·license/robots/auth 확인 항목).

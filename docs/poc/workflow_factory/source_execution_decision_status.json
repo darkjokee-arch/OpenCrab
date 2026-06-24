@@ -1,24 +1,30 @@
 [
   {
     "source_id": "src-004",
-    "decision_status": "ROUTE_CANDIDATE_PREVIEW",
-    "execution_admission_now": "HOLD",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
     "route_candidate_count": 6,
-    "manual_check_performed": false
+    "manual_check_performed": false,
+    "manual_check_mode": "static_policy_no_network",
+    "allowed_collection_scope": "public_api_metadata_only"
   },
   {
     "source_id": "src-008",
-    "decision_status": "ROUTE_CANDIDATE_PREVIEW",
-    "execution_admission_now": "HOLD",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
     "route_candidate_count": 6,
-    "manual_check_performed": false
+    "manual_check_performed": false,
+    "manual_check_mode": "static_policy_no_network",
+    "allowed_collection_scope": "public_api_metadata_only"
   },
   {
     "source_id": "src-012",
-    "decision_status": "ROUTE_CANDIDATE_PREVIEW",
-    "execution_admission_now": "HOLD",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
     "route_candidate_count": 6,
-    "manual_check_performed": false
+    "manual_check_performed": false,
+    "manual_check_mode": "static_policy_no_network",
+    "allowed_collection_scope": "public_api_metadata_only"
   },
   {
     "source_id": "src-009",
