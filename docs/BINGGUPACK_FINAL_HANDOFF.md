@@ -17,6 +17,9 @@ Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 comm
 - **핵심 의미:** actual API collection은 optional backend capability이며 release requirement가 아니다.
   BingguPack은 insane-search 기반 optional evidence discovery adapter를 포함한 workflow-to-pack factory다.
   search/collection 결과는 candidate/evidence preview only. OpenCrab ingest/save/promotion/production write는 별도 owner 승인 전 금지.
+- **v1.0.0-rc.1 (docs closeout):** rc.1에 문서-only 후보 8개 반영 (`BINGGUPACK_RC1_DOCS_READY`). 실행 코드·upload·ingest 코드 0.
+  stable 후보 11개는 stable queue로 보류(`STABLE_NOT_YET`). 실행 위험 17개 격리(`RISK_ARTIFACTS_QUARANTINED`).
+  상세: `docs/BINGGUPACK_TODAY_FINAL_CLOSEOUT.md`, `docs/BINGGUPACK_NEXT_RELEASE_CANDIDATE_TRIAGE.md`.
 
 ## 어떤 파일을 보면 되는지
 - 전체 색인: `docs/BINGGUPACK_DOC_INDEX.md`

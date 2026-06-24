@@ -2,6 +2,9 @@
 
 > 2026-06-24. BingguPack v1.0.0-rc GitHub prerelease 생성 직후, 저장소에 남은
 > untracked 산출물 분류 기록. **이 문서는 분류만 한다. 삭제·실행은 하지 않는다.**
+>
+> 📎 **다음 릴리스 후보 선별:** [`docs/BINGGUPACK_NEXT_RELEASE_CANDIDATE_TRIAGE.md`](BINGGUPACK_NEXT_RELEASE_CANDIDATE_TRIAGE.md)
+> — 105개 보존 후보를 rc.1 / stable / feature branch / 로컬 보존 / 삭제 / 실행 위험으로 분류.
 
 ## 릴리스 컨텍스트
 
