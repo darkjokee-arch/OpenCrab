@@ -1,0 +1,210 @@
+{
+  "status": "source hold owner decision preview (no fetch·no admit change)",
+  "hold_count": 12,
+  "decisions": [
+    {
+      "source_id": "src-002",
+      "source_name": "네이버 지도 숙소",
+      "current_status": "HOLD",
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "owner_decision_category": "REJECT_COPYRIGHT_RISK",
+      "recommended_owner_action": "대량 수집 저작권 위험 → reject 또는 라이선스 확보",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-003",
+      "source_name": "숙소 블로그 후기",
+      "current_status": "HOLD",
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "owner_decision_category": "APPROVE_PUBLIC_METADATA_ONLY",
+      "recommended_owner_action": "PII 위험 → public metadata만 수집",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-004",
+      "source_name": "'제주 가족 호텔 추천' 검색",
+      "current_status": "HOLD",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "recommended_owner_action": "license/robots 수동 확인 후 ADMIT",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-005",
+      "source_name": "카카오맵 맛집",
+      "current_status": "HOLD",
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "owner_decision_category": "REJECT_COPYRIGHT_RISK",
+      "recommended_owner_action": "대량 수집 저작권 위험 → reject 또는 라이선스 확보",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-006",
+      "source_name": "식당 리뷰 사이트",
+      "current_status": "HOLD",
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "owner_decision_category": "REJECT_COPYRIGHT_RISK",
+      "recommended_owner_action": "대량 수집 저작권 위험 → reject 또는 라이선스 확보",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-007",
+      "source_name": "맛집 커뮤니티",
+      "current_status": "HOLD",
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "owner_decision_category": "APPROVE_PUBLIC_METADATA_ONLY",
+      "recommended_owner_action": "PII 위험 → public metadata만 수집",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-008",
+      "source_name": "'장소' 웹 검색",
+      "current_status": "HOLD",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "recommended_owner_action": "license/robots 수동 확인 후 ADMIT",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-009",
+      "source_name": "장소 임의 참고 URL",
+      "current_status": "HOLD",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "recommended_owner_action": "license/robots 수동 확인 후 ADMIT",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-010",
+      "source_name": "임의 혼잡도 블로그",
+      "current_status": "HOLD",
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "owner_decision_category": "APPROVE_PUBLIC_METADATA_ONLY",
+      "recommended_owner_action": "PII 위험 → public metadata만 수집",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-011",
+      "source_name": "로그인 필요 통계 플랫폼",
+      "current_status": "HOLD",
+      "possible_decision": "REJECT_AUTH_PAYWALL",
+      "owner_decision_category": "REJECT_AUTH_PAYWALL",
+      "recommended_owner_action": "auth/paywall → 우회 금지·reject",
+      "required_check": [
+        "license",
+        "robots",
+        "auth_boundary"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-012",
+      "source_name": "'동선' 웹 검색",
+      "current_status": "HOLD",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "recommended_owner_action": "license/robots 수동 확인 후 ADMIT",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    },
+    {
+      "source_id": "src-013",
+      "source_name": "동선 임의 참고 URL",
+      "current_status": "HOLD",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "recommended_owner_action": "license/robots 수동 확인 후 ADMIT",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "token_needed": "OWNER_APPROVES_BINGGUPACK_SOURCE_HOLD_DECISION:<YYYY-MM-DD>:<decision_plan_id>:<operator>",
+      "execution_change_performed": false,
+      "source_fetch_performed": false
+    }
+  ],
+  "owner_decision_distribution": {
+    "REJECT_COPYRIGHT_RISK": 3,
+    "APPROVE_PUBLIC_METADATA_ONLY": 3,
+    "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK": 5,
+    "REJECT_AUTH_PAYWALL": 1
+  },
+  "decision_categories": [
+    "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+    "APPROVE_PUBLIC_METADATA_ONLY",
+    "REJECT_COPYRIGHT_RISK",
+    "REJECT_AUTH_PAYWALL",
+    "KEEP_HOLD"
+  ],
+  "execution_change_performed": false,
+  "source_fetch_performed": false,
+  "network_performed": false,
+  "admission_changed": false,
+  "opencrab_ingest_performed": false,
+  "note": "owner decision package만. fetch/network 0·ADMIT 변경 0. token=decision recording preflight(즉시 실행 아님)."
+}

@@ -2,236 +2,163 @@
   <img src="logo.png" alt="OpenCrab Logo" width="260"/>
 </p>
 
-# OpenCrab
+# BingguPack
 
-**LocalCrab builds. OpenCrab SaaS distributes.**
+**BingguPack is a Personal Ontology AGI Core first, with an OpenCrab Workflow Factory
+as a secondary commercial extension.**
 
-OpenCrab is the public integration repository for the LocalCrab ontology
-factory and the OpenCrab hosted ecosystem at [opencrab.sh](https://opencrab.sh).
+빙구팩의 본체는 사용자의 온톨로지를 축적해 개인 AGI화로 가는 **Personal Ontology AGI Core**이며,
+**OpenCrab Workflow Factory**는 2차 commercial extension이다.
 
-This repository contains the local engine: MetaOntology OS grammar, MCP tools,
-CrabHarness evidence collection, local stores, promotion lifecycle, and pack
-export contracts. It does **not** contain the private implementation of the
-hosted `opencrab.sh` SaaS product.
+사용자의 대화·판단·취향·원칙·작업방식·의사결정 기준·권한 경계·반복 업무 패턴을
+`evidence — node — edge`로 축적해 사용자 온톨로지 기반 개인 지능 코어로 간다.
 
-Any sample app or API code in this repository is local/demo infrastructure for
-developer testing. It is not the production `opencrab.sh` SaaS code.
+> 상태: **BINGGUPACK_RELEASE_READY** (2026-06-24). Option 1 CI / 2 README / 3 SAVE / 4 OpenCrab ingest / Cloud publish 전부 완료.
+> 모든 실행은 owner token + fork 격리(사장님 실제 ~/.binggupack·BingguPack ledger·OpenCrab production 미변경). 외부 Cloud 실업로드·실 API data·production write 0.
 
-## What This Repo Is For
+---
 
-| Layer | Role | Lives here? |
-| --- | --- | --- |
-| LocalCrab | Local ontology factory for crawling, parsing, evidence indexing, Neo4j validation, and ZIP pack export. | Yes |
-| CrabHarness | Mission-first control plane for crawler planning, worker delegation, evidence validation, and promotion packages. | Yes |
-| MetaOntology OS | Canonical grammar, schemas, ReBAC, identity/canonicalization, promotion lifecycle, and MCP server tools. | Yes |
-| OpenCrab SaaS | Hosted ingestion, marketplace, profiles, MCP access, community, and paid/free pack circulation. | No, linked via [opencrab.sh](https://opencrab.sh) |
+## 1. 정의
 
-The intended flow:
-
-```text
-source material or crawl target
-        |
-        v
-CrabHarness mission planning
-        |
-        v
-evidence collection + OCR/CLIP indexing
-        |
-        v
-MetaOntology grammar extraction
-        |
-        v
-Neo4j/Cypher validation
-        |
-        v
-OpenCrab Pack v1 ZIP
-        |
-        v
-opencrab.sh ingest + marketplace + ecosystem distribution
+```
+BingguPack is a Personal Ontology AGI Core first,
+with an OpenCrab Workflow Factory as a secondary commercial extension.
 ```
 
-## LocalCrab and OpenCrab SaaS
+빙구팩의 본체는 Personal Ontology AGI Core(개인 온톨로지 축적·AGI화)이며,
+OpenCrab Workflow Factory는 2차 commercial extension이다.
 
-LocalCrab is quality-first. It exists to produce ontology packs with strong
-evidence coverage, traceable parsing, OCR/CLIP context, graph validation, and
-promotion receipts.
+## 2. 2-Layer 구조
 
-OpenCrab SaaS is ecosystem-first. It exists to ingest packs, make them useful
-to users and agents, distribute them through marketplace/community surfaces,
-and expose hosted MCP access.
+### Layer 1 — Personal Ontology AGI Core (본체 / 1차)
+- 사용자 대화·판단·취향·원칙·작업방식·의사결정 기준·권한 경계·반복 업무 패턴을
+  candidate ontology로 축적.
+- **evidence-first** (evidence_refs 없는 node/edge 금지).
+- **candidate 우선**, `promotion_allowed=false` 기본.
+- **SAVE는 explicit user approval** (자동 저장 없음).
 
-Read the full relationship model:
+### Layer 2 — OpenCrab Workflow Factory / Commercial Extension (2차)
+- 사용자 온톨로지와 **독립 가능**.
+- source candidate → collection plan → evidence plan → workflow product preview.
+- actual crawl / ingest / write는 **별도 gate**.
 
-- [LocalCrab and OpenCrab SaaS relationship](./docs/localcrab-opencrab-relationship.md)
-- [LocalCrab factory workflow](./docs/localcrab-factory-workflow.md)
-- [OpenCrab Pack v1 ZIP format](./docs/opencrab-pack-v1.md)
+## 3. 기존 BingguPack 기능 재사용
 
-## Quick Start
+- 기존 **classify** 재사용.
+- 기존 **SAVE n** 개념 재사용.
+- 기존 **evidence ledger read-only** 재사용.
+- 기존 **semantic / leak_guard** 재사용.
+- **새 semantic backend 없음.**
+- **새 evidence ledger 없음.**
+- **새 canonical node/edge system 없음.**
 
-### 1. Install LocalCrab
+## 4. insane-search 반영 경계
 
-```bash
-pip install -e ".[dev]"
+- insane-search는 **execution engine으로 내장하지 않음**.
+- public route planner / method catalog / metadata-first evidence route / route provenance
+  **개념만 차용**.
+- TLS impersonation, headless browser, WAF 우회성 동작, dependency auto-install,
+  login/paywall 접근, scraping execution = **disabled / HOLD**.
+
+## 5. CI 상태
+
+```
+CI status: CI_RUN_DONE_POC_EXECUTED
+ubuntu-latest:  11/11 PASS
+macos-latest:   11/11 PASS
+windows-latest: 11/11 PASS
+WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 ```
 
-### 2. Run LocalCrab
+- Linux/macOS/Windows 3-OS에서 PoC 11개가 **실제 실행**되어 전부 PASS(`run=11 passed=11 failed=0`).
+- **WSL은 PASS가 아니다.** GitHub Windows runner에 Linux 배포판이 없어 SKIP된 것이며,
+  main 3-OS runtime은 PASS, WSL은 SKIP_WITH_REASON으로 분리(non-blocking).
+- workflow: `.github/workflows/binggupack-cross-platform.yml`. 상세 `docs/BINGGUPACK_GITHUB_ACTIONS_CROSS_PLATFORM_TEST.md`.
 
-```bash
-opencrab serve
+## 6. 현재 실행 상태
+
+- preview / dry-run / productization-ready. 상태 **BINGGUPACK_FINAL_RELEASE_CANDIDATE_READY**.
+- Option 1 CI: 완료(3-OS 11/11 PASS). Option 2 README: 완료.
+- Option 3 SAVE preflight: **BLOCKED** (evidence mock_fallback — resolve evidence ledger 선행 필요).
+- Option 4 OpenCrab ingest preflight: **BLOCKED / SOURCE_HOLD** (source ADMIT 1/HOLD 12 · execution_allowed=false).
+- actual SAVE / OpenCrab ingest / production write / Cloud publish **not enabled**.
+- save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
+- **Fast Execution Mode**: 문서·스키마·러너 정리는 바로 진행하고, 실제 write/network/ingest/publish만 owner gate가 필요하다.
+  (docs/schema/runner cleanup proceeds directly; only real write/network/ingest/publish requires owner gate.)
+- **overall: BINGGUPACK_RELEASE_READY** ✅ (2026-06-24): Option 1 CI / 2 README / 3 SAVE(fork 격리) / 4 OpenCrab ingest(metadata-only·fork 격리) /
+  Cloud publish(fork 격리 release bundle·외부 실업로드 0) 전부 DONE. **release_ready=true·blockers []**.
+  단일 상태: `docs/poc/release/binggupack_release_ready_status.json`. 실 외부 Cloud 업로드는 owner 직접 영역.
+- **release_ready=false** — ingest BLOCKED + Cloud 미승인. 단일 상태:
+  `docs/poc/release/binggupack_release_ready_status.json`. blocker: evidence_capture_required ·
+  source_hold_manual_decision_required · cloud_publish_not_approved.
+- gate 한눈 결정: `docs/BINGGUPACK_GATE_DECISION_SHEET.md` + token `docs/poc/release/binggupack_owner_token_templates.json`.
+- next unlock = owner decision: evidence capture(`docs/poc/personal_ontology/evidence_capture_fast_plan.json`) +
+  source HOLD 결정(`docs/poc/workflow_factory/source_hold_fast_decision_table.json`). 상세 `docs/BINGGUPACK_FINAL_RELEASE_CANDIDATE.md`.
+
+## 7. 기본 사용 흐름
+
+사용자 관점 (Layer 1):
+```
+conversation input
+→ candidate preview
+→ Layer1/Layer2 role boundary
+→ evidence/semantic status
+→ review CLI
+→ SAVE/REJECT/HOLD decision
+→ dry-run handoff
+→ actual save only after owner approval
 ```
 
-LocalCrab runs locally by default. It uses SQLite, JSON files, and a local
-Chroma persistent store under `./opencrab_data`.
-
-### 3. Verify the grammar and query path
-
-```bash
-opencrab status
-opencrab manifest
-opencrab query "system performance and error rates"
+Workflow Factory 관점 (Layer 2):
+```
+user goal
+→ required workflow
+→ required packs/data
+→ source candidates
+→ collection route plan
+→ evidence plan
+→ workflow product preview
+→ OpenCrab ingest only after owner approval
 ```
 
-### 4. Add LocalCrab as an MCP server
+## 8. Owner approval tokens (형식)
 
-```bash
-claude mcp add opencrab -- opencrab serve
+> 형식만 문서화한다. 실제 token은 README에 넣지 않는다.
+
+```
+CI run:              OWNER_APPROVES_BINGGUPACK_CI_RUN:<YYYY-MM-DD>:<operator>
+README apply:        OWNER_APPROVES_BINGGUPACK_README_APPLY:<YYYY-MM-DD>:<operator>
+SAVE gate real run:  OWNER_APPROVES_BINGGUPACK_SAVE_GATE_REAL_RUN:<YYYY-MM-DD>:<save_plan_id>:<operator>
+OpenCrab ingest:     OWNER_APPROVES_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:<YYYY-MM-DD>:<product_id>:<operator>
 ```
 
-Or add it manually:
+token이 형식 유효해도 즉시 실행하지 않는다: **token → preflight → final confirmation**
+(`docs/BINGGUPACK_APPROVAL_STATE_MACHINE.md`).
 
-```json
-{
-  "mcpServers": {
-    "opencrab": {
-      "command": "opencrab",
-      "args": ["serve"]
-    }
-  }
-}
-```
+## 9. Safety / boundary
 
-## CrabHarness
+- evidence-first.
+- candidate-only before SAVE.
+- no automatic promotion.
+- no auto-save.
+- no private data deletion.
+- no production write without owner approval.
+- semantic은 helper (save/promotion/evidence authority 없음).
 
-[`crabharness/`](./crabharness/) is the mission-first control plane for
-evidence collection. It plans what to crawl, delegates heavy work to plugin
-workers, validates the collected bundle, and emits OpenCrab-ready promotion
-packages.
+---
 
-Core responsibilities:
+## 더 보기
 
-- Decide crawl target, scope, depth, volume, rate limits, and success criteria.
-- Store every collected page, document, file, image, and log as evidence.
-- Preserve hashes, source URLs or paths, crawl timestamps, parser status, and
-  missing-context candidates.
-- Promote only after completeness, semantic relevance, and autoresearch gates
-  pass.
+- `docs/BINGGUPACK_DOC_INDEX.md` — 전체 문서/PoC/schema 색인
+- `docs/BINGGUPACK_USER_GUIDE_FINAL.md` — 사용 설명서
+- `docs/BINGGUPACK_FINAL_GOAL_MODE_STATUS.md` — 전체 status
+- `docs/BINGGUPACK_LAYER_BOUNDARY_FINAL.md` — Layer1/Layer2 분리 기준
 
-See the [CrabHarness README](./crabharness/README.md).
+## Upstream OpenCrab
 
-## MetaOntology OS
-
-LocalCrab keeps the existing MetaOntology OS grammar and MCP surface as the
-canonical ontology contract.
-
-### 9 Spaces
-
-| Space | Role |
-| --- | --- |
-| subject | Actors with identity, agency, roles, and permissions. |
-| resource | Documents, datasets, tools, APIs, files, and projects. |
-| evidence | Raw observations, logs, text units, parser/OCR outputs, and empirical records. |
-| concept | Entities, concepts, topics, classes, and domain abstractions. |
-| claim | Derived assertions grounded by evidence. |
-| community | Clusters and summaries of related concepts or actors. |
-| outcome | KPIs, risks, impacts, and measurable results. |
-| lever | Tunable controls that affect outcomes or concepts. |
-| policy | Access, sensitivity, approval, and governance rules. |
-
-### Core MCP Tools
-
-- `ontology_manifest`: return the full grammar.
-- `ontology_add_node`: add or update a grammar-validated node.
-- `ontology_add_edge`: add a grammar-validated edge.
-- `ontology_query`: hybrid vector + BM25 + graph query.
-- `ontology_impact`: I1-I7 impact analysis.
-- `ontology_rebac_check`: relationship-based access check.
-- `ontology_ingest`: ingest text into the local ontology stores.
-- `harness_promotion_apply`: apply a CrabHarness promotion package.
-
-## OpenCrab Pack v1
-
-LocalCrab exports ontology deliveries as an OpenCrab Pack v1 ZIP. The pack is
-designed to be recognized by OpenCrab SaaS while remaining reproducible in a
-local Neo4j environment.
-
-Required high-level layout:
-
-```text
-manifest.json
-graph/nodes.jsonl
-graph/edges.jsonl
-evidence/index.jsonl
-quality/report.json
-neo4j/import.cypher
-neo4j/opencrab_ingest.jsonl
-neo4j/export_status.json
-README.md
-sample_queries.json
-community_reports.json
-```
-
-The packaging pipeline is:
-
-```text
-validate -> Neo4j import/check -> Neo4j graph export -> normalized SaaS export -> ZIP package
-```
-
-See [OpenCrab Pack v1 ZIP format](./docs/opencrab-pack-v1.md).
-
-## Development
-
-```bash
-make dev-install
-make seed
-make test
-make status
-```
-
-Run integration tests:
-
-```bash
-OPENCRAB_INTEGRATION=1 pytest tests/ -v
-```
-
-## Project Structure
-
-```text
-opencrab/
-  grammar/        MetaOntology grammar, validator, glossary
-  schemas/        YAML type schemas, schema packs, action schemas
-  ontology/       builder, query, identity, canonicalization, promotion, ReBAC
-  execution/      workflow and approval runtime
-  billing/        local usage hooks
-  stores/         Neo4j, Chroma, Mongo, SQL, and local adapters
-  mcp/            MCP server and tool registry
-crabharness/
-  crabharness/    mission planner, runtime, validation, promotion package builder
-  codex_workers/  plugin workers for crawlers and collectors
-  missions/       example missions
-docs/             public integration and pack delivery contracts
-```
-
-## Korean Summary
-
-이 리포지토리는 LocalCrab과 OpenCrab SaaS를 하나의 제품처럼 설명하는 공개 통합
-리포지토리입니다. LocalCrab은 온톨로지 공장입니다. 크롤링, 파싱, OCR, CLIP
-이미지 컨텍스트, evidence 풀 인덱싱, Neo4j 검증, ZIP 팩 생성을 담당합니다.
-
-OpenCrab SaaS는 [opencrab.sh](https://opencrab.sh)의 생태계 허브입니다. 완성된
-팩을 인제스트하고, 마켓플레이스와 커뮤니티에서 배포하며, hosted MCP 접근을
-제공합니다. 단, `opencrab.sh`의 내부 SaaS 코드는 이 공개 리포지토리에 포함하지
-않습니다.
+이 저장소는 OpenCrab의 fork이다. OpenCrab(LocalCrab / CrabHarness / MetaOntology OS) 원본 README는
+`docs/UPSTREAM_OPENCRAB_README.md`에 보존돼 있다. 호스티드 제품은 [opencrab.sh](https://opencrab.sh).
 
 ## License
 
-MIT.
+See `docs/UPSTREAM_OPENCRAB_README.md` (upstream OpenCrab license terms).

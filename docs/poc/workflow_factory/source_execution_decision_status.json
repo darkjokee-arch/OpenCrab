@@ -1,0 +1,81 @@
+[
+  {
+    "source_id": "src-004",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
+    "route_candidate_count": 6,
+    "manual_check_performed": false,
+    "manual_check_mode": "static_policy_no_network",
+    "allowed_collection_scope": "public_api_metadata_only"
+  },
+  {
+    "source_id": "src-008",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
+    "route_candidate_count": 6,
+    "manual_check_performed": false,
+    "manual_check_mode": "static_policy_no_network",
+    "allowed_collection_scope": "public_api_metadata_only"
+  },
+  {
+    "source_id": "src-012",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
+    "route_candidate_count": 6,
+    "manual_check_performed": false,
+    "manual_check_mode": "static_policy_no_network",
+    "allowed_collection_scope": "public_api_metadata_only"
+  },
+  {
+    "source_id": "src-009",
+    "decision_status": "REJECT_PLACEHOLDER",
+    "execution_admission_now": "REJECT"
+  },
+  {
+    "source_id": "src-013",
+    "decision_status": "REJECT_PLACEHOLDER",
+    "execution_admission_now": "REJECT"
+  },
+  {
+    "source_id": "src-002",
+    "decision_status": "REJECT_CANDIDATE",
+    "execution_admission_now": "HOLD",
+    "metadata_only_candidate": false
+  },
+  {
+    "source_id": "src-003",
+    "decision_status": "HOLD_METADATA_ONLY",
+    "execution_admission_now": "HOLD",
+    "metadata_only_candidate": true
+  },
+  {
+    "source_id": "src-005",
+    "decision_status": "REJECT_CANDIDATE",
+    "execution_admission_now": "HOLD",
+    "metadata_only_candidate": false
+  },
+  {
+    "source_id": "src-006",
+    "decision_status": "REJECT_CANDIDATE",
+    "execution_admission_now": "HOLD",
+    "metadata_only_candidate": false
+  },
+  {
+    "source_id": "src-007",
+    "decision_status": "HOLD_METADATA_ONLY",
+    "execution_admission_now": "HOLD",
+    "metadata_only_candidate": true
+  },
+  {
+    "source_id": "src-010",
+    "decision_status": "HOLD_METADATA_ONLY",
+    "execution_admission_now": "HOLD",
+    "metadata_only_candidate": true
+  },
+  {
+    "source_id": "src-011",
+    "decision_status": "TERMINAL_REJECT",
+    "execution_admission_now": "HOLD",
+    "metadata_only_candidate": false
+  }
+]

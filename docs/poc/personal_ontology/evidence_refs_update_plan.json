@@ -1,0 +1,11 @@
+{
+  "refs_update": {
+    "c0": [
+      "OEV-31d167ba4a"
+    ],
+    "c2": [
+      "OEV-916b9e285f"
+    ]
+  },
+  "note": "candidate.evidence_refs를 owner-declared evidence_id로 연결할 plan. canonical 미수정."
+}

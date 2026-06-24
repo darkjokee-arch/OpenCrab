@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://binggupack/schemas/personal_ontology_save_plan.schema.json",
+  "title": "PersonalOntologySavePlan",
+  "description": "SAVE 승인된 candidate의 저장 계획 미리보기(preview). 실제 저장/ingest/promotion 미실행. 모든 실행 플래그 false 강제.",
+  "type": "object",
+  "required": [
+    "save_plan_id", "source_capture_report_id",
+    "approved_node_ids", "approved_edge_ids", "rejected_item_ids",
+    "held_item_ids", "needs_more_evidence_item_ids", "blocked_item_ids",
+    "execution_allowed", "actual_write_performed", "promotion_performed",
+    "opencrab_ingest_performed", "memory_write_performed",
+    "evidence_refs", "created_by", "reason"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "save_plan_id": {"type": "string"},
+    "source_capture_report_id": {"type": "string"},
+    "approved_node_ids": {"type": "array", "items": {"type": "string"}},
+    "approved_edge_ids": {"type": "array", "items": {"type": "string"}},
+    "rejected_item_ids": {"type": "array", "items": {"type": "string"}},
+    "held_item_ids": {"type": "array", "items": {"type": "string"}},
+    "needs_more_evidence_item_ids": {"type": "array", "items": {"type": "string"}},
+    "blocked_item_ids": {"type": "array", "items": {"type": "string"}},
+    "execution_allowed": {"const": false},
+    "actual_write_performed": {"const": false},
+    "promotion_performed": {"const": false},
+    "opencrab_ingest_performed": {"const": false},
+    "memory_write_performed": {"const": false},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "created_by": {"type": "string"},
+    "reason": {"type": "string"}
+  }
+}

@@ -1,0 +1,47 @@
+# PoC — Pack Action Contract (review-only, NOT wired to execution).
+# Source: docs/OPENCRAB_PACK_ACTION_CONTRACT.md §5 (travel_pack).
+action: pack_travel
+version: "1.0"
+description: >-
+  Travel pack — representative action (build_trip_plan). Preview-only:
+  drafts itinerary/route/lodging/budget from public/official fact data only.
+pack_id: travel_pack
+preview_only: true
+requires_human_review: true
+promotion_allowed: false
+execution_mode: preview_only
+allowed_write_scopes: []
+risk_level: low
+required_evidence_refs:
+  - "evidence:place:*"
+  - "evidence:route:*"
+parameters:
+  region:
+    type: string
+    required: true
+    description: Target region (e.g. jeju).
+  days:
+    type: string
+    required: true
+    description: Number of trip days.
+  party:
+    type: string
+    required: false
+    description: Party composition (adults/children).
+  budget:
+    type: string
+    required: false
+    description: Budget ceiling.
+pack_actions:
+  - action_id: build_trip_plan
+    purpose: 일정·동선·숙소·예산 초안
+    risk_level: low
+    required_evidence_refs: ["evidence:place:*", "evidence:route:*"]
+  - action_id: check_crowding
+    purpose: 시점별 혼잡도(typical vs current 분리)
+    risk_level: low
+    required_evidence_refs: ["evidence:crowd:*"]
+  - action_id: recommend_route
+    purpose: 좌표 기반 최적 동선
+    risk_level: low
+    required_evidence_refs: ["evidence:place:*:coord"]

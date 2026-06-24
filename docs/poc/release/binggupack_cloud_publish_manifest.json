@@ -1,0 +1,58 @@
+{
+  "package_id": "bgpk-a9450aa942",
+  "package_title": "BingguPack Release Package",
+  "package_version": "1.8.0-rc.1",
+  "owner_declared_core_baseline": "1.7.2",
+  "previous_provisional_versions": ["1.0.0-rc", "1.0.0-rc.1"],
+  "release_state": "BINGGUPACK_RELEASE_READY",
+  "included_files": [
+    "README.md",
+    "canonical docs",
+    "final status/quickstart/risk register/release candidate",
+    "CI status docs",
+    "schema/profile",
+    "route planner schema/catalog",
+    "source route planner metadata",
+    "workflow product preview metadata",
+    "fork-isolated SAVE result metadata",
+    "fork-isolated OpenCrab ingest metadata",
+    "audit/rollback reference metadata",
+    "owner-declared public principle evidence metadata"
+  ],
+  "excluded_files": [
+    "private data",
+    "personal secret",
+    "raw private evidence",
+    "actual source content",
+    "API response body",
+    "commercial/review scraped content",
+    "production OpenCrab store",
+    "confirmed promotion data",
+    "source fetch output",
+    "auth/paywall content"
+  ],
+  "included_data_classes": [
+    "owner_declared_public_principle",
+    "metadata",
+    "route_descriptor",
+    "audit_reference"
+  ],
+  "excluded_data_classes": [
+    "private",
+    "secret",
+    "raw_private_evidence",
+    "actual_source_content",
+    "api_response_body",
+    "commercial_scraped",
+    "production_store"
+  ],
+  "ci_status": "CI_RUN_DONE_POC_EXECUTED",
+  "readme_status": "APPLIED",
+  "save_status": "SAVE_REAL_RUN_DONE",
+  "ingest_status": "OPENCRAB_INGEST_REAL_RUN_DONE",
+  "publish_allowed": true,
+  "cloud_is_source_of_truth": false,
+  "private_data_included": false,
+  "production_write_included": false,
+  "owner_token_required": true
+}

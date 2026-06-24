@@ -1,0 +1,19 @@
+{
+  "_doc": "insane-search 개념 차용 route 예시(실행엔진 아님·public route planning만). 실제 fetch/browser/TLS impersonation 0.",
+  "routes": [
+    {"target": "공공 관광 API", "url": "https://apis.data.go.kr/B551011/KorService",
+     "method_family": "official_api", "auth": "none"},
+    {"target": "RSS 피드", "url": "https://example.com/feed.xml",
+     "method_family": "rss_atom", "auth": "none"},
+    {"target": "OGP/JSON-LD 메타", "url": "https://example.com/place/123",
+     "method_family": "ogp_jsonld_metadata", "auth": "none"},
+    {"target": "모바일 json endpoint", "url": "https://m.example.com/api/list.json",
+     "method_family": "mobile_json", "auth": "none"},
+    {"target": "정적 HTML 본문", "url": "https://blog.example.com/post",
+     "method_family": "public_html_static", "auth": "none"},
+    {"target": "로그인 필요 통계", "url": "https://stats.example.com/login",
+     "method_family": "browser_render", "auth": "login_required"},
+    {"target": "paywall 기사", "url": "https://news.example.com/premium",
+     "method_family": "public_html_static", "auth": "paywall_required"}
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "package_id": "bgpk-a9450aa942",
+  "release_state": "BINGGUPACK_RELEASE_READY",
+  "release_version": "1.8.0",
+  "previous_rc": "1.8.0-rc.1",
+  "owner_declared_core_baseline": "1.7.2",
+  "previous_provisional_releases": ["1.0.0-rc", "1.0.0-rc.1"],
+  "provisional_note": "v1.0.0-rc / v1.0.0-rc.1 are version-misaligned provisional prereleases, superseded (not deleted). v1.8.0-rc.1 is previous RC, superseded by v1.8.0 stable. github_release below records the provisional v1.0.0-rc tag.",
+  "release_date": "2026-06-24",
+  "release_ready": true,
+  "blockers": [],
+  "github_release": {
+    "created": true,
+    "tag": "v1.0.0-rc",
+    "target_commit": "810007f",
+    "prerelease": true,
+    "url": "https://github.com/darkjokee-arch/OpenCrab/releases/tag/v1.0.0-rc",
+    "created_at": "2026-06-24"
+  },
+  "layers": {
+    "layer1": "Personal Ontology AGI Core",
+    "layer2": "OpenCrab Workflow Factory / Commercial Extension"
+  },
+  "stages_done": {
+    "ci": "CI_RUN_DONE_POC_EXECUTED",
+    "readme": "APPLIED",
+    "save": "SAVE_REAL_RUN_DONE",
+    "opencrab_ingest": "OPENCRAB_INGEST_REAL_RUN_DONE",
+    "cloud_publish": "CLOUD_PUBLISH_DONE",
+    "github_release": "GITHUB_RELEASE_CREATED"
+  },
+  "identifiers": {
+    "save_plan_id": "splan-40b1b7246a73",
+    "save_preflight_report_id": "spfr-8d68c22f87",
+    "saved_candidates": ["c0", "c2"],
+    "ingest_product_id": "wfp-001",
+    "ingest_preflight_report_id": "ipfr-c3c355c79c",
+    "ingested_product_count": 1,
+    "admitted_source_count": 3,
+    "skipped_source_count": 9
+  },
+  "ci": {
+    "matrix": ["ubuntu-latest", "macos-latest", "windows-latest"],
+    "poc_total": 11,
+    "poc_passed": 11,
+    "wsl": "SKIP_WITH_REASON(no_distribution_installed)"
+  },
+  "included_docs": [
+    "README.md",
+    "docs/BINGGUPACK_RELEASE_NOTES_v1.md",
+    "docs/BINGGUPACK_CHANGELOG.md",
+    "docs/BINGGUPACK_PRODUCTIZATION_PACKAGE.md",
+    "docs/BINGGUPACK_WORKFLOW_PRODUCT_CATALOG.md",
+    "docs/BINGGUPACK_PRICING_AND_PACKAGING_DRAFT.md",
+    "docs/BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md",
+    "docs/BINGGUPACK_COLLECTION_READINESS_GATE.md",
+    "docs/BINGGUPACK_OPERATOR_RUNBOOK.md",
+    "docs/BINGGUPACK_USER_ONBOARDING_GUIDE.md",
+    "docs/BINGGUPACK_RELEASE_ARTIFACT_INVENTORY.md",
+    "docs/BINGGUPACK_GITHUB_RELEASE_DRAFT.md"
+  ],
+  "included_schemas": [
+    "collection_route_candidate schema",
+    "route planner catalog/method_family catalog",
+    "workflow product preview metadata schema"
+  ],
+  "included_poc": [
+    "docs/poc/release/binggupack_cloud_publish_manifest.json",
+    "docs/poc/release/binggupack_cloud_publish_report.json",
+    "docs/poc/release/binggupack_release_ready_status.json",
+    "docs/poc/release/binggupack_release_inventory.json",
+    "docs/poc/release/binggupack_version_manifest.json",
+    "docs/poc/workflow_factory/collection_readiness_gate.py",
+    "docs/poc/release/release_bundle/"
+  ],
+  "excluded_data": [
+    "actual_api_data",
+    "actual_source_content",
+    "commercial_scraped_content",
+    "private_data",
+    "production_opencrab_store",
+    "confirmed_promotion_data",
+    "external_cloud_source_of_truth"
+  ],
+  "release_requires_actual_api_collection": false,
+  "fixed_api_collection_required": false,
+  "api_collection_status": "INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED",
+  "api_collection_nature": "optional insane-search 기반 search/discovery adapter. pack·workflow·product가 live external data를 필요로 할 때만 사용. v1 release는 이것 없이도 가능. 결과는 candidate/evidence preview only이며 ingest/save/promotion/production write는 별도 승인 전 금지.",
+  "collection_adapter_doc": "docs/BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md",
+  "collection_readiness_gate_doc": "docs/BINGGUPACK_COLLECTION_READINESS_GATE.md",
+  "optional_capability_gates": [
+    "actual_api_data_collection",
+    "external_cloud_upload",
+    "paid_marketplace_listing",
+    "private_customer_data_ingestion"
+  ],
+  "completed_optional_capability_gates": [
+    "github_release_actual_creation"
+  ],
+  "protected_action_gates": [
+    "production_write",
+    "confirmed_promotion"
+  ],
+  "owner_approval_required_for_release": false,
+  "owner_approval_required_for_optional_capabilities": true,
+  "release_state_detail": [
+    "BINGGUPACK_RELEASE_READY",
+    "INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED",
+    "API_COLLECTION_NOT_FIXED",
+    "SEARCH_COLLECTION_OPTIONAL",
+    "EVIDENCE_PREVIEW_ONLY",
+    "RELEASE_DRAFT_UPDATED",
+    "PUSH_SYNCED",
+    "GITHUB_RELEASE_CREATED"
+  ],
+  "integrity": {
+    "owner_binggupack_home_modified": false,
+    "existing_ledger_modified": false,
+    "opencrab_production_modified": false,
+    "production_write": 0,
+    "confirmed_promotion": 0,
+    "actual_external_upload_performed": false,
+    "network_performed": false
+  }
+}

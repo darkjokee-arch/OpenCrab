@@ -1,0 +1,102 @@
+[
+  {
+    "source_id": "src-004",
+    "source_url": "search:제주 가족 호텔 추천",
+    "license_checked": "not_applicable",
+    "robots_checked": "not_applicable",
+    "auth_paywall_checked": "none",
+    "owner_decision": "KEEP_HOLD",
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ],
+    "decision_reason": "search query·구체 source URL 미정·public route 미확정",
+    "public_metadata_route_available": false,
+    "allowed_collection_scope": "undecided",
+    "notes": "정적 판정(fixture placeholder/search query)·실 URL fetch 0·network 0",
+    "manual_check_performed": true,
+    "source_fetch_performed": false
+  },
+  {
+    "source_id": "src-008",
+    "source_url": "search:장소",
+    "license_checked": "not_applicable",
+    "robots_checked": "not_applicable",
+    "auth_paywall_checked": "none",
+    "owner_decision": "KEEP_HOLD",
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ],
+    "decision_reason": "search query·구체 source URL 미정",
+    "public_metadata_route_available": false,
+    "allowed_collection_scope": "undecided",
+    "notes": "정적 판정(fixture placeholder/search query)·실 URL fetch 0·network 0",
+    "manual_check_performed": true,
+    "source_fetch_performed": false
+  },
+  {
+    "source_id": "src-009",
+    "source_url": "https://www.example.com/unknown",
+    "license_checked": "not_applicable",
+    "robots_checked": "not_applicable",
+    "auth_paywall_checked": "none",
+    "owner_decision": "REJECT_SOURCE",
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ],
+    "decision_reason": "example.com 예약 예시 도메인·실 콘텐츠 source 아님(placeholder)",
+    "public_metadata_route_available": false,
+    "allowed_collection_scope": "none",
+    "notes": "정적 판정(fixture placeholder/search query)·실 URL fetch 0·network 0",
+    "manual_check_performed": true,
+    "source_fetch_performed": false
+  },
+  {
+    "source_id": "src-012",
+    "source_url": "search:동선",
+    "license_checked": "not_applicable",
+    "robots_checked": "not_applicable",
+    "auth_paywall_checked": "none",
+    "owner_decision": "KEEP_HOLD",
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ],
+    "decision_reason": "search query·구체 source URL 미정",
+    "public_metadata_route_available": false,
+    "allowed_collection_scope": "undecided",
+    "notes": "정적 판정(fixture placeholder/search query)·실 URL fetch 0·network 0",
+    "manual_check_performed": true,
+    "source_fetch_performed": false
+  },
+  {
+    "source_id": "src-013",
+    "source_url": "https://www.example.com/unknown",
+    "license_checked": "not_applicable",
+    "robots_checked": "not_applicable",
+    "auth_paywall_checked": "none",
+    "owner_decision": "REJECT_SOURCE",
+    "allowed_values": [
+      "ADMIT_AFTER_MANUAL_CHECK",
+      "METADATA_ONLY",
+      "KEEP_HOLD",
+      "REJECT_SOURCE"
+    ],
+    "decision_reason": "example.com 예약 예시 도메인·실 콘텐츠 source 아님(placeholder)",
+    "public_metadata_route_available": false,
+    "allowed_collection_scope": "none",
+    "notes": "정적 판정(fixture placeholder/search query)·실 URL fetch 0·network 0",
+    "manual_check_performed": true,
+    "source_fetch_performed": false
+  }
+]

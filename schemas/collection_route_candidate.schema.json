@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://binggupack/schemas/collection_route_candidate.schema.json",
+  "title": "CollectionRouteCandidate",
+  "description": "BingguPack Layer2 자동수집 route 후보(insane-search 개념 차용·실행엔진 아님). Phase 0→3 route selection/method_family/metadata-first/No-Site-Name/route provenance만. 실제 fetch/crawl/browser/TLS/dep-install/ingest 0. collection_performed/ingest_performed/promotion_allowed const false·candidate const true.",
+  "type": "object",
+  "required": [
+    "route_id", "source_id", "method_family", "route_phase", "extraction_type",
+    "public_route_priority", "auth_required", "paywall_detected", "login_required",
+    "browser_required", "metadata_first", "no_site_name_rule_compliant",
+    "route_provenance", "execution_admission",
+    "collection_performed", "ingest_performed", "candidate", "promotion_allowed"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "route_id": {"type": "string"},
+    "source_id": {"type": ["string", "null"]},
+    "source_url": {"type": ["string", "null"], "description": "임의 URL 허용(discovery freedom)"},
+    "platform_hint": {"type": ["string", "null"], "description": "입력 hint일 뿐·core 분기 아님(No-Site-Name)"},
+    "method_family": {
+      "type": "string",
+      "enum": ["official_public_api", "rss", "atom", "public_json", "ogp", "json_ld",
+               "schema_org", "registry_api", "media_metadata", "archive_cache",
+               "public_reader", "browser_required_hold", "auth_required_terminal", "paywall_terminal"],
+      "description": "No-Site-Name Rule: 사이트명/selector/domain 하드코딩 금지·method_family 추상화"
+    },
+    "route_phase": {
+      "type": "string",
+      "enum": ["phase0_public_endpoint", "phase1_lightweight_metadata", "phase2_public_route_candidate",
+               "phase3_browser_required_hold", "terminal_auth_required", "terminal_paywall"],
+      "description": "Phase 0 public endpoint/API/RSS → Phase3 browser HOLD → terminal auth/paywall"
+    },
+    "extraction_type": {
+      "type": "string",
+      "enum": ["structured_api", "feed", "metadata", "static_text", "rendered_dom", "blocked"]
+    },
+    "public_route_priority": {"type": "integer", "minimum": 1, "maximum": 9,
+                              "description": "1=public API/registry 최우선 … 9=terminal"},
+    "auth_required": {"type": "boolean"},
+    "paywall_detected": {"type": "boolean"},
+    "login_required": {"type": "boolean"},
+    "browser_required": {"type": "boolean", "description": "true면 execution HOLD"},
+    "metadata_first": {"type": "boolean", "description": "OGP/JSON-LD/Schema.org/metadata 우선"},
+    "no_site_name_rule_compliant": {"type": "boolean", "description": "site selector/domain 하드코딩 0이면 true"},
+    "route_provenance": {
+      "type": "object",
+      "description": "route 출처 추적(method_family·phase·inferred_from)",
+      "additionalProperties": true
+    },
+    "execution_admission": {
+      "type": "string",
+      "enum": ["ADMIT", "HOLD", "REJECT"],
+      "description": "browser_required→HOLD·auth/paywall→REJECT(우회 금지). 실제 실행은 전역 HOLD"
+    },
+    "collection_performed": {"const": false},
+    "ingest_performed": {"const": false},
+    "candidate": {"const": true},
+    "promotion_allowed": {"const": false},
+    "reason": {"type": "string"}
+  }
+}

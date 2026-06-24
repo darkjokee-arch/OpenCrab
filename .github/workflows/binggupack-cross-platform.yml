@@ -1,0 +1,104 @@
+name: BingguPack Cross Platform Runtime
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "docs/**"
+      - "schemas/**"
+      - ".github/workflows/binggupack-cross-platform.yml"
+      - "README.md"
+
+permissions:
+  contents: read
+
+jobs:
+  runtime:
+    name: ${{ matrix.os }} / py3.11
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    env:
+      BINGGUPACK_ROOT: ${{ github.workspace }}
+      OPENCRAB_ROOT: ${{ github.workspace }}
+      BINGGUPACK_CI_MODE: "1"
+      BINGGUPACK_NO_NETWORK: "1"
+      BINGGUPACK_PREVIEW_ONLY: "1"
+      PYTHONUTF8: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      # Linux/macOS/Windows actual runtime smoke (stdlib only·network 0·write 0)
+      - name: Cross-platform runtime smoke
+        run: python docs/poc/backtest/binggupack_ci_cross_platform_smoke.py
+
+      # Windows runner: WSL optional subcheck
+      - name: Check WSL availability (Windows only)
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          # WSL "기능 enabled"(wsl --status)와 "Linux 배포판 설치됨"은 다름.
+          # GitHub windows runner는 WSL 기능은 있으나 배포판이 없어 wsl bash/wslpath가 실패함.
+          # 실제 가용성 = 설치된 배포판 존재 여부로 판정 → 없으면 SKIP_WITH_REASON(FAIL 아님).
+          $distros = (wsl -l -q 2>$null | Out-String) -replace "`0",""
+          $distros = $distros.Trim()
+          if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($distros)) {
+            echo "WSL_AVAILABLE=false" >> $env:GITHUB_ENV
+            echo "WSL_REASON=no_distribution_installed" >> $env:GITHUB_ENV
+            Write-Host "WSL 기능은 있으나 Linux 배포판 미설치 -> SKIP_WITH_REASON(no_distribution_installed)"
+          } else {
+            echo "WSL_AVAILABLE=true" >> $env:GITHUB_ENV
+            Write-Host "WSL distributions: $distros"
+          }
+        continue-on-error: true
+
+      - name: WSL subcheck skipped (no distribution)
+        if: runner.os == 'Windows' && env.WSL_AVAILABLE != 'true'
+        shell: pwsh
+        run: Write-Host "WSL_RESULT=SKIP_WITH_REASON (reason=$env:WSL_REASON). main 3-OS matrix와 분리·non-blocking."
+
+      - name: Run BingguPack smoke inside WSL (optional)
+        if: runner.os == 'Windows' && env.WSL_AVAILABLE == 'true'
+        shell: pwsh
+        run: |
+          $workspace = $env:GITHUB_WORKSPACE
+          # 1) wsl wslpath -a 로 변환 시도 (PowerShell에서 wsl 직접 호출, 따옴표 중첩 회피)
+          $wslPath = (wsl wslpath -a "$workspace" 2>$null | Out-String).Trim()
+          if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace($wslPath)) {
+            Write-Host "wslpath failed; trying manual /mnt conversion"
+            # 2) /mnt/<drive>/<path> 수동 변환 fallback
+            $drive = $workspace.Substring(0,1).ToLower()
+            $rest = $workspace.Substring(2).Replace('\','/')
+            $wslPath = "/mnt/$drive$rest"
+          }
+          Write-Host "WSL workspace path: $wslPath"
+          wsl bash -lc "python3 --version && cd '$wslPath' && BINGGUPACK_ROOT=. python3 docs/poc/backtest/binggupack_ci_cross_platform_smoke.py"
+          if ($LASTEXITCODE -ne 0) {
+            # 3) path 변환·실행 실패 → non-blocking FAIL (main 3-OS와 분리)
+            Write-Host "WSL_RESULT=FAIL (wsl run failed, non-blocking; main 3-OS matrix와 분리)"
+          } else {
+            Write-Host "WSL_RESULT=PASS"
+          }
+        continue-on-error: true
+
+      - name: Upload smoke report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: binggupack-ci-smoke-${{ matrix.os }}
+          path: docs/poc/backtest/binggupack_ci_cross_platform_smoke_report.json
+          if-no-files-found: warn
+
+  summary:
+    name: Cross-Platform Summary
+    needs: runtime
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Linux/macOS/Windows actual runtime smoke 완료. WSL은 Windows runner optional subcheck."

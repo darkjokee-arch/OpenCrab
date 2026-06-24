@@ -1,0 +1,27 @@
+{
+  "status": "release unlock preview (not executed)",
+  "current_release_ready": false,
+  "evidence_capture_decision_status": "TOKEN_MISSING",
+  "source_hold_decision_status": "TOKEN_MISSING",
+  "option3_unlock_possible_after_final_confirmation": false,
+  "option4_unlock_possible_after_final_confirmation": false,
+  "cloud_publish_still_blocked": true,
+  "remaining_blockers": [
+    "evidence_capture_decision(TOKEN_MISSING)",
+    "evidence_capture_write_final_confirmation",
+    "evidence_resolved + SAVE preflight retry",
+    "source_hold_decision(TOKEN_MISSING)",
+    "source_decision_apply_final_confirmation",
+    "source ADMIT + ingest preflight retry",
+    "cloud_publish_approval"
+  ],
+  "next_required_final_confirmations": [
+    "OWNER_FINAL_CONFIRMS_BINGGUPACK_EVIDENCE_CAPTURE_WRITE:<date>:<capture_plan_id>:<preview_report_id>:<operator>",
+    "OWNER_FINAL_CONFIRMS_BINGGUPACK_SOURCE_HOLD_DECISION_APPLY:<date>:<decision_plan_id>:<preview_report_id>:<operator>"
+  ],
+  "actual_write_performed": false,
+  "save_gate_called": false,
+  "opencrab_ingest_performed": false,
+  "production_write_performed": false,
+  "cloud_publish_performed": false
+}

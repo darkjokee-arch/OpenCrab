@@ -1,0 +1,184 @@
+[
+  {
+    "discovery_intent_id": "src-004",
+    "source_value": "search:제주 가족 호텔 추천",
+    "source_kind": "discovery_intent",
+    "fixed_source_url": null,
+    "should_not_collapse_to_single_api": true,
+    "route_candidates": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW"
+      }
+    ],
+    "route_candidate_count": 6,
+    "source_fetch_performed": false,
+    "network_performed": false
+  },
+  {
+    "discovery_intent_id": "src-008",
+    "source_value": "search:장소",
+    "source_kind": "discovery_intent",
+    "fixed_source_url": null,
+    "should_not_collapse_to_single_api": true,
+    "route_candidates": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW"
+      }
+    ],
+    "route_candidate_count": 6,
+    "source_fetch_performed": false,
+    "network_performed": false
+  },
+  {
+    "discovery_intent_id": "src-012",
+    "source_value": "search:동선",
+    "source_kind": "discovery_intent",
+    "fixed_source_url": null,
+    "should_not_collapse_to_single_api": true,
+    "route_candidates": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW"
+      }
+    ],
+    "route_candidate_count": 6,
+    "source_fetch_performed": false,
+    "network_performed": false
+  },
+  {
+    "source_id": "src-009",
+    "source_value": "https://www.example.com/unknown",
+    "source_kind": "placeholder",
+    "execution_admission": "REJECT_PLACEHOLDER",
+    "reason": "IANA 예약 예시 도메인·제거",
+    "route_candidates": [],
+    "source_fetch_performed": false,
+    "network_performed": false
+  },
+  {
+    "source_id": "src-013",
+    "source_value": "https://www.example.com/unknown",
+    "source_kind": "placeholder",
+    "execution_admission": "REJECT_PLACEHOLDER",
+    "reason": "IANA 예약 예시 도메인·제거",
+    "route_candidates": [],
+    "source_fetch_performed": false,
+    "network_performed": false
+  }
+]

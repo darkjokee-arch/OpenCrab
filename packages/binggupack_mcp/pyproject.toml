@@ -1,0 +1,15 @@
+[project]
+name = "binggupack-mcp"
+version = "1.8.1rc1"
+description = "BingguPack MCP server (stdio JSON-RPC) — installable vendor package. Python stdlib only, no external dependencies."
+requires-python = ">=3.10"
+dependencies = []   # 외부 의존성 0 (stdlib only). rapidfuzz=optional, hag_sync_adapter=lazy(미사용).
+
+[project.urls]
+Homepage = "https://github.com/darkjokee-arch/OpenCrab"
+
+# 설치/실행:
+#   python scripts/smoke_test.py --home ./_binggu_test_home
+#   python scripts/install_claude_mcp.py --name openbinggu-local-sandbox --home ./_binggu_test_home --apply
+# 서버 직접 실행(설정 등록은 owner):
+#   python scripts/openbinggu_mcp_server.py --serve <PACKAGE_ROOT>

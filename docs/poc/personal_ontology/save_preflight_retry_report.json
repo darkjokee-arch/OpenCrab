@@ -1,0 +1,42 @@
+{
+  "status": "save preflight retry (no save_gate call)",
+  "save_plan_id": "splan-40b1b7246a73",
+  "approved_candidate_ids": [
+    "c0",
+    "c2"
+  ],
+  "eligible_candidate_count": 2,
+  "blocked_candidate_count": 0,
+  "eligible": [
+    {
+      "id": "c0",
+      "evidence_status": "resolved_owner_declared",
+      "refs": [
+        "OEV-31d167ba4a"
+      ],
+      "blockers": []
+    },
+    {
+      "id": "c2",
+      "evidence_status": "resolved_owner_declared",
+      "refs": [
+        "OEV-916b9e285f"
+      ],
+      "blockers": []
+    }
+  ],
+  "blocked": [],
+  "owner_declared_evidence_ids": [
+    "OEV-2f7c509bec",
+    "OEV-31d167ba4a",
+    "OEV-3e33691187",
+    "OEV-916b9e285f",
+    "OEV-9e8d92f666"
+  ],
+  "save_preflight_status": "SAVE_PREFLIGHT_READY",
+  "final_confirmation_required": true,
+  "save_gate_called": false,
+  "actual_write_performed": false,
+  "candidate_canonical_modified": false,
+  "note": "refs update plan in-memory 적용·canonical 미수정. SAVE_PREFLIGHT_READY여도 save_gate는 final confirmation 후."
+}

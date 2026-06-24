@@ -1,0 +1,67 @@
+# 승격 후보 (PROMOTION CANDIDATE) — 아직 .github/workflows/ 에 두지 않음.
+# 이 경로(docs/poc/.../promotion_candidate/)는 GitHub Actions 가 트리거하지 않는다.
+# 활성화: owner 승인 후 `git mv` 로 .github/workflows/preview_gate_ci.yml 로 이동 + push 승인.
+# 본 PoC 단계: push 0 / 트리거 0.
+name: Preview Gate CI (8-suite, 3-OS matrix)
+
+# 트리거: PR(경로 한정) + 수동(workflow_dispatch). push 는 의도적으로 비활성.
+on:
+  pull_request:
+    paths:
+      - "docs/poc/**"
+      - "opencrab/execution/guards_poc.py"
+  workflow_dispatch:
+
+permissions:
+  contents: read          # read-only. write/promotion 권한 없음.
+
+jobs:
+  preview-gate:
+    name: ${{ matrix.os }} / py${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ["3.11", "3.12", "3.13"]
+    env:
+      PYTHONUTF8: "1"
+      PYTHONDONTWRITEBYTECODE: "1"
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Preflight
+        run: python docs/poc/four_stage_gate/ci/preflight_check.py
+
+      - name: Run CI matrix (8 suites + boundary + conformance)
+        run: >
+          python docs/poc/four_stage_gate/ci/run_ci_matrix.py
+          --json artifacts/ci_report_${{ matrix.os }}_py${{ matrix.python }}.json
+
+      - name: Assert no production diff
+        shell: bash
+        run: |
+          DIRTY=$(git status --porcelain -- 'opencrab/*.py' 'schemas/actions/*.yaml' | grep -vE '__pycache__|\.pyc$' || true)
+          if [ -n "$DIRTY" ]; then
+            echo "production .py/.yaml 변경 감지 -> merge 차단"; echo "$DIRTY"; exit 1
+          fi
+          echo "production 무수정 확인"
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ci-report-${{ matrix.os }}-py${{ matrix.python }}
+          path: artifacts/*.json
+          if-no-files-found: warn
+
+  gate-summary:
+    name: Gate Summary
+    needs: preview-gate
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "전 OS/py matrix green -> merge 허용. 하나라도 실패 시 needs 가 막음."

@@ -1,0 +1,28 @@
+{
+  "status": "evidence capture fast apply (fork safe store·no existing ledger write)",
+  "evidence_store": "owner_declared_evidence_store.jsonl",
+  "evidence_created_count": 5,
+  "evidence_ids": [
+    "OEV-31d167ba4a",
+    "OEV-916b9e285f",
+    "OEV-9e8d92f666",
+    "OEV-2f7c509bec",
+    "OEV-3e33691187"
+  ],
+  "refs_update_plan": {
+    "c0": [
+      "OEV-31d167ba4a"
+    ],
+    "c2": [
+      "OEV-916b9e285f"
+    ]
+  },
+  "data_class": "owner_declared_public_principle",
+  "wrote_to_fork_safe_store": true,
+  "wrote_to_existing_binggupack_ledger": false,
+  "candidate_canonical_modified": false,
+  "confirmed_promotion": false,
+  "private_evidence_used": false,
+  "save_gate_called": false,
+  "note": "fork 내 safe store write만. 기존 BingguPack ledger read-only·미수정. candidate canonical 미수정."
+}

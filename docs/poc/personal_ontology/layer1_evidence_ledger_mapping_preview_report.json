@@ -1,0 +1,45 @@
+{
+  "status": "evidence ledger mapping preview (proposal only·no write)",
+  "ledger_path": "C:\\Users\\PC\\BingguPack\\tmp\\watcher_mvp1\\normal_evidence.jsonl",
+  "ledger_found": true,
+  "ledger_row_count": 2,
+  "approved_candidate_ids": [
+    "c0",
+    "c2"
+  ],
+  "rows": [
+    {
+      "candidate_id": "c0",
+      "current_evidence_refs": [
+        "ev-c0"
+      ],
+      "current_evidence_status": "mock_fallback",
+      "ledger_candidate_matches": [],
+      "match_type": "none",
+      "resolution_possible": false,
+      "manual_confirmation_required": true,
+      "proposed_evidence_ref_update": null
+    },
+    {
+      "candidate_id": "c2",
+      "current_evidence_refs": [
+        "ev-c2"
+      ],
+      "current_evidence_status": "mock_fallback",
+      "ledger_candidate_matches": [],
+      "match_type": "none",
+      "resolution_possible": false,
+      "manual_confirmation_required": true,
+      "proposed_evidence_ref_update": null
+    }
+  ],
+  "resolution_possible_count": 0,
+  "manual_confirmation_required_count": 2,
+  "would_write": false,
+  "forced_resolved": false,
+  "candidate_modified": false,
+  "ledger_modified": false,
+  "save_gate_called": false,
+  "network_performed": false,
+  "note": "mapping proposal만. candidate/ledger 수정 0·forced resolved 0. manual confirmation 전 SAVE preflight READY 금지."
+}

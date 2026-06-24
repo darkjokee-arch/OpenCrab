@@ -41,3 +41,15 @@ htmlcov/
 
 # Logs
 *.log
+
+# Local work trees (real data) — never commit to external remote
+_backup/
+_release_candidate/
+
+# BingguPack post-release: build/workspace/backup artifacts (local only, never to external remote)
+builds/
+binggu_workspace/
+_binggu_ingest_poc/
+opencrab_data_backup_20260615_ingest_poc/
+_mcp_sandbox_temp/
+*.bak_*

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://binggupack/schemas/personal_ontology_node.schema.json",
+  "title": "PersonalOntologyNode",
+  "description": "BingguPack Layer 1 Personal Ontology AGI Core - 사용자 핵심 문장 노드. 문장 단위(단어 금지). evidence_refs 필수. candidate=true/promotion_allowed=false 강제. preview-only, 저장은 save_required 승인 후.",
+  "type": "object",
+  "required": [
+    "node_id", "node_type", "text", "user_scope", "ontology_layer",
+    "confidence", "evidence_refs", "source_conversation_id",
+    "candidate", "promotion_allowed", "save_required",
+    "pii_status", "secret_status", "created_by", "reason"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "node_id": {"type": "string"},
+    "node_type": {
+      "type": "string",
+      "enum": ["user_principle", "user_preference", "user_decision_rule",
+               "user_workflow", "user_business_goal", "user_rejection",
+               "user_style", "user_memory", "user_project_state",
+               "user_tool_policy", "user_safety_boundary", "user_product_strategy"]
+    },
+    "text": {"type": "string", "description": "핵심 문장(redacted). 단어/구 조각 금지"},
+    "user_scope": {"type": "string", "description": "사용자 식별 스코프(예: owner). Layer1 전용"},
+    "ontology_layer": {"const": "personal_ontology_core",
+      "description": "Layer1 고정. Layer2(workflow_factory) 혼입 금지"},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "evidence chunk id ≥ 1 (evidence-first 강제)"
+    },
+    "source_conversation_id": {"type": "string"},
+    "candidate": {"const": true},
+    "promotion_allowed": {"const": false},
+    "save_required": {"const": true, "description": "저장은 사용자 승인 필요(자동 금지)"},
+    "pii_status": {
+      "type": "string",
+      "enum": ["clean", "redacted", "blocked"],
+      "description": "blocked=식별정보 잔존으로 캡처 제외"
+    },
+    "secret_status": {
+      "type": "string",
+      "enum": ["clean", "redacted", "blocked"]
+    },
+    "created_by": {"type": "string", "description": "capture 주체(예: binggupack_capture_poc)"},
+    "reason": {"type": "string", "description": "node_type 선택·캡처 사유"}
+  }
+}

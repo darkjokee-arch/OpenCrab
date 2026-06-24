@@ -1,0 +1,91 @@
+{
+  "status": "evidence capture decision execution preview (no write)",
+  "token_present": false,
+  "token_format_valid": false,
+  "capture_plan_id": null,
+  "decision_status": "TOKEN_MISSING",
+  "capture_candidate_count": 5,
+  "target_candidate_count": 2,
+  "capture_items": [
+    {
+      "capture_candidate_id": "cap-1",
+      "proposed_evidence_text": "BingguPack의 주목표는 Personal Ontology AGI Core다.",
+      "target_candidate_id": "c0",
+      "evidence_type": "node_evidence",
+      "expected_ledger_fields": [
+        "evidence_id",
+        "evidence_meta",
+        "item_id",
+        "source",
+        "text"
+      ],
+      "refs_update_plan": "c0.evidence_refs ← <new_evidence_id>"
+    },
+    {
+      "capture_candidate_id": "cap-2",
+      "proposed_evidence_text": "OpenCrab Workflow Factory는 2차 commercial extension이다.",
+      "target_candidate_id": "c2",
+      "evidence_type": "node_evidence",
+      "expected_ledger_fields": [
+        "evidence_id",
+        "evidence_meta",
+        "item_id",
+        "source",
+        "text"
+      ],
+      "refs_update_plan": "c2.evidence_refs ← <new_evidence_id>"
+    },
+    {
+      "capture_candidate_id": "cap-3",
+      "proposed_evidence_text": "기존 BingguPack 기능은 새로 만들지 않고 재사용한다.",
+      "target_candidate_id": null,
+      "evidence_type": "node_evidence",
+      "expected_ledger_fields": [
+        "evidence_id",
+        "evidence_meta",
+        "item_id",
+        "source",
+        "text"
+      ],
+      "refs_update_plan": "target candidate 미지정(연결 보류)"
+    },
+    {
+      "capture_candidate_id": "cap-4",
+      "proposed_evidence_text": "semantic은 save authority가 아니다.",
+      "target_candidate_id": null,
+      "evidence_type": "node_evidence",
+      "expected_ledger_fields": [
+        "evidence_id",
+        "evidence_meta",
+        "item_id",
+        "source",
+        "text"
+      ],
+      "refs_update_plan": "target candidate 미지정(연결 보류)"
+    },
+    {
+      "capture_candidate_id": "cap-5",
+      "proposed_evidence_text": "source discovery는 자유지만 execution은 gate로 통제한다.",
+      "target_candidate_id": null,
+      "evidence_type": "node_evidence",
+      "expected_ledger_fields": [
+        "evidence_id",
+        "evidence_meta",
+        "item_id",
+        "source",
+        "text"
+      ],
+      "refs_update_plan": "target candidate 미지정(연결 보류)"
+    }
+  ],
+  "evidence_write_ready_preview": false,
+  "candidate_ref_update_ready_preview": false,
+  "final_confirmation_required": true,
+  "final_confirmation_token_format": "OWNER_FINAL_CONFIRMS_BINGGUPACK_EVIDENCE_CAPTURE_WRITE:<YYYY-MM-DD>:<capture_plan_id>:<preview_report_id>:<operator>",
+  "would_create_evidence": false,
+  "would_update_candidate_refs": false,
+  "actual_write_performed": false,
+  "save_gate_called": false,
+  "network_performed": false,
+  "note": "decision execution plan만. token 유효해도 evidence write/refs update는 final confirmation token 후. 이번 단계 write 0."
+}

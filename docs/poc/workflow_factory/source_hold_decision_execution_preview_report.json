@@ -1,0 +1,147 @@
+{
+  "status": "source hold decision execution preview (no fetch·no admit change)",
+  "token_present": false,
+  "token_format_valid": false,
+  "decision_plan_id": null,
+  "decision_status": "TOKEN_MISSING",
+  "total_hold_sources": 12,
+  "action_plan": [
+    {
+      "source_id": "src-002",
+      "owner_decision_category": "REJECT_COPYRIGHT_RISK",
+      "action": "reject_candidate(copyright risk)",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-003",
+      "owner_decision_category": "APPROVE_PUBLIC_METADATA_ONLY",
+      "action": "metadata_only_route_candidate(public metadata만)",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-004",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "action": "manual_check_required(license/robots 확인 후 ADMIT)",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-005",
+      "owner_decision_category": "REJECT_COPYRIGHT_RISK",
+      "action": "reject_candidate(copyright risk)",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-006",
+      "owner_decision_category": "REJECT_COPYRIGHT_RISK",
+      "action": "reject_candidate(copyright risk)",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-007",
+      "owner_decision_category": "APPROVE_PUBLIC_METADATA_ONLY",
+      "action": "metadata_only_route_candidate(public metadata만)",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-008",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "action": "manual_check_required(license/robots 확인 후 ADMIT)",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-009",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "action": "manual_check_required(license/robots 확인 후 ADMIT)",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-010",
+      "owner_decision_category": "APPROVE_PUBLIC_METADATA_ONLY",
+      "action": "metadata_only_route_candidate(public metadata만)",
+      "required_check": [
+        "license",
+        "robots",
+        "pii_redaction"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-011",
+      "owner_decision_category": "REJECT_AUTH_PAYWALL",
+      "action": "reject_candidate(auth/paywall·우회 금지)",
+      "required_check": [
+        "license",
+        "robots",
+        "auth_boundary"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-012",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "action": "manual_check_required(license/robots 확인 후 ADMIT)",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    },
+    {
+      "source_id": "src-013",
+      "owner_decision_category": "APPROVE_MANUAL_LICENSE_ROBOTS_CHECK",
+      "action": "manual_check_required(license/robots 확인 후 ADMIT)",
+      "required_check": [
+        "license",
+        "robots"
+      ],
+      "execution_admission_change": "NONE(preview)"
+    }
+  ],
+  "admit_after_check_count": 5,
+  "metadata_only_count": 3,
+  "reject_count": 4,
+  "keep_hold_count": 0,
+  "final_confirmation_required": true,
+  "final_confirmation_token_format": "OWNER_FINAL_CONFIRMS_BINGGUPACK_SOURCE_HOLD_DECISION_APPLY:<YYYY-MM-DD>:<decision_plan_id>:<preview_report_id>:<operator>",
+  "source_fetch_performed": false,
+  "source_admit_changed": false,
+  "execution_admission_changed": false,
+  "network_performed": false,
+  "opencrab_ingest_performed": false,
+  "note": "decision action plan만. token 유효해도 ADMIT/fetch는 final confirmation token 후. 이번 단계 변경 0."
+}

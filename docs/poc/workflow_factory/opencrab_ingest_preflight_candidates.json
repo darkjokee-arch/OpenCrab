@@ -1,0 +1,11 @@
+{
+  "product_id": "wfp-001",
+  "eligible_product_count": 0,
+  "source_admit": 1,
+  "source_hold": 12,
+  "source_reject": 0,
+  "blockers": [
+    "execution_not_allowed",
+    "source_hold(12)"
+  ]
+}

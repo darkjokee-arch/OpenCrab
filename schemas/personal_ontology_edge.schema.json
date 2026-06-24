@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://binggupack/schemas/personal_ontology_edge.schema.json",
+  "title": "PersonalOntologyEdge",
+  "description": "BingguPack Layer 1 Personal Ontology AGI Core - 노드 간 관계. evidence_refs 필수. candidate=true/promotion_allowed=false 강제. preview-only.",
+  "type": "object",
+  "required": [
+    "edge_id", "source_node_id", "target_node_id", "edge_type",
+    "evidence_refs", "confidence", "candidate", "promotion_allowed",
+    "save_required", "reason"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "edge_id": {"type": "string"},
+    "source_node_id": {"type": "string"},
+    "target_node_id": {"type": "string"},
+    "edge_type": {
+      "type": "string",
+      "enum": ["supports", "contradicts", "refines", "overrides",
+               "depends_on", "belongs_to", "constrains", "prioritizes",
+               "rejects", "updates", "separates_from", "operationalizes"]
+    },
+    "text": {"type": ["string", "null"], "description": "관계 설명(redacted, 선택)"},
+    "evidence_refs": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1,
+      "description": "evidence chunk id ≥ 1 (evidence-first 강제)"
+    },
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "candidate": {"const": true},
+    "promotion_allowed": {"const": false},
+    "save_required": {"const": true},
+    "reason": {"type": "string"}
+  }
+}

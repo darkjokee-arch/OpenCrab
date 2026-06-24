@@ -1,0 +1,12 @@
+{
+  "product_id": "wfp-001",
+  "preflight_report_id": "ipfr-c3c355c79c",
+  "ingested_product_count": 1,
+  "admitted_source_count": 3,
+  "opencrab_ingest_called": true,
+  "real_opencrab_production_store_modified": false,
+  "actual_api_data_ingested": false,
+  "status": "OPENCRAB_INGEST_REAL_RUN_DONE",
+  "operator": "BingGu",
+  "rollback_available": true
+}

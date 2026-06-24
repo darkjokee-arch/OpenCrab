@@ -1,0 +1,34 @@
+{
+  "status": "save gate real run",
+  "save_real_run_status": "SAVE_REAL_RUN_DONE",
+  "token_valid": true,
+  "save_plan_id": "splan-40b1b7246a73",
+  "preflight_report_id": "spfr-8d68c22f87",
+  "saved_candidate_count": 2,
+  "skipped_candidate_count": 0,
+  "skipped": [],
+  "gate_recorded": [
+    {
+      "sentence_head": "빙구팩의 주목표는 사용자 온톨로지 기",
+      "gated": true
+    },
+    {
+      "sentence_head": "source discovery는 자유",
+      "gated": true
+    }
+  ],
+  "save_gate_called": true,
+  "actual_save_performed": true,
+  "binggu_home_used": "C:\\Users\\PC\\OpenCrab\\docs\\poc\\personal_ontology\\save_real_run_home",
+  "real_binggupack_home_modified": false,
+  "candidate_store": "personal_ontology_candidate_store.jsonl",
+  "promotion_performed": false,
+  "confirmed_promotion": false,
+  "backup_created": true,
+  "audit_log_written": true,
+  "rollback_available": true,
+  "opencrab_ingest_performed": false,
+  "production_write_performed": false,
+  "source_fetch_performed": false,
+  "errors": []
+}

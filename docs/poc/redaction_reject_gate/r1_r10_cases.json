@@ -1,0 +1,133 @@
+{
+  "_doc": "Redaction Reject Gate PoC — R1~R10 fixtures. PoC/검토용. 실제 pack/secret 미포함(전부 합성). kind: single=redaction_check / chain_admission=redaction_then_admission / chain_full=redaction_admission_permission.",
+  "cases": [
+    {
+      "name": "R1_verified_no_leak",
+      "kind": "single",
+      "expected": "GO",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_clean", "visibility": "public", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "nodes": [{"id": "n1", "props": {"title": "공개 요약", "category": "travel"}}],
+        "edges": [],
+        "evidence": [{"evidence_id": "ev1"}]
+      }
+    },
+    {
+      "name": "R2_status_missing",
+      "kind": "single",
+      "expected": "HOLD",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_x", "visibility": "private", "counts": {"nodes": 1}},
+        "nodes": [{"id": "n1", "props": {"title": "내용"}}],
+        "edges": [],
+        "evidence": []
+      }
+    },
+    {
+      "name": "R3_status_false",
+      "kind": "single",
+      "expected": "REJECTED",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_y", "visibility": "private", "redaction_status": "false", "counts": {"nodes": 1}},
+        "nodes": [{"id": "n1", "props": {"title": "미검증 내용"}}],
+        "edges": [],
+        "evidence": []
+      }
+    },
+    {
+      "name": "R4_status_stale",
+      "kind": "single",
+      "expected": "HOLD",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_z", "visibility": "private", "redaction_status": "stale", "counts": {"nodes": 1}},
+        "nodes": [{"id": "n1", "props": {"title": "오래된 검증"}}],
+        "edges": [],
+        "evidence": []
+      }
+    },
+    {
+      "name": "R5_secret_like_payload",
+      "kind": "single",
+      "expected": "STOP",
+      "_note": "redaction_status=verified 라 주장하나 props 에 secret-like payload 잔존 → 검증 실패로 STOP",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_secret", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "nodes": [{"id": "n1", "props": {"note": "key=sk-ABCDEF1234567890ZZZZ live"}}],
+        "edges": [],
+        "evidence": []
+      }
+    },
+    {
+      "name": "R6_pii_like_payload",
+      "kind": "single",
+      "expected": "STOP",
+      "_note": "redaction_status=verified 라 주장하나 props 에 PII-like(이메일/전화) payload 잔존 → STOP",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_pii", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "nodes": [{"id": "n1", "props": {"contact": "담당자 hong@example.com 010-1234-5678"}}],
+        "edges": [],
+        "evidence": []
+      }
+    },
+    {
+      "name": "R7_normal_metadata_no_false_positive",
+      "kind": "single",
+      "expected": "GO",
+      "_note": "ID/ref/enum/candidate 같은 정상 metadata 는 leak 으로 오판 금지",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_meta", "visibility": "public", "redaction_status": "verified", "counts": {"nodes": 2}},
+        "nodes": [
+          {"id": "n1", "props": {"status": "candidate", "execution_mode": "preview_only", "ref": "n2", "node_id_echo": "n1"}},
+          {"id": "n2", "props": {"promotion_allowed": "false", "writeback_mode": "none", "kind": "evidence"}}
+        ],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}]
+      }
+    },
+    {
+      "name": "R8_not_go_blocks_admission",
+      "kind": "chain_admission",
+      "expected_forward": "blocked",
+      "_note": "redaction REJECTED(=false) 면 Admission 으로 전달 금지",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_blocked", "visibility": "private", "redaction_status": "false", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl", "manifest.json"],
+        "nodes": [{"id": "n1", "props": {"title": "x"}}],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      },
+      "requester": {"namespace": "user_a"}
+    },
+    {
+      "name": "R9_full_chain_forward",
+      "kind": "chain_full",
+      "expected_forward": "forward",
+      "_note": "redaction GO + Admission GO + Permission GO 만 Builder 로 전달",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_full", "visibility": "public", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl", "manifest.json"],
+        "nodes": [{"id": "n1", "props": {"title": "공개 요약"}}],
+        "edges": [{"id": "e1"}],
+        "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      },
+      "requester": {"namespace": "user_b"}
+    },
+    {
+      "name": "R10_output_self_leak",
+      "kind": "single",
+      "expected": "STOP",
+      "_note": "redaction 게이트 출력 자체에 원문/secret 이 새면 STOP (출력 leak override)",
+      "pack": {
+        "manifest": {"format_version": "1", "pack_id": "user_a/pack_outleak", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "nodes": [{"id": "n1", "props": {"title": "정상"}}],
+        "edges": [],
+        "evidence": [],
+        "_inject_output_leak": true
+      }
+    }
+  ]
+}

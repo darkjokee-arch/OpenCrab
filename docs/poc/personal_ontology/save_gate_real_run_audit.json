@@ -1,0 +1,11 @@
+{
+  "save_plan_id": "splan-40b1b7246a73",
+  "preflight_report_id": "spfr-8d68c22f87",
+  "saved_candidate_count": 2,
+  "save_gate_called": true,
+  "status": "SAVE_REAL_RUN_DONE",
+  "binggu_home_used": "C:\\Users\\PC\\OpenCrab\\docs\\poc\\personal_ontology\\save_real_run_home",
+  "real_binggupack_home_modified": false,
+  "operator": "BingGu",
+  "rollback_available": true
+}

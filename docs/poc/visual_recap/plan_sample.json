@@ -1,0 +1,40 @@
+{
+  "_poc_notice": "샘플/PoC 전용 — 실제 실행·저장·반영 안 함. 모든 데이터는 가짜(synthetic_fixture). 어떤 store에도 write 하지 않음.",
+  "plan_id": "plan:bid_review:20260622:001",
+  "pack_id": "bid_review_pack",
+  "pack_type": "candidate",
+  "data_class": "synthetic_fixture",
+  "workflow_id": "wf:run:poc-abc123",
+  "actions": [
+    {
+      "action_id": "analyze_bid_notice",
+      "order": 1,
+      "inputs_preview": { "notice_id": "R26BK01234567" },
+      "risk_level": "low",
+      "requires_human_review": true,
+      "preview_only": true
+    },
+    {
+      "action_id": "check_qualification",
+      "order": 2,
+      "inputs_preview": { "notice_id": "R26BK01234567", "license_profile_id": "lic:self:001" },
+      "risk_level": "medium",
+      "requires_human_review": true,
+      "preview_only": true
+    }
+  ],
+  "evidence_refs": [
+    "evidence:bid:R26BK01234567:notice",
+    "evidence:bid:R26BK01234567:qual",
+    "evidence:license:self:001"
+  ],
+  "expected_outputs": [
+    { "action_id": "analyze_bid_notice", "kind": "candidate_claims", "estimate": "조건 4~6개" },
+    { "action_id": "check_qualification", "kind": "eligibility_report", "estimate": "충족/미충족 + 누락 목록" }
+  ],
+  "risk_flags": ["qualification_judgment_affects_bid"],
+  "requires_approval": true,
+  "requires_human_review": true,
+  "writeback_mode": "none",
+  "execution_mode": "preview_only"
+}

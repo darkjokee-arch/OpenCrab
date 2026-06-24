@@ -1,0 +1,224 @@
+{
+  "status": "source hold resolution preview (no fetch·no network)",
+  "total_sources": 13,
+  "hold_count": 12,
+  "rows": [
+    {
+      "source_id": "src-002",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "copyright_bulk_risk"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인",
+        "대량 수집 저작권 검토"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-003",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인",
+        "PII redaction plan 필요"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-004",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-005",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "copyright_bulk_risk"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인",
+        "대량 수집 저작권 검토"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-006",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible",
+        "copyright_bulk_risk"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인",
+        "PII redaction plan 필요",
+        "대량 수집 저작권 검토"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-007",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인",
+        "PII redaction plan 필요"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-008",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-009",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-010",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "pii_possible"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인",
+        "PII redaction plan 필요"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-011",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown",
+        "login_required_possible"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인",
+        "auth/login 경계 — terminal HOLD 가능"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "TERMINAL_HOLD_CANDIDATE"
+    },
+    {
+      "source_id": "src-012",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    },
+    {
+      "source_id": "src-013",
+      "current_execution_admission": "HOLD",
+      "hold_reasons": [
+        "license_unknown",
+        "robots_unknown"
+      ],
+      "admit_conditions": [
+        "license 명시 확인(라이선스/이용약관)",
+        "robots.txt 정책 확인"
+      ],
+      "can_auto_admit_without_fetch": false,
+      "manual_review_required": true,
+      "owner_approval_required": true,
+      "source_resolution_status": "REVIEWABLE_HOLD"
+    }
+  ],
+  "reviewable_hold_count": 11,
+  "terminal_hold_candidate_count": 1,
+  "admit_candidate_count": 0,
+  "verdict": "SOURCE_HOLD_RESOLUTION_REQUIRES_MANUAL_REVIEW",
+  "actual_fetch_performed": false,
+  "network_performed": false,
+  "admission_changed": false,
+  "opencrab_ingest_performed": false,
+  "note": "fetch/network 0·robots/license 웹 확인 0·ADMIT 변경 0. manual review + owner approval 필요."
+}

@@ -1,0 +1,92 @@
+{
+  "_poc_notice": "Admission gate fixture. A1/A10 은 실제 pack 디렉터리로 치환(descriptor 무시). A2~A9 는 합성.",
+  "cases": [
+    {
+      "name": "A1_normal_verified_pack",
+      "expected": "GO",
+      "descriptor": {"_note": "replaced by real sample_pack_dir at runtime"}
+    },
+    {
+      "name": "A2_manifest_missing",
+      "expected": "REJECTED",
+      "descriptor": {"manifest": null, "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"]}
+    },
+    {
+      "name": "A3_schema_unsupported",
+      "expected": "REJECTED",
+      "descriptor": {
+        "manifest": {"pack_id": "u/p", "format_version": "99", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}]
+      }
+    },
+    {
+      "name": "A4_packid_namespace_invalid",
+      "expected": "REJECTED",
+      "descriptor": {
+        "manifest": {"pack_id": "badnoslash", "format_version": "v1", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": []
+      }
+    },
+    {
+      "name": "A5_required_file_missing",
+      "expected": "REJECTED",
+      "descriptor": {
+        "manifest": {"pack_id": "u/p", "format_version": "v1", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": []
+      }
+    },
+    {
+      "name": "A6_dangling_ref",
+      "expected": "REJECTED",
+      "descriptor": {
+        "manifest": {"pack_id": "u/p", "format_version": "v1", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["ghost_node"], "evidence_refs": ["ev1"]}]
+      }
+    },
+    {
+      "name": "A7_visibility_missing",
+      "expected": "HOLD",
+      "descriptor": {
+        "manifest": {"pack_id": "u/p", "format_version": "v1", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}]
+      }
+    },
+    {
+      "name": "A8_real_data_no_readonly_boundary",
+      "expected": "STOP",
+      "descriptor": {
+        "manifest": {"pack_id": "u/p", "format_version": "v1", "visibility": "private", "redaction_status": "verified", "real_data": true, "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": false
+      }
+    },
+    {
+      "name": "A9_secret_leak_in_output",
+      "expected": "STOP",
+      "descriptor": {
+        "manifest": {"pack_id": "user/sk-deadbeefABCD1234", "format_version": "v1", "visibility": "private", "redaction_status": "verified", "counts": {"nodes": 1}},
+        "files": ["nodes.jsonl", "edges.jsonl", "evidence_index.jsonl"],
+        "nodes": [{"id": "n1"}], "edges": [{"id": "e1"}], "evidence": [{"evidence_id": "ev1"}],
+        "action_candidates": [{"action_id": "a0", "node_refs": ["n1"], "evidence_refs": ["ev1"]}],
+        "read_only_confirmed": true
+      }
+    },
+    {
+      "name": "A10_verified_to_builder",
+      "expected": "GO",
+      "descriptor": {"_note": "replaced by real toy_build_notes at runtime"}
+    }
+  ]
+}

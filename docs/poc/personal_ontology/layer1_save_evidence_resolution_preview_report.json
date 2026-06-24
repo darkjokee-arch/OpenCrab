@@ -1,0 +1,46 @@
+{
+  "status": "evidence resolution preview (read-only·no write)",
+  "ledger_path": "C:\\Users\\PC\\BingguPack\\tmp\\watcher_mvp1\\normal_evidence.jsonl",
+  "ledger_found": true,
+  "ledger_evidence_id_count": 2,
+  "approved_candidate_ids": [
+    "c0",
+    "c2"
+  ],
+  "rows": [
+    {
+      "candidate_id": "c0",
+      "current_evidence_status": "mock_fallback",
+      "evidence_refs": [
+        "ev-c0"
+      ],
+      "ledger_match_found": false,
+      "possible_ledger_evidence_id": null,
+      "resolution_possible": false,
+      "resolution_blockers": [
+        "evidence_id_not_in_ledger"
+      ]
+    },
+    {
+      "candidate_id": "c2",
+      "current_evidence_status": "mock_fallback",
+      "evidence_refs": [
+        "ev-c2"
+      ],
+      "ledger_match_found": false,
+      "possible_ledger_evidence_id": null,
+      "resolution_possible": false,
+      "resolution_blockers": [
+        "evidence_id_not_in_ledger"
+      ]
+    }
+  ],
+  "resolution_possible_count": 0,
+  "verdict": "RESOLUTION_PREREQUISITES_REQUIRED",
+  "would_write_evidence": false,
+  "forced_resolved": false,
+  "save_gate_called": false,
+  "actual_write_performed": false,
+  "network_performed": false,
+  "note": "ledger read-only 진단만. evidence write 0·forced resolved 0. resolution candidate만 표시."
+}

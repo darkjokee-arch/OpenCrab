@@ -1,0 +1,36 @@
+{
+  "status": "release ready transition preview (not executed)",
+  "release_ready_current": false,
+  "release_ready_possible_now": false,
+  "layer1_blockers": [
+    "save_preflight_not_ready(TOKEN_INVALID)",
+    "evidence_resolution_not_confirmed"
+  ],
+  "layer2_blockers": [
+    "source_hold(12)",
+    "ingest_preflight_not_ready(TOKEN_MISSING)"
+  ],
+  "cloud_blockers": [
+    "option3_4_not_resolved",
+    "publish_token_missing",
+    "release_ready_not_met"
+  ],
+  "next_owner_decisions": [
+    "evidence mapping 후보 수동 승인 여부(layer1_evidence_ledger_mapping_preview)",
+    "source HOLD manual review 결과로 ADMIT/HOLD/REJECT 결정",
+    "Option 3·4 해소 후 Cloud/Publish release_ready 승인"
+  ],
+  "forbidden_auto_actions": [
+    "forced evidence resolved",
+    "auto source ADMIT",
+    "save_gate 호출",
+    "OpenCrab ingest",
+    "cloud publish",
+    "network/fetch"
+  ],
+  "actual_write_performed": false,
+  "save_gate_called": false,
+  "opencrab_ingest_performed": false,
+  "production_write_performed": false,
+  "cloud_publish_performed": false
+}

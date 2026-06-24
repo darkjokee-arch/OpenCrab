@@ -1,0 +1,116 @@
+{
+  "status": "static compatibility check only (실제 WSL/Mac 미실행)",
+  "executed_environment": "Windows 11 py3.14.4",
+  "verdict": "NOT_EXECUTED_STATIC_ONLY",
+  "static_sub_verdict": "PASS",
+  "py_file_count": 23,
+  "windows_abs_path_hardcoded_files": 0,
+  "windows_abs_path_externalized_files": 4,
+  "encoding_not_explicit_files": 0,
+  "windows_only_command_files": 0,
+  "note": "BingguPack 경로는 BINGGUPACK_ROOT env var로 외부화(우선)·Windows fallback만 잔존. WSL/Mac은 env 설정 시 동작. pathlib·encoding=utf-8 준수.",
+  "findings": [
+    {
+      "file": "poc\\personal_ontology\\layer1_adapter_candidate.py",
+      "issues": [
+        "windows_abs_path_externalized (env BINGGUPACK_ROOT 우선·fallback만 Windows) → OK"
+      ]
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_batch_review_cli_preview.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_evidence_ledger_readonly_adapter.py",
+      "issues": [
+        "windows_abs_path_externalized (env BINGGUPACK_ROOT 우선·fallback만 Windows) → OK"
+      ]
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_existing_semantic_wrapper.py",
+      "issues": [
+        "windows_abs_path_externalized (env BINGGUPACK_ROOT 우선·fallback만 Windows) → OK"
+      ]
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_real_conversation_batch_preview.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_real_conversation_preview_runner.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_review_cli_preview.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_role_boundary_helper.py",
+      "issues": [
+        "no_pathlib (권장)"
+      ]
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_save_gate_dryrun_handoff.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_save_gate_owner_token_preview.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_save_gate_real_run_readiness_check.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_save_gate_real_transition_plan.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_wrapper_dryrun_adapter.py",
+      "issues": [
+        "windows_abs_path_externalized (env BINGGUPACK_ROOT 우선·fallback만 Windows) → OK"
+      ]
+    },
+    {
+      "file": "poc\\personal_ontology\\layer1_wrapper_mock_adapter_test.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\personal_ontology_capture_poc.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\personal_ontology\\personal_ontology_save_approval_poc.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\workflow_factory\\collection_route_planner_preview.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\workflow_factory\\opencrab_ingest_contract_readiness_check.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\workflow_factory\\opencrab_ingest_owner_token_preview.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\workflow_factory\\opencrab_workflow_product_preview.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\workflow_factory\\source_candidate_planner_poc.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\workflow_factory\\workflow_factory_goal_preview_runner.py",
+      "issues": []
+    },
+    {
+      "file": "poc\\workflow_factory\\workflow_factory_review_cli_preview.py",
+      "issues": []
+    }
+  ]
+}

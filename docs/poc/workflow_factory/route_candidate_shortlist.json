@@ -1,0 +1,221 @@
+[
+  {
+    "discovery_intent_id": "src-004",
+    "query": "search:제주 가족 호텔 추천",
+    "ranked_routes": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-004-r0",
+        "score": 85,
+        "selection_status": "ROUTE_SELECTION_RECOMMENDED"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-004-r1",
+        "score": 80,
+        "selection_status": "ROUTE_SELECTION_RECOMMENDED"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-004-r3",
+        "score": 75,
+        "selection_status": "ROUTE_SELECTION_BACKUP"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-004-r2",
+        "score": 70,
+        "selection_status": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-004-r4",
+        "score": 55,
+        "selection_status": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW",
+        "route_id": "src-004-r5",
+        "score": 20,
+        "selection_status": "HOLD_DISCOVERY"
+      }
+    ],
+    "recommended": [
+      "src-004-r0",
+      "src-004-r1"
+    ],
+    "backup": [
+      "src-004-r3"
+    ]
+  },
+  {
+    "discovery_intent_id": "src-008",
+    "query": "search:장소",
+    "ranked_routes": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-008-r0",
+        "score": 85,
+        "selection_status": "ROUTE_SELECTION_RECOMMENDED"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-008-r1",
+        "score": 80,
+        "selection_status": "ROUTE_SELECTION_RECOMMENDED"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-008-r3",
+        "score": 75,
+        "selection_status": "ROUTE_SELECTION_BACKUP"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-008-r2",
+        "score": 70,
+        "selection_status": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-008-r4",
+        "score": 55,
+        "selection_status": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW",
+        "route_id": "src-008-r5",
+        "score": 20,
+        "selection_status": "HOLD_DISCOVERY"
+      }
+    ],
+    "recommended": [
+      "src-008-r0",
+      "src-008-r1"
+    ],
+    "backup": [
+      "src-008-r3"
+    ]
+  },
+  {
+    "discovery_intent_id": "src-012",
+    "query": "search:동선",
+    "ranked_routes": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-012-r0",
+        "score": 85,
+        "selection_status": "ROUTE_SELECTION_RECOMMENDED"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-012-r1",
+        "score": 80,
+        "selection_status": "ROUTE_SELECTION_RECOMMENDED"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-012-r3",
+        "score": 75,
+        "selection_status": "ROUTE_SELECTION_BACKUP"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-012-r2",
+        "score": 70,
+        "selection_status": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY",
+        "route_id": "src-012-r4",
+        "score": 55,
+        "selection_status": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW",
+        "route_id": "src-012-r5",
+        "score": 20,
+        "selection_status": "HOLD_DISCOVERY"
+      }
+    ],
+    "recommended": [
+      "src-012-r0",
+      "src-012-r1"
+    ],
+    "backup": [
+      "src-012-r3"
+    ]
+  }
+]

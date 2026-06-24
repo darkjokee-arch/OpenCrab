@@ -1,0 +1,123 @@
+{
+  "_poc_notice": "Regression fixture. 각 T6 케이스는 안전 baseline 에서 1필드만 위반(격리). T8 은 approval 이후/promotion 경로.",
+  "safe_baseline": {
+    "execution_mode": "preview_only",
+    "writeback_mode": "none",
+    "promotion_allowed": false,
+    "candidate": true,
+    "requires_human_review": true,
+    "status": "candidate",
+    "evidence_refs": ["ev-poc-1"]
+  },
+  "T6": [
+    {
+      "name": "t6_plan_promoted_state",
+      "target": "plan",
+      "expected": "STOP",
+      "payload": {
+        "execution_mode": "preview_only", "writeback_mode": "none",
+        "promotion_allowed": false, "candidate": true,
+        "requires_human_review": true, "evidence_refs": ["ev-poc-1"],
+        "target_status": "promoted"
+      }
+    },
+    {
+      "name": "t6_plan_validated_state",
+      "target": "plan",
+      "expected": "STOP",
+      "payload": {
+        "execution_mode": "preview_only", "writeback_mode": "none",
+        "promotion_allowed": false, "candidate": true,
+        "requires_human_review": true, "evidence_refs": ["ev-poc-1"],
+        "states": ["candidate", "validated"]
+      }
+    },
+    {
+      "name": "t6_plan_confirmed_state",
+      "target": "plan",
+      "expected": "STOP",
+      "payload": {
+        "execution_mode": "preview_only", "writeback_mode": "none",
+        "promotion_allowed": false, "candidate": true,
+        "requires_human_review": true, "evidence_refs": ["ev-poc-1"],
+        "status": "confirmed"
+      }
+    },
+    {
+      "name": "t6_plan_executable_no_approval",
+      "target": "plan",
+      "expected": "STOP",
+      "payload": {
+        "execution_mode": "preview_only", "writeback_mode": "none",
+        "promotion_allowed": false, "candidate": true,
+        "requires_human_review": true, "evidence_refs": ["ev-poc-1"],
+        "status": "candidate", "executable": true
+      }
+    },
+    {
+      "name": "t6_plan_writeback_enabled",
+      "target": "plan",
+      "expected": "STOP",
+      "payload": {
+        "execution_mode": "preview_only", "writeback_mode": "commit",
+        "promotion_allowed": false, "candidate": true,
+        "requires_human_review": true, "evidence_refs": ["ev-poc-1"],
+        "status": "candidate"
+      }
+    },
+    {
+      "name": "t6_recap_writeback_enabled",
+      "target": "recap",
+      "expected": "STOP",
+      "payload": {
+        "execution_mode": "preview_only", "writeback_mode": "commit",
+        "promotion_allowed": false, "candidate": true,
+        "requires_human_review": true, "status": "candidate"
+      }
+    },
+    {
+      "name": "t6_recap_promoted_state",
+      "target": "recap",
+      "expected": "STOP",
+      "payload": {
+        "execution_mode": "preview_only", "writeback_mode": "none",
+        "promotion_allowed": false, "candidate": true,
+        "requires_human_review": true, "status": "promoted"
+      }
+    }
+  ],
+  "T8": [
+    {
+      "name": "t8_approval_approved",
+      "expected": "SKIP",
+      "payload": {
+        "approval_status": "approved",
+        "status": "promoted",
+        "promoted_by": "human_reviewer_01",
+        "writeback_mode": "commit",
+        "execution_mode": "execute"
+      }
+    },
+    {
+      "name": "t8_approval_rejected",
+      "expected": "SKIP",
+      "payload": {
+        "approval_status": "rejected",
+        "status": "rejected",
+        "reviewer_id": "human_reviewer_01"
+      }
+    },
+    {
+      "name": "t8_promotion_phase_normal",
+      "expected": "SKIP",
+      "payload": {
+        "phase": "promotion",
+        "status": "promoted",
+        "promoted_by": "human_reviewer_02",
+        "execution_mode": "execute",
+        "writeback_mode": "commit",
+        "note": "PromotionEngine 정상 경로 — approval approved 선행, adapter 미개입 대상"
+      }
+    }
+  ]
+}

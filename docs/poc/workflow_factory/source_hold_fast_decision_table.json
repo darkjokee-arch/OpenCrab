@@ -1,0 +1,124 @@
+{
+  "hold_count": 12,
+  "policy_distribution": {
+    "reject_candidate": 3,
+    "HOLD_METADATA_ONLY": 3,
+    "manual_check_priority_1": 5,
+    "terminal_reject": 1
+  },
+  "decisions": [
+    {
+      "source_id": "src-002",
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "fast_policy": "reject_candidate",
+      "note": "automated collection 제외",
+      "metadata_only_candidate": false,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-003",
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "fast_policy": "HOLD_METADATA_ONLY",
+      "note": "metadata-only route만",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-004",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "fast_policy": "manual_check_priority_1",
+      "note": "metadata_only도 가능",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-005",
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "fast_policy": "reject_candidate",
+      "note": "automated collection 제외",
+      "metadata_only_candidate": false,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-006",
+      "possible_decision": "REJECT_COPYRIGHT_RISK",
+      "fast_policy": "reject_candidate",
+      "note": "automated collection 제외",
+      "metadata_only_candidate": false,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-007",
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "fast_policy": "HOLD_METADATA_ONLY",
+      "note": "metadata-only route만",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-008",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "fast_policy": "manual_check_priority_1",
+      "note": "metadata_only도 가능",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-009",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "fast_policy": "manual_check_priority_1",
+      "note": "metadata_only도 가능",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-010",
+      "possible_decision": "PUBLIC_METADATA_ONLY",
+      "fast_policy": "HOLD_METADATA_ONLY",
+      "note": "metadata-only route만",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-011",
+      "possible_decision": "REJECT_AUTH_PAYWALL",
+      "fast_policy": "terminal_reject",
+      "note": "자동수집 제외",
+      "metadata_only_candidate": false,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-012",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "fast_policy": "manual_check_priority_1",
+      "note": "metadata_only도 가능",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    },
+    {
+      "source_id": "src-013",
+      "possible_decision": "ADMIT_AFTER_LICENSE_ROBOTS_CHECK",
+      "fast_policy": "manual_check_priority_1",
+      "note": "metadata_only도 가능",
+      "metadata_only_candidate": true,
+      "source_fetch_performed": false,
+      "source_admit_changed": false
+    }
+  ],
+  "source_fetch_performed": false,
+  "source_admit_changed": false,
+  "execution_admission_changed": false,
+  "gate": "Gate 2 Source HOLD Manual Review",
+  "gate_decision_sheet": "docs/BINGGUPACK_GATE_DECISION_SHEET.md"
+}
