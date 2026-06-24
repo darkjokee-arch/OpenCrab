@@ -65,7 +65,7 @@ workflow product preview metadata, fork-isolated SAVE metadata, fork-isolated in
 | :--- | :--- | :--- |
 | insane-search collection (actual API) | optional / evidence preview only | `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION:<date>:<plan_id>:BingGu` |
 | external Cloud upload | optional | owner 직접 |
-| GitHub release 실제 생성 | optional | owner 승인 |
+| GitHub release 실제 생성 | ✅ 완료 (`v1.0.0-rc`, prerelease, 2026-06-24) | owner 승인 (받음) |
 | paid marketplace listing | optional | owner 직접 |
 | private/customer data ingestion | optional / 별도 승인 | (별도) |
 | production write | **protected** (보호) | (별도) |
@@ -75,7 +75,17 @@ workflow product preview metadata, fork-isolated SAVE metadata, fork-isolated in
 
 ---
 
-## 6. 무결성 요약
+## 6. Post-release 상태 (2026-06-24)
+
+- **GitHub release:** ✅ 생성 — `GITHUB_RELEASE_CREATED`
+- **tag:** `v1.0.0-rc` · **target commit:** `810007f` · **prerelease:** `true`
+- **URL:** https://github.com/darkjokee-arch/OpenCrab/releases/tag/v1.0.0-rc
+- **상태명:** `BINGGUPACK_RELEASE_READY` · `INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED` · `API_COLLECTION_NOT_FIXED` · `SEARCH_COLLECTION_OPTIONAL` · `EVIDENCE_PREVIEW_ONLY` · `RELEASE_DRAFT_UPDATED` · `PUSH_SYNCED` · `GITHUB_RELEASE_CREATED`
+- actual API collection은 **optional backend capability**이며 release requirement가 아니다. search/collection 결과는 candidate/evidence preview only. OpenCrab ingest/save/promotion/production write는 별도 owner 승인 전 금지.
+
+---
+
+## 7. 무결성 요약
 
 `owner ~/.binggupack 미변경` · `기존 ledger 미변경` · `OpenCrab production 미변경`
-`production_write=0` · `confirmed_promotion=0` · `actual_external_upload=false` · `network=0`
+`production_write=0` · `confirmed_promotion=0` · `actual_external_upload=false` · `network=0 (GitHub tag/release push 예외)`

@@ -39,5 +39,12 @@
   "cloud_publish_done": true,
   "cloud_is_source_of_truth": false,
   "private_data_included": false,
-  "production_write_included": false
+  "production_write_included": false,
+  "github_release_created": true,
+  "github_release_tag": "v1.0.0-rc",
+  "github_release_target_commit": "810007f",
+  "github_release_prerelease": true,
+  "github_release_url": "https://github.com/darkjokee-arch/OpenCrab/releases/tag/v1.0.0-rc",
+  "github_release_created_at": "2026-06-24",
+  "post_release_status": "GITHUB_RELEASE_CREATED"
 }

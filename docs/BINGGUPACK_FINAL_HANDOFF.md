@@ -8,10 +8,15 @@ Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 comm
 
 ## 현재 상태 (2026-06-24)
 - **BINGGUPACK_RELEASE_READY · release_ready=true · blockers []**.
+- **GitHub release ✅ 생성됨 (GITHUB_RELEASE_CREATED):** tag `v1.0.0-rc` · target commit `810007f` · prerelease=true ·
+  URL https://github.com/darkjokee-arch/OpenCrab/releases/tag/v1.0.0-rc (owner 승인 후 생성).
 - Option 1 CI ✅ / Option 2 README ✅ / Option 3 SAVE ✅(SAVE_REAL_RUN_DONE·fork 격리) /
   Option 4 OpenCrab ingest ✅(metadata-only·fork 격리) / Cloud publish ✅(fork 격리 bundle).
 - 모든 real run은 owner token + fork 격리: 사장님 실제 ~/.binggupack·BingguPack ledger·OpenCrab production 미변경.
   외부 Cloud 실업로드·실 API data·production write·confirmed promotion 0.
+- **핵심 의미:** actual API collection은 optional backend capability이며 release requirement가 아니다.
+  BingguPack은 insane-search 기반 optional evidence discovery adapter를 포함한 workflow-to-pack factory다.
+  search/collection 결과는 candidate/evidence preview only. OpenCrab ingest/save/promotion/production write는 별도 owner 승인 전 금지.
 
 ## 어떤 파일을 보면 되는지
 - 전체 색인: `docs/BINGGUPACK_DOC_INDEX.md`

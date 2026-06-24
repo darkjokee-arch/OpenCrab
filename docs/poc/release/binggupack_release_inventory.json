@@ -5,6 +5,14 @@
   "release_date": "2026-06-24",
   "release_ready": true,
   "blockers": [],
+  "github_release": {
+    "created": true,
+    "tag": "v1.0.0-rc",
+    "target_commit": "810007f",
+    "prerelease": true,
+    "url": "https://github.com/darkjokee-arch/OpenCrab/releases/tag/v1.0.0-rc",
+    "created_at": "2026-06-24"
+  },
   "layers": {
     "layer1": "Personal Ontology AGI Core",
     "layer2": "OpenCrab Workflow Factory / Commercial Extension"
@@ -14,7 +22,8 @@
     "readme": "APPLIED",
     "save": "SAVE_REAL_RUN_DONE",
     "opencrab_ingest": "OPENCRAB_INGEST_REAL_RUN_DONE",
-    "cloud_publish": "CLOUD_PUBLISH_DONE"
+    "cloud_publish": "CLOUD_PUBLISH_DONE",
+    "github_release": "GITHUB_RELEASE_CREATED"
   },
   "identifiers": {
     "save_plan_id": "splan-40b1b7246a73",
@@ -78,9 +87,11 @@
   "optional_capability_gates": [
     "actual_api_data_collection",
     "external_cloud_upload",
-    "github_release_actual_creation",
     "paid_marketplace_listing",
     "private_customer_data_ingestion"
+  ],
+  "completed_optional_capability_gates": [
+    "github_release_actual_creation"
   ],
   "protected_action_gates": [
     "production_write",
@@ -93,7 +104,10 @@
     "INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED",
     "API_COLLECTION_NOT_FIXED",
     "SEARCH_COLLECTION_OPTIONAL",
-    "EVIDENCE_PREVIEW_ONLY"
+    "EVIDENCE_PREVIEW_ONLY",
+    "RELEASE_DRAFT_UPDATED",
+    "PUSH_SYNCED",
+    "GITHUB_RELEASE_CREATED"
   ],
   "integrity": {
     "owner_binggupack_home_modified": false,
