@@ -1,0 +1,67 @@
+{
+  "status": "new user backtest (not production)",
+  "verdict": "PASS",
+  "files": 5,
+  "total_candidates": 12,
+  "per_file": [
+    {
+      "file": "new_user_empty_start.txt",
+      "candidate_count": 1,
+      "layer1": 1,
+      "layer2": 0,
+      "approved": 1,
+      "blocked": 0,
+      "boundary_overrides": 0
+    },
+    {
+      "file": "new_user_mixed_layer_boundary.txt",
+      "candidate_count": 3,
+      "layer1": 2,
+      "layer2": 1,
+      "approved": 1,
+      "blocked": 1,
+      "boundary_overrides": 1
+    },
+    {
+      "file": "new_user_personal_preferences.txt",
+      "candidate_count": 3,
+      "layer1": 3,
+      "layer2": 0,
+      "approved": 1,
+      "blocked": 0,
+      "boundary_overrides": 0
+    },
+    {
+      "file": "new_user_save_review_flow.txt",
+      "candidate_count": 3,
+      "layer1": 3,
+      "layer2": 0,
+      "approved": 1,
+      "blocked": 0,
+      "boundary_overrides": 0
+    },
+    {
+      "file": "new_user_workflow_factory_goal.txt",
+      "candidate_count": 2,
+      "layer1": 2,
+      "layer2": 0,
+      "approved": 1,
+      "blocked": 0,
+      "boundary_overrides": 1
+    }
+  ],
+  "workflow_preview_source_candidates": 13,
+  "checks": {
+    "layer1_candidate_generated": true,
+    "layer2_workflow_preview_generated": true,
+    "evidence_gate_blocks_when_missing": true,
+    "save_only_with_command": true,
+    "role_boundary_works": true,
+    "no_existing_user_path_dependency": true
+  },
+  "actual_write_performed": false,
+  "memory_write_performed": false,
+  "opencrab_ingest_performed": false,
+  "promotion_performed": false,
+  "network_performed": false
+}

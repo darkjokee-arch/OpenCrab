@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://binggupack/schemas/personal_ontology_review_item.schema.json",
+  "title": "PersonalOntologyReviewItem",
+  "description": "Layer1 candidate node/edge의 review queue 항목. 자동저장 금지·사용자 명시 명령으로만 상태 전이. candidate=true/promotion_allowed=false 유지. preview-only.",
+  "type": "object",
+  "required": [
+    "review_id", "item_type", "item_id", "evidence_refs",
+    "candidate", "promotion_allowed", "save_required", "review_status",
+    "reviewer_action", "pii_status", "secret_status", "ontology_layer",
+    "created_by", "reason"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "review_id": {"type": "string"},
+    "item_type": {"type": "string", "enum": ["node", "edge"]},
+    "item_id": {"type": "string"},
+    "text": {"type": ["string", "null"], "description": "redacted"},
+    "evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "candidate": {"const": true},
+    "promotion_allowed": {"const": false},
+    "save_required": {"const": true},
+    "review_status": {
+      "type": "string",
+      "enum": ["pending_review", "save_requested", "save_approved_preview",
+               "rejected_preview", "held_preview", "needs_more_evidence_preview",
+               "blocked"]
+    },
+    "reviewer_action": {
+      "type": ["string", "null"],
+      "enum": ["SAVE", "REJECT", "HOLD", "NEED_MORE_EVIDENCE", null]
+    },
+    "block_reason": {
+      "type": ["string", "null"],
+      "description": "blocked 사유: no_evidence | pii_secret_blocked | layer2_excluded"
+    },
+    "pii_status": {"type": "string", "enum": ["clean", "redacted", "blocked"]},
+    "secret_status": {"type": "string", "enum": ["clean", "redacted", "blocked"]},
+    "ontology_layer": {"type": "string", "description": "personal_ontology_core만 처리 대상"},
+    "created_by": {"type": "string"},
+    "reason": {"type": "string"}
+  }
+}

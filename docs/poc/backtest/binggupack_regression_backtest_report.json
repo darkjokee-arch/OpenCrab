@@ -1,0 +1,20 @@
+{
+  "status": "regression backtest (not production·read-only)",
+  "verdict": "WARN",
+  "checks": {
+    "classify_intact": false,
+    "leak_guard_intact": false,
+    "save_to_save_exists": false,
+    "save_gate_exists": false,
+    "cloud_pack_export_exists": false,
+    "save_plan_preview_is_not_actual_save": true,
+    "semantic_wrapper_reuses_leak_guard": true,
+    "source_policy_consistent": true
+  },
+  "actual_write_performed": false,
+  "memory_write_performed": false,
+  "opencrab_ingest_performed": false,
+  "promotion_performed": false,
+  "network_performed": false,
+  "existing_binggupack_modified": false
+}
