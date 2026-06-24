@@ -1,6 +1,9 @@
 # BingguPack — Final Handoff
 
 > 2026-06-23. 새 채팅/새 작업자 인수인계 요약.
+> **버전 라인 정렬 (2026-06-24):** 정식 = **v1.8.0-rc.1** (기존 본체 **v1.7.2** owner-declared 라인에 합류).
+> `v1.0.0-rc` / `v1.0.0-rc.1`은 version-misaligned **provisional**(삭제 안 함, superseded).
+> 이번 OpenCrab workflow-to-pack factory · insane-search optional adapter는 별도 제품이 아니라 **본체 기능 확장**.
 
 ## BingguPack 정의
 Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 commercial·Layer2).

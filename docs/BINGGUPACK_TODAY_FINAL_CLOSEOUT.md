@@ -1,6 +1,8 @@
 # BingguPack — Today Final Closeout (2026-06-24)
 
 > 오늘 BingguPack 마무리 최종 상태 기록. **실제 수집·실행·ingest·production write 없음.**
+> **버전 라인 정렬:** 정식 = **v1.8.0-rc.1** (본체 **v1.7.2** 합류). 아래 `v1.0.0-rc`/`v1.0.0-rc.1` 표기는
+> version-misaligned **provisional**(삭제 안 함, superseded). 상세: `BINGGUPACK_VERSION_RECONCILIATION_PLAN.md`.
 
 ## 1. v1.0.0-rc — 완료·동결
 

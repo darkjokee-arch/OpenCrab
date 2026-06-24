@@ -8,14 +8,18 @@
 
 ---
 
-## Release 메타 (제안)
+## Release 메타 (제안) — v1.8.0-rc.1 (본체 v1.7.2 라인 합류)
 
-- **tag:** `v1.0.0-rc`
-- **title:** `BingguPack v1.0.0-rc — Workflow-to-Pack Factory (insane-search optional, evidence preview-only)`
-- **target:** (현재 브랜치 / `main`)
+- **tag:** `v1.8.0-rc.1`
+- **title:** `BingguPack v1.8.0-rc.1 — Unified Workflow-to-Pack Factory`
+- **target:** version reconciliation commit 후 현재 HEAD
 - **prerelease:** `true` (rc)
 - **package_id:** `bgpk-a9450aa942`
-- **상태명:** `BINGGUPACK_RELEASE_READY` · `INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED` · `API_COLLECTION_NOT_FIXED` · `SEARCH_COLLECTION_OPTIONAL` · `EVIDENCE_PREVIEW_ONLY`
+- **owner-declared core baseline:** `v1.7.2`
+- **supersedes (provisional, 삭제 안 함):** `v1.0.0-rc`, `v1.0.0-rc.1`
+- **상태명:** `BINGGUPACK_VERSION_LINE_RECONCILED` · `BINGGUPACK_V1_8_0_RC1_READY` · `PROVISIONAL_V1_0_0_RC_SUPERSEDED` · `INSANE_SEARCH_ADAPTER_MERGED_INTO_CORE_LINE` · `WORKFLOW_FACTORY_MERGED_INTO_CORE_LINE` · `API_COLLECTION_NOT_FIXED` · `EVIDENCE_PREVIEW_ONLY`
+
+> `v1.0.0-rc` / `v1.0.0-rc.1`은 version-misaligned provisional prerelease. 삭제하지 않고 v1.8.0-rc.1이 본체 라인의 정식 RC.
 
 ---
 
