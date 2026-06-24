@@ -11,8 +11,19 @@ cd OpenCrab
 git checkout v1.8.0
 ```
 
-- ⚠️ **OpenCrab clone만으로는 BingguPack MCP 서버가 설치되지 않는다.** MCP 서버(`openbinggu_mcp_server.py`)는 OpenCrab repo **밖**의 BingguPack 본체(`C:\Users\PC\binggupack`)에 있다. 위 clone은 release/docs/adapter/workflow factory 라인용. MCP를 띄우려면 본체 서버 소스가 별도로 필요하다. 상세: `BINGGUPACK_MCP_INSTALL_ARCHITECTURE.md` · 신규/재설치 절차: `BINGGUPACK_MCP_CLEAN_REINSTALL_RUNBOOK.md`.
+### BingguPack MCP 설치 (v1.8.1-rc.1+ — repo 안에서 설치 가능)
+> v1.8.0까지는 OpenCrab clone만으로 MCP 서버가 없었으나(`openbinggu_mcp_server.py`가 repo 밖), **v1.8.1-rc.1부터 `packages/binggupack_mcp/`에 vendor되어 clone만으로 설치 가능**.
+```bash
+# 1) 등록 전 로컬 검증 (write 0, 운영 home 미접촉)
+python packages/binggupack_mcp/scripts/smoke_test.py --home ./_binggu_test_home
+# 2) Claude Code 등록 (미리보기 → 실제)
+python packages/binggupack_mcp/scripts/install_claude_mcp.py --name openbinggu-local-sandbox --home ./_binggu_test_home --dry-run
+python packages/binggupack_mcp/scripts/install_claude_mcp.py --name openbinggu-local-sandbox --home ./_binggu_test_home --apply
+# 3) Claude Code 재시작 (필수) → claude mcp list 로 connected 확인
+```
 - ⚠️ **`claude mcp add` 후 Claude Code 재시작 필요** — MCP 도구는 세션 시작 시 고정이라 등록 직후 같은 세션에선 도구가 안 뜬다.
+- 패키지 상세: `packages/binggupack_mcp/README.md` · 검증 결과: `BINGGUPACK_MCP_CLEAN_INSTALL_E2E_TEST_REPORT.md` · 설치 구조: `BINGGUPACK_MCP_INSTALL_ARCHITECTURE.md`.
+
 - **별도 dependency install 불필요.** BingguPack 러너는 Python **stdlib only**(`json`/`pathlib`/`re`/`sys`).
   → `pip install` / `npm install` 없이 바로 실행 가능. (OpenCrab 본체 CLI/web은 별개이며 BingguPack 신규 흐름엔 불필요.)
 - **prerequisite:** Python 3.10+ · Git. (WSL Ubuntu / macOS / Linux 공통. Windows는 Git Bash 또는 WSL 권장.)
