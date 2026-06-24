@@ -5,6 +5,8 @@
 > previous RC = `v1.8.0-rc.1`. `v1.0.0-rc` / `v1.0.0-rc.1`은 version-misaligned **provisional**(삭제 안 함, superseded).
 > 이번 OpenCrab workflow-to-pack factory · insane-search optional adapter는 별도 제품이 아니라 **본체 기능 확장**.
 > stable queue 11개(schema 4·backtest 4·REGRESSION·NEW_USER·SAVE_APPROVAL_FLOW) 검증 통과 → `BINGGUPACK_V1_8_0_STABLE_READY`.
+> **신규 사용자 E2E:** `NEW_USER_E2E_PARTIAL_DOCS_FIXED` (offline 동작·문서 보정 / WSL Ubuntu·macOS actual PASS는 `CROSS_PLATFORM_E2E_PENDING`).
+> 후속 과제: 전용 CLI(`BINGGUPACK_CLI_DESIGN.md`, `CLI_DESIGN_RECORDED`), cross-platform 실행(`BINGGUPACK_CROSS_PLATFORM_E2E_PLAN.md`). v1.8.0 stable 유지 가능.
 
 ## BingguPack 정의
 Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 commercial·Layer2).

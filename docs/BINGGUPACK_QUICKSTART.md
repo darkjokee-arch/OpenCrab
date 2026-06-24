@@ -37,6 +37,9 @@ python docs/poc/personal_ontology/layer1_review_cli_preview.py  # review CLI pre
 - insane-search는 **optional evidence discovery adapter**. search/collection 결과는 **candidate/evidence preview only**.
 - **OpenCrab ingest / save / promotion / production write는 별도 owner 승인 전 금지** (자동 실행되지 않음).
 
+> **신규 사용자 UX (진행 중):** 현재 runner 직접 실행 방식. 전용 `binggupack` CLI는 설계됨(`BINGGUPACK_CLI_DESIGN.md`, 구현 차기).
+> WSL Ubuntu/macOS 실제 PASS는 `CROSS_PLATFORM_E2E_PLAN.md` 기준 pending. 상태: `NEW_USER_E2E_PARTIAL_DOCS_FIXED`.
+
 ---
 
 > 2026-06-23. (이하 기존 흐름 설명 — 일부 게이트 상태는 owner-gated 액션 관점)

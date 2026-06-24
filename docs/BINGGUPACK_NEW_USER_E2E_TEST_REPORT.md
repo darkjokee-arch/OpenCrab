@@ -64,5 +64,11 @@ python docs/poc/personal_ontology/layer1_review_cli_preview.py # review CLI prev
 ## 판정
 **NEW_USER_E2E_PARTIAL_DOCS_FIXED** — offline 신규 사용자 흐름 동작, 문서 결함 docs-fix, WSL/macOS는 NOT_AVAILABLE(checklist).
 
+## 후속 과제 (차기, 비차단)
+- **CLI 도입** — `BINGGUPACK_CLI_DESIGN.md` (D1 해소 설계, `CLI_DESIGN_RECORDED`).
+- **cross-platform actual PASS** — `BINGGUPACK_CROSS_PLATFORM_E2E_PLAN.md` (WSL Ubuntu/macOS, `CROSS_PLATFORM_E2E_PENDING`).
+- **release_ready 출력 라벨 분리** — product_release(v1.8.0) vs owner_gated_actions_ready (CLI_DESIGN §6).
+- v1.8.0 stable은 유지 가능. 신규 사용자 UX 개선은 다음 패치 후보.
+
 ## 무결성
 `actual API call=0` · `source fetch/network=0 (git/dependency 제외, 이번엔 dependency install도 0)` · `insane-search 외부 검색=0` · `OpenCrab ingest=0` · `production write=0` · `사용자 실제 홈 변경=0 (temp home만)` · `upload script 실행=0` · `기존 release/tag 수정=0`
