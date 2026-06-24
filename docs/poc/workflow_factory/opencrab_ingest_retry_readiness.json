@@ -6,8 +6,7 @@
   "rejected_source_count": 6,
   "retry_possible_now": false,
   "retry_blockers": [
-    "route_candidates_not_final_admitted",
-    "no_admitted_source"
+    "manual_check_results_pending"
   ],
   "required_owner_actions": [
     "route candidate 중 실제 public route 선택",
@@ -15,5 +14,6 @@
     "그 후 ingest preflight 재시도"
   ],
   "opencrab_ingest_performed": false,
-  "source_fetch_performed": false
+  "source_fetch_performed": false,
+  "selected_for_manual_check_count": 3
 }

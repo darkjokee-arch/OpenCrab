@@ -59,6 +59,12 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-20. Route Auto-Select for Manual Check (2026-06-24, Fast)
+- 각 discovery_intent top 1 recommended route(official_public_api 3) → **SELECT_FOR_MANUAL_CHECK** 자동선택·나머지 KEEP_HOLD.
+- **ADMIT 아님**: route_manual_check_input.json(selected 3·owner_manual_result=null·allowed ADMIT_METADATA_ROUTE/METADATA_ONLY/KEEP_HOLD/REJECT_ROUTE·license/robots/auth 확인 항목).
+- ingest readiness: retry_possible_now=false·blocker manual_check_results_pending·selected_for_manual_check 3·admitted 0.
+- release_ready=false·candidate=false·route_selection_done=true·manual_check_pending=true. fetch/network/ingest 0.
+
 ## 11-19. Route Candidate Shortlist (2026-06-24, Fast)
 - 18 route candidate 점수화→discovery_intent별 top 2 recommended + 1 backup. recommended 6(official_public_api 3·registry_api 3)·backup 3.
 - scoring: official_public_api +40·registry +35·json_ld/portal +30·rss +25·public_reader +20·commercial -15... + metadata_first/auth-free/no_site_name/provenance 가점.

@@ -9,7 +9,7 @@
           "route_id": "src-004-r0",
           "method_family": "official_public_api",
           "score": 85,
-          "owner_decision": null,
+          "owner_decision": "SELECT_FOR_MANUAL_CHECK",
           "allowed_decisions": [
             "SELECT_FOR_MANUAL_CHECK",
             "KEEP_HOLD",
@@ -20,7 +20,7 @@
           "route_id": "src-004-r1",
           "method_family": "registry_api",
           "score": 80,
-          "owner_decision": null,
+          "owner_decision": "KEEP_HOLD",
           "allowed_decisions": [
             "SELECT_FOR_MANUAL_CHECK",
             "KEEP_HOLD",
@@ -32,7 +32,8 @@
         {
           "route_id": "src-004-r3",
           "method_family": "json_ld",
-          "score": 75
+          "score": 75,
+          "owner_decision": "KEEP_HOLD"
         }
       ]
     },
@@ -44,7 +45,7 @@
           "route_id": "src-008-r0",
           "method_family": "official_public_api",
           "score": 85,
-          "owner_decision": null,
+          "owner_decision": "SELECT_FOR_MANUAL_CHECK",
           "allowed_decisions": [
             "SELECT_FOR_MANUAL_CHECK",
             "KEEP_HOLD",
@@ -55,7 +56,7 @@
           "route_id": "src-008-r1",
           "method_family": "registry_api",
           "score": 80,
-          "owner_decision": null,
+          "owner_decision": "KEEP_HOLD",
           "allowed_decisions": [
             "SELECT_FOR_MANUAL_CHECK",
             "KEEP_HOLD",
@@ -67,7 +68,8 @@
         {
           "route_id": "src-008-r3",
           "method_family": "json_ld",
-          "score": 75
+          "score": 75,
+          "owner_decision": "KEEP_HOLD"
         }
       ]
     },
@@ -79,7 +81,7 @@
           "route_id": "src-012-r0",
           "method_family": "official_public_api",
           "score": 85,
-          "owner_decision": null,
+          "owner_decision": "SELECT_FOR_MANUAL_CHECK",
           "allowed_decisions": [
             "SELECT_FOR_MANUAL_CHECK",
             "KEEP_HOLD",
@@ -90,7 +92,7 @@
           "route_id": "src-012-r1",
           "method_family": "registry_api",
           "score": 80,
-          "owner_decision": null,
+          "owner_decision": "KEEP_HOLD",
           "allowed_decisions": [
             "SELECT_FOR_MANUAL_CHECK",
             "KEEP_HOLD",
@@ -102,7 +104,8 @@
         {
           "route_id": "src-012-r3",
           "method_family": "json_ld",
-          "score": 75
+          "score": 75,
+          "owner_decision": "KEEP_HOLD"
         }
       ]
     }
