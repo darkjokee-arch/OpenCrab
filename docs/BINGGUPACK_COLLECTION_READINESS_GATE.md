@@ -1,13 +1,20 @@
-# BingguPack Actual API Data Collection Gate
+# BingguPack Collection Readiness Gate
 
-- **status:** GATE DESIGN — 실제 API call **미수행 (금지)**
-- **release_state:** `BINGGUPACK_RELEASE_READY` (단, 실 데이터 수집은 본 gate 통과 후)
+- **status:** `SEARCH_COLLECTION_OPTIONAL` · `EVIDENCE_PREVIEW_ONLY` — safety gate / readiness-only guard (실행 계획 아님). 실제 API call **미수행**
+- **release_state:** `BINGGUPACK_RELEASE_READY` · `API_COLLECTION_NOT_FIXED`
+- **adapter:** 이 gate는 `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md`의 **7단계(승인 전 차단) 안전 가드**다.
 - **gate token 형식:**
   `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION:<YYYY-MM-DD>:<collection_plan_id>:BingGu`
 
-> ⚠️ 현재까지 actual API data collection은 한 번도 수행하지 않았다.
-> 본 문서는 "언젠가 owner가 승인하면 무엇을 어떻게 확인하고 실행할지"의 **사전 설계**다.
-> 실제 API call / source fetch / network는 token 검증 통과 전까지 금지.
+> 🔑 **이 gate는 optional capability의 안전 가드다, 고정 릴리스 단계가 아니다.**
+> insane-search 기반 collection은 **특정 pack/workflow/product가 live external data를 필요로 할 때만** 켜는 optional search/discovery adapter다.
+> **BingguPack v1 release는 collection 없이도 release 가능**하며, 실제로 v1은 이것 없이 `BINGGUPACK_RELEASE_READY`다.
+> 본 문서는 "실행 계획"이 아니라 **safety gate / readiness-only guard** — 즉 *나중에 누군가 켜려 할 때 안전하게 막아주는 가드*다.
+> collection 결과는 **candidate / evidence preview only**이며, OpenCrab ingest / SAVE / promotion / production write는 **별도 승인 전 금지**다.
+
+> ⚠️ 현재까지 actual API data collection은 한 번도 수행하지 않았다(필요한 적 없음).
+> 본 문서는 "live data가 필요한 product가 생겨 owner가 승인할 때 무엇을 확인할지"의 **사전 설계(가드)**다.
+> 실제 API call / source fetch / network는 token 검증 통과 + owner 별도 개시(explicit run mode) 전까지 금지.
 
 ---
 
@@ -77,6 +84,6 @@ collection_plan 작성 (plan_id)
 
 ## 6. readiness 러너
 
-→ `docs/poc/workflow_factory/api_collection_gate_readiness.py`
+→ `docs/poc/workflow_factory/collection_readiness_gate.py`
 입력: `collection_plan`(JSON). 출력: 항목별 PASS/FAIL + 종합 `ready` 판정.
-**네트워크 호출 0** — readiness 판정만, 실 API call 미포함.
+**네트워크 호출 0** — readiness 판정만, 실 API call 미포함. `READY`는 실행 허가가 아니라 안전 확인 통과(`execution_authorized=false`).

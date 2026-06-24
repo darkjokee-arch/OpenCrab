@@ -34,7 +34,8 @@
 | 포함 | discovery_intent → route candidate 생성/랭킹, method_family catalog, route provenance |
 | method_family | public_api / registry_api / rss / atom / ogp / json_ld / public_reader / commercial_metadata_only 등 |
 | 경계 | TLS impersonation / headless / WAF 우회 / scraping / auth·paywall 우회 **미포함** |
-| gate | actual fetch는 `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` |
+| 실데이터 | **optional add-on / later connector** — live data 필요 시에만 insane-search collection adapter로 연결 (기본은 route 설계만, network 0) |
+| gate | (optional) actual fetch는 `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` → 결과는 evidence preview only |
 
 ---
 
@@ -64,5 +65,5 @@
 ## 4. 현재 상태 / 다음
 
 - 제품 정의: ✅ 완료 (metadata/preview 기준)
-- 실 데이터 수집: ⏸ `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` 대기
+- 실 데이터 수집: **optional** — live data가 필요한 product에만 `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION`로 켠다(필수 아님). 기본은 search/discovery 설계까지(network 0). → `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md`
 - 가격: → `BINGGUPACK_PRICING_AND_PACKAGING_DRAFT.md`

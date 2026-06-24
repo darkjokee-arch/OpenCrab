@@ -55,6 +55,6 @@
 가격/판매 활성화는 다음과 직접 연결되므로 각각 별도 gate다.
 
 - 실 customer data 수집 → private/customer data ingestion gate
-- 실 API data 수집 → `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION`
+- (optional) insane-search collection 켜기 → `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` (live data 필요 시에만, 결과는 evidence preview only)
 - marketplace 실제 listing → 외부 발송/공개 영역 (owner 직접)
 - 결제/구독 시스템 연동 → 추가 개발 + owner 승인

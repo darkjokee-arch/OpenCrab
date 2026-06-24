@@ -55,12 +55,13 @@ Layer1만 써도 되고, Layer2까지 확장해도 된다.
 
 ---
 
-## 5. 데이터 수집은 어떻게 되나 (중요)
+## 5. 데이터 수집은 어떻게 되나 (optional)
 
-- 지금은 **메타데이터(경로/구조)** 까지만 준비돼 있다.
-- **실제 외부 데이터 수집**은 아직 켜지 않았다. 켜려면 owner 승인이 필요하다:
+- BingguPack은 **API / network 없이도** 쓸 수 있다. 외부 데이터 수집은 **선택 기능**이다.
+- live external data가 필요한 pack/workflow가 있을 때만, insane-search 기반 search/discovery adapter로 켠다(owner 승인 필요):
   `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION:<date>:<plan_id>:BingGu`
-- public API / RSS / JSON-LD / metadata 우선. 로그인/유료벽 우회는 하지 않는다.
+- 켜도 **결과는 바로 저장이 아니라 candidate / evidence preview**다. ingest/save는 별도 승인.
+- public API / RSS / JSON-LD / metadata 우선. 로그인/유료벽 우회는 하지 않는다. → `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md`
 
 ---
 
@@ -69,7 +70,7 @@ Layer1만 써도 되고, Layer2까지 확장해도 된다.
 | 증상 | 의미 | 어떻게 |
 | :--- | :--- | :--- |
 | "SAVE가 막혔어요" | 근거(evidence)가 아직 연결 안 됨 | 근거가 되는 대화/원칙을 먼저 등록 |
-| "수집이 안 돼요" | 실제 데이터 수집은 별도 승인 필요 | actual API collection gate 승인 후 |
+| "수집이 안 돼요" | 수집은 optional 기능 — 기본은 꺼져 있음 | live data 필요 시 collection adapter를 owner 승인으로 켬 |
 | "특정 사이트를 못 넣어요" | 경로는 discovery_intent로 설계 | 무엇을 찾는지로 적으면 후보가 생성됨 |
 | "내 원본이 바뀔까봐요" | 원본은 보호됨 | fork 격리 저장, 실제 store 미변경 |
 
@@ -79,4 +80,4 @@ Layer1만 써도 되고, Layer2까지 확장해도 된다.
 
 - 운영 상세: `BINGGUPACK_OPERATOR_RUNBOOK.md`
 - 제품/가격: `BINGGUPACK_PRODUCTIZATION_PACKAGE.md`, `BINGGUPACK_PRICING_AND_PACKAGING_DRAFT.md`
-- 실 데이터 수집: `BINGGUPACK_ACTUAL_API_COLLECTION_GATE.md`
+- (optional) search/discovery 수집: `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md`, `BINGGUPACK_COLLECTION_READINESS_GATE.md`

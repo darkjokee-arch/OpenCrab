@@ -44,7 +44,7 @@ BingguPack의 첫 release-ready 패키지입니다. **productization-ready artif
 `owner ~/.binggupack 미변경` · `production_write=0` · `confirmed_promotion=0` · `actual_external_upload=false` · `network=0`.
 
 #### Known Limitations
-1. 실제 API data collection 미수행 (`OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` 필요)
+1. 실제 API data collection 미수행 — **optional 기능** (live data 필요 시에만 켬, release 필수 아님). `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION`
 2. OpenCrab ingest는 metadata-only (preflight PARTIAL_READY)
 3. Cloud publish는 fork 격리 bundle (실 업로드는 owner 직접)
 4. GitHub release 실제 생성은 owner 승인 후

@@ -41,10 +41,13 @@ Layer1과 Layer2는 독립 가동 가능.
 3. route candidate ≠ ADMIT. 기본 `HOLD_DISCOVERY`.
 4. 실제 ADMIT은 source URL/endpoint 확정 + license/robots/auth 확인 후.
 
-### 3-3. Actual API Data Collection (Gate)
-1. `api_collection_gate_readiness.py`로 10항목 readiness 판정.
+### 3-3. insane-search Collection (optional adapter — 필수 단계 아님)
+> live external data가 필요한 pack/workflow/product에만 켠다. v1 release는 이것 없이도 가능.
+1. `collection_readiness_gate.py`로 10항목 readiness 판정 (network 0, readiness-only guard).
 2. owner token: `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION:<date>:<plan_id>:BingGu`
-3. 전부 PASS → 실 수집(rate limit 준수). 하나라도 FAIL → `ACTUAL_API_COLLECTION_BLOCKED`.
+3. `READY`는 실행 허가 아님(`execution_authorized=false`). 실 탐색은 owner 별도 개시(explicit run mode)에서만.
+4. 결과는 **candidate / evidence preview only** — ingest/save/promotion은 §3-4 별도 게이트. FAIL → `ACTUAL_API_COLLECTION_BLOCKED`.
+   → `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md`
 
 ### 3-4. OpenCrab Ingest (Gate)
 1. ingest preflight → admitted source 확인 (현재 metadata-only).

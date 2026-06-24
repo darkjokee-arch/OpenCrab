@@ -36,8 +36,18 @@
   ],
   "cloud_is_source_of_truth": false,
   "owner_token_required": true,
+  "release_requires_actual_api_collection": false,
+  "fixed_api_collection_required": false,
+  "api_collection_status": "INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED",
+  "release_state_detail": [
+    "BINGGUPACK_RELEASE_READY",
+    "INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED",
+    "API_COLLECTION_NOT_FIXED",
+    "SEARCH_COLLECTION_OPTIONAL",
+    "EVIDENCE_PREVIEW_ONLY"
+  ],
   "next_version_candidates": {
-    "1.0.0": "actual API collection gate 통과 + GitHub release 실제 생성 후",
+    "1.0.0": "GitHub release 실제 생성 후 (actual API collection은 release 필수 아님 — optional)",
     "1.1.0": "paid marketplace listing / 결제 연동 후"
   }
 }

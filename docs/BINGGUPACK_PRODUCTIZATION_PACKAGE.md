@@ -58,11 +58,13 @@ confirmed promotion, external Cloud source-of-truth, 결제/구독 시스템, SL
 
 ---
 
-## 4. 출시 전 owner decision 3개
+## 4. owner decision
 
-1. **가격/패키징 확정** — `BINGGUPACK_PRICING_AND_PACKAGING_DRAFT.md` 검토 후 tier·가격 결정.
-2. **actual API data collection 승인** — `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` token.
-3. **marketplace listing / GitHub release 실제 생성 승인** — 외부 발송 영역.
+> v1 release는 아래 결정 없이도 가능하다(`API_COLLECTION_NOT_FIXED`). 아래는 **필요 시** 켜는 결정이다.
+
+- **가격/패키징 확정** — `BINGGUPACK_PRICING_AND_PACKAGING_DRAFT.md` 검토 후 tier·가격 결정.
+- **(optional) insane-search collection 켜기** — live external data가 필요한 product가 생길 때만. `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` token. 결과는 evidence preview only, ingest는 별도 승인. → `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md`
+- **(optional) marketplace listing / GitHub release 실제 생성 승인** — 외부 발송 영역.
 
 ---
 

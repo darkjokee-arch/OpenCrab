@@ -20,7 +20,8 @@
 | `BINGGUPACK_PRODUCTIZATION_PACKAGE.md` | 판매 패키지 정의 |
 | `BINGGUPACK_WORKFLOW_PRODUCT_CATALOG.md` | 제품 카탈로그 |
 | `BINGGUPACK_PRICING_AND_PACKAGING_DRAFT.md` | 가격/패키징 초안 |
-| `BINGGUPACK_ACTUAL_API_COLLECTION_GATE.md` | 실 API 수집 gate 설계 |
+| `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md` | (optional) insane-search 기반 search/discovery adapter 설계 |
+| `BINGGUPACK_COLLECTION_READINESS_GATE.md` | (optional) collection readiness 안전 가드 (구 ACTUAL_API_COLLECTION_GATE) |
 | `BINGGUPACK_OPERATOR_RUNBOOK.md` | 운영자 runbook |
 | `BINGGUPACK_USER_ONBOARDING_GUIDE.md` | 사용자 온보딩 |
 | `BINGGUPACK_GITHUB_RELEASE_DRAFT.md` | GitHub release draft |
@@ -34,7 +35,7 @@
 | cloud publish manifest/report | `docs/poc/release/binggupack_cloud_publish_*.json` |
 | release ready status | `docs/poc/release/binggupack_release_ready_status.json` |
 | release inventory / version manifest | `docs/poc/release/binggupack_release_inventory.json`, `binggupack_version_manifest.json` |
-| api collection readiness 러너 | `docs/poc/workflow_factory/api_collection_gate_readiness.py` |
+| collection readiness 가드 러너 | `docs/poc/workflow_factory/collection_readiness_gate.py` |
 | release bundle | `docs/poc/release/release_bundle/` |
 
 ## 3. 포함 — metadata only
@@ -56,19 +57,21 @@ workflow product preview metadata, fork-isolated SAVE metadata, fork-isolated in
 
 ---
 
-## 5. 남은 gate (gates_remaining)
+## 5. optional capability gate (release 필수 아님)
 
-| gate | token |
-| :--- | :--- |
-| actual API data collection | `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION:<date>:<plan_id>:BingGu` |
-| production write | (별도) |
-| external Cloud upload | owner 직접 |
-| GitHub release 실제 생성 | owner 승인 |
-| paid marketplace listing | owner 직접 |
-| private/customer data ingestion | (별도) |
-| confirmed promotion | (별도) |
+> 아래는 **release를 막는 잔여 단계가 아니다.** v1은 이미 `BINGGUPACK_RELEASE_READY`이며, 아래는 필요 시 켜는 optional capability다.
 
-`owner_approval_required_for_next_stage = true`
+| gate | 성격 | token |
+| :--- | :--- | :--- |
+| insane-search collection (actual API) | optional / evidence preview only | `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION:<date>:<plan_id>:BingGu` |
+| external Cloud upload | optional | owner 직접 |
+| GitHub release 실제 생성 | optional | owner 승인 |
+| paid marketplace listing | optional | owner 직접 |
+| private/customer data ingestion | optional / 별도 승인 | (별도) |
+| production write | **protected** (보호) | (별도) |
+| confirmed promotion | **protected** (보호) | (별도) |
+
+`owner_approval_required_for_release = false` · `owner_approval_required_for_optional_capabilities = true`
 
 ---
 

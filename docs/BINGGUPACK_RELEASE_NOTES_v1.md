@@ -67,9 +67,11 @@ production OpenCrab store, confirmed promotion data, external Cloud source-of-tr
 
 ---
 
+> ℹ️ **actual API data collection은 v1 release 필수 단계가 아니다.** live external data가 필요한 특정 pack/workflow/product에만 켜는 **optional capability**이며, v1은 이것 없이 `BINGGUPACK_RELEASE_READY`다. (`API_COLLECTION_NOT_FIXED` · `SEARCH_COLLECTION_OPTIONAL` · `EVIDENCE_PREVIEW_ONLY`)
+
 ## 5. Known Limitations
 
-1. **실제 API data collection 미수행** — `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` gate 필요.
+1. **실제 API data collection 미수행 (optional)** — live data가 필요한 product가 생길 때만 `OWNER_APPROVES_BINGGUPACK_ACTUAL_API_COLLECTION` gate로 켠다. release 차단 요인 아님.
 2. **OpenCrab ingest는 metadata-only** — 실 API response/source content는 ingest되지 않음. `opencrab_ingest_preflight_status=OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY` (still_hold 3, metadata_only).
 3. **Cloud publish는 fork 격리 bundle** — 실 외부 업로드는 owner 직접 영역.
 4. **route candidate는 discovery_intent 기반** — `search:` query는 source가 아니라 discovery_intent. 실제 ADMIT은 license/robots/auth 확인 후.
@@ -77,9 +79,9 @@ production OpenCrab store, confirmed promotion data, external Cloud source-of-tr
 
 ---
 
-## 6. 다음 단계 (운영/판매 — 별도 gate)
+## 6. 다음 단계 (운영/판매 — 전부 optional, release 필수 아님)
 
 - Productization package / pricing draft (문서 완료, 판매 결정은 owner)
-- Actual API data collection gate (readiness 설계 완료, 실 호출은 owner token 후)
+- **(optional)** insane-search collection adapter — live data 필요한 product에만. readiness guard 설계 완료, 실 탐색은 owner token + explicit run mode 후. 결과는 evidence preview only. → `BINGGUPACK_INSANE_SEARCH_COLLECTION_ADAPTER.md`
 - Operator runbook / user onboarding (문서 완료)
-- GitHub release draft → 실제 생성은 owner 승인 후
+- **(optional)** GitHub release draft → 실제 생성은 owner 승인 후
