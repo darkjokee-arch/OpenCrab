@@ -59,6 +59,13 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-19. Route Candidate Shortlist (2026-06-24, Fast)
+- 18 route candidate 점수화→discovery_intent별 top 2 recommended + 1 backup. recommended 6(official_public_api 3·registry_api 3)·backup 3.
+- scoring: official_public_api +40·registry +35·json_ld/portal +30·rss +25·public_reader +20·commercial -15... + metadata_first/auth-free/no_site_name/provenance 가점.
+- **여전히 ADMIT 아님**: recommended=ROUTE_SELECTION_RECOMMENDED(selection 후보)·owner_decision=null·allowed(SELECT_FOR_MANUAL_CHECK/KEEP_HOLD/REJECT_ROUTE).
+- 산출: route_candidate_shortlist.json·route_selection_input.json(selection_plan_id route-select-19a0db2f). release_ready=false·candidate=false 유지.
+- 실제 ADMIT은 route 선택→license/robots/auth manual check 후. fetch/network/ingest 0.
+
 ## 11-18. 정정: Search Query = Discovery Intent (2026-06-24·§11-17 취소)
 - **정정**: §11-17의 search query→공공 API 고정 치환 + ADMIT_METADATA_ROUTE 확정은 **성급 → 취소**.
 - search query는 **discovery_intent**: 단일 API 고정 금지·여러 route candidate(method_family별 ranking)·전부 **HOLD_DISCOVERY**.

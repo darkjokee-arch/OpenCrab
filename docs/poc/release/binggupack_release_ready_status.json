@@ -30,5 +30,7 @@
   "saved_candidate_count": 2,
   "source_manual_check_done": true,
   "admitted_source_count": 0,
-  "route_candidate_preview_count": 18
+  "route_candidate_preview_count": 18,
+  "route_shortlist_done": true,
+  "route_selection_pending": true
 }
