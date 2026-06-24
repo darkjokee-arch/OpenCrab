@@ -1,18 +1,19 @@
 {
   "package_id": "bgpk-a9450aa942",
   "package_title": "BingguPack Release Package",
-  "release_version": "1.8.0-rc.1",
-  "version_line": "BingguPack core (owner-declared baseline v1.7.2) + this expansion = v1.8.0-rc.1",
+  "release_version": "1.8.0",
+  "previous_rc": "1.8.0-rc.1",
+  "version_line": "BingguPack core (owner-declared baseline v1.7.2) + this expansion = v1.8.0 stable",
   "owner_declared_core_baseline": "1.7.2",
   "previous_provisional_releases": ["1.0.0-rc", "1.0.0-rc.1"],
-  "provisional_note": "v1.0.0-rc / v1.0.0-rc.1 are version-misaligned provisional prereleases, superseded by v1.8.0-rc.1 (not deleted).",
-  "release_state": "BINGGUPACK_RELEASE_READY",
+  "provisional_note": "v1.0.0-rc / v1.0.0-rc.1 are version-misaligned provisional prereleases, superseded (not deleted). v1.8.0-rc.1 is the previous RC, superseded by v1.8.0 stable.",
+  "release_state": "BINGGUPACK_V1_8_0_STABLE_READY",
   "release_date": "2026-06-24",
   "schema_version": 1,
   "components": [
-    { "name": "Layer1 Personal Ontology AGI Core", "version": "1.8.0-rc.1", "status": "release_ready" },
-    { "name": "Layer2 Workflow Factory", "version": "1.8.0-rc.1", "status": "release_ready" },
-    { "name": "Public Route Planning Add-on", "version": "1.8.0-rc.1", "status": "release_ready" }
+    { "name": "Layer1 Personal Ontology AGI Core", "version": "1.8.0", "status": "stable" },
+    { "name": "Layer2 Workflow Factory", "version": "1.8.0", "status": "stable" },
+    { "name": "Public Route Planning Add-on", "version": "1.8.0", "status": "stable" }
   ],
   "products": [
     { "id": "WP-CORE", "name": "Personal Ontology Core Kit", "layer": 1 },

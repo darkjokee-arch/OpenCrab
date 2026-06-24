@@ -9,7 +9,21 @@
 
 ---
 
-## [1.8.0-rc.1] — 2026-06-24 — `BINGGUPACK_VERSION_LINE_RECONCILED`
+## [1.8.0] — 2026-06-24 — `BINGGUPACK_V1_8_0_STABLE_READY`
+
+기존 BingguPack 본체(**v1.7.2**) 라인 통합 완료 **stable**. `v1.8.0-rc.1`을 supersede.
+
+### Added (stable)
+- **stable queue 11개 검증 통과** — schema 4(node/edge/review_item/save_plan)·backtest report 4·REGRESSION_BACKTEST·NEW_USER_BACKTEST·SAVE_APPROVAL_FLOW.
+- OpenCrab workflow-to-pack factory + insane-search optional evidence discovery adapter **본체 라인 통합 완료**.
+
+### Note
+- previous RC: `1.8.0-rc.1`. provisional(보존): `1.0.0-rc`/`1.0.0-rc.1`.
+- actual API collection은 stable에서도 **release requirement 아님**(optional). evidence preview-only 유지. OpenCrab ingest/save/promotion/production write는 별도 승인 전 금지.
+
+---
+
+## [1.8.0-rc.1] — 2026-06-24 — `BINGGUPACK_VERSION_LINE_RECONCILED` *(previous RC, superseded by 1.8.0)*
 
 기존 BingguPack 본체(**v1.7.2**) 라인에 합류한 정식 RC. 별도 adapter 제품이 아니라 **본체 기능 확장**.
 

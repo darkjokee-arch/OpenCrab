@@ -1,10 +1,10 @@
 # BingguPack Release Artifact Inventory
 
-> **버전 라인 정렬:** 정식 = **v1.8.0-rc.1** (본체 v1.7.2 합류). `1.0.0-rc`는 provisional(superseded, 삭제 안 함).
+> **버전 라인 정렬:** 정식 = **v1.8.0 stable** (본체 v1.7.2 통합). previous RC `v1.8.0-rc.1`. `1.0.0-rc`/`1.0.0-rc.1`는 provisional(superseded, 삭제 안 함).
 
 - **package_id:** `bgpk-a9450aa942`
-- **release_version:** `1.8.0-rc.1` (provisional: `1.0.0-rc`)
-- **release_state:** `BINGGUPACK_RELEASE_READY` · `BINGGUPACK_VERSION_LINE_RECONCILED`
+- **release_version:** `1.8.0` (previous RC: `1.8.0-rc.1`, provisional: `1.0.0-rc`)
+- **release_state:** `BINGGUPACK_V1_8_0_STABLE_READY` · `BINGGUPACK_VERSION_LINE_RECONCILED`
 - **release_ready:** `true` · **blockers:** `[]`
 
 > 이 릴리스에 무엇이 들어있고 무엇이 빠졌는지의 단일 인벤토리.
