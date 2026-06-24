@@ -11,10 +11,11 @@
 ## Release 메타 (제안)
 
 - **tag:** `v1.0.0-rc`
-- **title:** `BingguPack v1.0.0-rc — BINGGUPACK_RELEASE_READY`
+- **title:** `BingguPack v1.0.0-rc — Workflow-to-Pack Factory (insane-search optional, evidence preview-only)`
 - **target:** (현재 브랜치 / `main`)
 - **prerelease:** `true` (rc)
 - **package_id:** `bgpk-a9450aa942`
+- **상태명:** `BINGGUPACK_RELEASE_READY` · `INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED` · `API_COLLECTION_NOT_FIXED` · `SEARCH_COLLECTION_OPTIONAL` · `EVIDENCE_PREVIEW_ONLY`
 
 ---
 
@@ -22,12 +23,22 @@
 
 ### BingguPack v1.0.0-rc
 
-BingguPack의 첫 release-ready 패키지입니다. **productization-ready artifact** 기준이며,
+**상태:** `BINGGUPACK_RELEASE_READY` · `INSANE_SEARCH_COLLECTION_ADAPTER_DESIGNED` ·
+`API_COLLECTION_NOT_FIXED` · `SEARCH_COLLECTION_OPTIONAL` · `EVIDENCE_PREVIEW_ONLY`
+
+BingguPack은 **insane-search 기반 optional evidence discovery adapter를 포함한
+workflow-to-pack factory**입니다. **productization-ready artifact** 기준이며,
 실제 고객 데이터 수집·운영·판매·외부 업로드는 별도 owner gate입니다.
+
+> **핵심 (오해 방지):**
+> - **actual API collection은 필수 release 조건이 아닙니다.** live data가 필요할 때만 켜는
+>   optional 단계이며, 이 release의 전제 조건이 아닙니다.
+> - **search/collection 결과는 candidate/evidence preview only**입니다 — 확정 데이터가 아닙니다.
+> - **OpenCrab ingest / save / promotion / production write는 별도 owner 승인 전 전부 금지**입니다.
 
 #### 2-Layer 구조
 - **Layer 1 — Personal Ontology AGI Core** (본체)
-- **Layer 2 — OpenCrab Workflow Factory / Commercial Extension** (2차 확장)
+- **Layer 2 — OpenCrab Workflow Factory / Commercial Extension** (2차 확장, insane-search optional adapter 포함)
 
 #### 완료된 단계
 - ✅ CI: 3-OS matrix(ubuntu/macos/windows), PoC **11/11 PASS**, WSL optional SKIP
