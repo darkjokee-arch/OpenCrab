@@ -85,10 +85,10 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 - save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
 - **Fast Execution Mode**: 문서·스키마·러너 정리는 바로 진행하고, 실제 write/network/ingest/publish만 owner gate가 필요하다.
   (docs/schema/runner cleanup proceeds directly; only real write/network/ingest/publish requires owner gate.)
-- **overall: BINGGUPACK_RELEASE_READY_CANDIDATE** (2026-06-24): Option 3 SAVE = **SAVE_REAL_RUN_DONE**
+- **overall: BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN** (2026-06-24): Option 3 SAVE = **SAVE_REAL_RUN_DONE**
   (기존 save_gate 흐름 재사용·BINGGU_HOME fork 격리·사장님 실제 ~/.binggupack 미변경·candidate 2 저장).
-  Option 4 = placeholder source를 공공 API(data.go.kr/TourAPI)로 교체 → **INGEST_PREFLIGHT_PARTIAL_READY**(admitted 3).
-  잔존: opencrab_ingest_final_confirmation · cloud_publish. 실 ingest/fetch/publish 0.
+  Option 4 = `search:` query는 **discovery_intent**(단일 API 고정 금지)→여러 route candidate(HOLD_DISCOVERY)·admitted 0
+  → **INGEST_PREFLIGHT_BLOCKED**. 잔존: route_candidates_not_final_admitted · opencrab_ingest · cloud_publish. 실 ingest/fetch/publish 0.
 - **release_ready=false** — ingest BLOCKED + Cloud 미승인. 단일 상태:
   `docs/poc/release/binggupack_release_ready_status.json`. blocker: evidence_capture_required ·
   source_hold_manual_decision_required · cloud_publish_not_approved.

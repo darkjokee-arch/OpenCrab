@@ -50,6 +50,29 @@ _PLATFORM_HINT = {
 }
 
 
+# search query는 source가 아니라 discovery_intent → 단일 API 고정 금지·여러 route candidate로 expansion.
+_DISCOVERY_FAMILIES = ["official_public_api", "registry_api", "rss", "json_ld", "public_reader"]
+
+
+def is_discovery_intent(url: str) -> bool:
+    return bool(url) and url.lower().startswith("search:")
+
+
+def expand_discovery_intent(source_id: str, query: str) -> dict:
+    """search query → 여러 public route candidate(랭킹). 실제 ADMIT 아님·HOLD_DISCOVERY. fetch 0."""
+    rc = []
+    for fam in _DISCOVERY_FAMILIES:
+        phase, etype, prio, meta = _FAMILY[fam]
+        rc.append({"method_family": fam, "route_phase": phase, "public_route_priority": prio,
+                   "candidate_reason": f"{fam} route candidate for discovery intent",
+                   "execution_admission": "HOLD_DISCOVERY",
+                   "no_site_name_rule_compliant": True})
+    return {"discovery_intent_id": source_id, "source_value": query, "source_kind": "discovery_intent",
+            "fixed_source_url": None, "should_not_collapse_to_single_api": True,
+            "route_candidates": rc, "route_candidate_count": len(rc),
+            "source_fetch_performed": False, "network_performed": False}
+
+
 def _infer_family(url: str, access_risk: str, risk_labels: list, platform_hint: str) -> str:
     u = (url or "").lower()
     labels = risk_labels or []
@@ -117,21 +140,24 @@ def plan_route(i: int, source_id: str, url: str, access_risk: str, risk_labels: 
     }
 
 
-def _load_sources(platform_hint: str) -> list:
+def _load_sources(platform_hint: str):
+    """returns (routes, discovery_intents). search query는 discovery_intent로 분리(단일 API 고정 안 함)."""
+    routes, discovery = [], []
     if SRC.exists():
         doc = json.loads(SRC.read_text(encoding="utf-8"))
         cands = doc if isinstance(doc, list) else (doc.get("candidates") or [])
-        rows = []
         for i, c in enumerate(cands, start=1):
-            rows.append(plan_route(i, c.get("source_id"), c.get("source_url"),
-                                   c.get("access_risk", ""), c.get("risk_labels") or [], platform_hint))
-        return rows
-    # fallback: fixtures
+            url = c.get("source_url")
+            if is_discovery_intent(url):
+                discovery.append(expand_discovery_intent(c.get("source_id"), url))
+            else:
+                routes.append(plan_route(i, c.get("source_id"), url,
+                                         c.get("access_risk", ""), c.get("risk_labels") or [], platform_hint))
+        return routes, discovery
     fix = json.loads(FIX.read_text(encoding="utf-8")) if FIX.exists() else {"routes": []}
-    rows = []
     for i, r in enumerate(fix.get("routes", []), start=1):
-        rows.append(plan_route(i, r.get("target"), r.get("url"), r.get("auth", ""), [], platform_hint))
-    return rows
+        routes.append(plan_route(i, r.get("target"), r.get("url"), r.get("auth", ""), [], platform_hint))
+    return routes, discovery
 
 
 if __name__ == "__main__":
@@ -140,7 +166,11 @@ if __name__ == "__main__":
         platform_hint = sys.argv[sys.argv.index("--platform-hint") + 1]
 
     OUT.mkdir(parents=True, exist_ok=True)
-    routes = _load_sources(platform_hint)
+    routes, discovery_intents = _load_sources(platform_hint)
+    discovery_route_candidate_count = sum(d["route_candidate_count"] for d in discovery_intents)
+    if discovery_intents:
+        (OUT / "collection_route_discovery_intents.json").write_text(
+            json.dumps(discovery_intents, ensure_ascii=False, indent=2), encoding="utf-8")
 
     adm = {"ADMIT": 0, "HOLD": 0, "REJECT": 0}
     for r in routes:
@@ -157,6 +187,9 @@ if __name__ == "__main__":
             "public_route_first": True, "metadata_first": True}
     summary = {"route_count": len(routes), "admit": adm["ADMIT"], "hold": adm["HOLD"],
                "reject": adm["REJECT"],
+               "discovery_intent_count": len(discovery_intents),
+               "discovery_route_candidate_count": discovery_route_candidate_count,
+               "search_query_collapsed_to_single_api": False,
                "no_site_name_rule_compliant_all": all(r["no_site_name_rule_compliant"] for r in routes),
                "collection_performed": False, "ingest_performed": False,
                "actual_fetch_performed": False, "browser_executed": False,

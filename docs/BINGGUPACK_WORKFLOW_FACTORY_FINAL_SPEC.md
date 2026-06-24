@@ -3,12 +3,13 @@
 > 2026-06-23. Layer2 = OpenCrab Workflow Factory commercial extension. 사용자 개인 온톨로지(Layer1)와
 > **독립 가능**. 설계/preview only — 실제 crawl/fetch/ingest/production write 0. 상위: `BINGGUPACK_FINAL_CONCEPT.md`.
 
-## 0-1. Real Source 우선순위 (2026-06-24)
-- placeholder(search 쿼리·example.com) 금지. 실 운영 source는 **공식/공공 우선**:
-  ① official_public_api(한국관광공사 TourAPI·공공데이터포털 data.go.kr·TAGO 교통) → ADMIT_METADATA_ROUTE(license 명확).
-  ② public metadata(공식 포털 OGP/JSON-LD·RSS) → HOLD_MANUAL_LICENSE_ROBOTS_CHECK / METADATA_ONLY.
-  ③ commercial/review → source candidate 가능하나 execution HOLD·metadata-first·license/robots 확인 전 ADMIT 금지.
-- 산출: `docs/poc/workflow_factory/real_source_candidate_replacement.json`. 실 fetch/network 0.
+## 0-1. Search Query = Discovery Intent (단일 API 고정 금지·2026-06-24 정정)
+- **정정**: `search:` query를 특정 공공 API로 고정 치환하지 않는다(이전 ADMIT_METADATA_ROUTE 확정은 취소).
+- search query → discovery_intent → 여러 route candidate(official_public_api/registry_api/rss/json_ld/public_reader/
+  commercial_metadata_only) 생성·ranking → 전부 **HOLD_DISCOVERY**(또는 HOLD_MANUAL_REVIEW). 각 query당 ≥3 후보.
+- ADMIT은 실제 source URL/endpoint 확정 + license/robots/auth 확인 후에만. 공공 API는 우선순위 높은 후보일 뿐 확정 아님.
+- example.com placeholder는 REJECT_PLACEHOLDER. commercial/review는 metadata-first·execution HOLD.
+- 산출: `real_source_candidate_replacement.json`(discovery_intent 구조)·`collection_route_discovery_intents.json`. 실 fetch/network 0.
 
 ## 1. 목적
 

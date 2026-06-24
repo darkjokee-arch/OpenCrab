@@ -1,14 +1,15 @@
 {
   "status": "FINAL_RELEASE_CANDIDATE_READY",
-  "overall_status": "BINGGUPACK_RELEASE_READY_CANDIDATE",
+  "overall_status": "BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN",
   "release_ready": false,
-  "release_ready_candidate": true,
+  "release_ready_candidate": false,
   "cloud_publish_ready": false,
   "save_preflight_status": "SAVE_PREFLIGHT_READY",
-  "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY",
+  "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
   "blockers": [
-    "cloud_publish_not_approved",
-    "opencrab_ingest_final_confirmation_pending"
+    "route_candidates_not_final_admitted",
+    "opencrab_ingest_not_ready",
+    "cloud_publish_not_approved"
   ],
   "resolved": [
     "evidence_capture(owner_declared·SAVE_PREFLIGHT_READY)"
@@ -28,6 +29,6 @@
   "save_real_run_status": "SAVE_REAL_RUN_DONE",
   "saved_candidate_count": 2,
   "source_manual_check_done": true,
-  "admitted_source_count": 3,
-  "ingest_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:ipfr-330e0e18b6:BingGu"
+  "admitted_source_count": 0,
+  "route_candidate_preview_count": 18
 }

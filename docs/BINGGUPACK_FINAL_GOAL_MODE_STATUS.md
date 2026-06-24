@@ -59,7 +59,17 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
-## 11-17. Real Source Replacement → INGEST PARTIAL_READY → RELEASE_READY_CANDIDATE (2026-06-23)
+## 11-18. 정정: Search Query = Discovery Intent (2026-06-24·§11-17 취소)
+- **정정**: §11-17의 search query→공공 API 고정 치환 + ADMIT_METADATA_ROUTE 확정은 **성급 → 취소**.
+- search query는 **discovery_intent**: 단일 API 고정 금지·여러 route candidate(method_family별 ranking)·전부 **HOLD_DISCOVERY**.
+  src-004/008/012 각 5~6 route candidate(official_public_api/registry_api/rss/json_ld/public_reader/commercial_metadata_only).
+- planner: `is_discovery_intent`/`expand_discovery_intent`→`collection_route_discovery_intents.json`(3 intent·각 5 candidate·전부 HOLD_DISCOVERY·search_query_collapsed_to_single_api=false).
+- **admitted 0**(route candidate는 ADMIT 아님)·route_candidate_preview_count 18 → ingest **OPENCRAB_INGEST_PREFLIGHT_BLOCKED**.
+- release_ready=false·**release_ready_candidate=false**·overall **BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN**.
+  blocker: route_candidates_not_final_admitted·opencrab_ingest_not_ready·cloud_publish_not_approved.
+- ADMIT은 실제 source URL/endpoint 확정 + license/robots/auth 확인 후에만(공공 API도 후보 중 하나). 실 fetch/network 0.
+
+## 11-17. Real Source Replacement (2026-06-23) — ⚠️ §11-18로 정정됨(search→discovery_intent)
 - placeholder 교체(실 fetch 0·network 0): src-004/008/012 search 쿼리→**공공 API**(TourAPI 숙박·data.go.kr 관광지·TAGO 교통)·
   src-009/013 example.com→REJECT_PLACEHOLDER 제거·추가 VisitJeju 공식(json_ld·HOLD_MANUAL_LICENSE_ROBOTS_CHECK).
 - **real candidate 4**(official_public_api 3·official_portal 1). execution_admission: **ADMIT_METADATA_ROUTE 3**(공공데이터 개방·license 명확·robots 무관 API·실 fetch 별도 gate)·HOLD 1·REJECT_PLACEHOLDER 2.

@@ -30,6 +30,14 @@
   metadata-first / route provenance 개념만. **TLS impersonation·headless browser·WAF-bypass·dependency
   auto-install·login/paywall access·scraping 실행 = disabled/HOLD.**
 
+## 6-2. search query = discovery_intent (단일 API 고정 금지·2026-06-24)
+- `search:` query는 source URL이 아니라 **discovery_intent**. 특정 API로 고정 치환하지 않는다.
+- 흐름: `search query → discovery_intent → route planner → 여러 route candidate(method_family별) → ranking →
+  public/official/metadata priority → execution gate`. 각 query당 route candidate ≥3.
+- execution_admission: route 확정 전엔 **HOLD_DISCOVERY**(또는 HOLD_MANUAL_REVIEW). ADMIT_METADATA_ROUTE는
+  실제 source URL/endpoint 확정 + license/robots/auth 확인 후에만. 공공 API도 후보 중 하나일 뿐(확정 아님).
+- planner: `is_discovery_intent`/`expand_discovery_intent` → `collection_route_discovery_intents.json`. fetch/network 0.
+
 ## 7. PoC 실측 (Fast Mode 갱신 2026-06-23)
 `collection_route_planner_preview.py` 개선: 입력 source_candidates.json(+platform_hint)·URL 패턴+platform_hint로
 method_family 추론·14 family/6 phase enum·public_route_priority·metadata_first·no_site_name_rule_compliant·

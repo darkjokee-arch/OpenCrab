@@ -1,114 +1,183 @@
 [
   {
-    "old_source_id": "src-004",
-    "old_source_value": "search:제주 가족 호텔 추천",
-    "replacement_source_id": "rsrc-004",
-    "replacement_source_name": "한국관광공사 TourAPI 숙박",
-    "replacement_source_url": "https://apis.data.go.kr/B551011/KorService/searchStay",
-    "source_type": "official_public_api",
-    "method_family": "official_public_api",
-    "route_phase": "phase0_public_endpoint",
-    "extraction_type": "structured_api",
-    "expected_data": [
-      "숙박명",
-      "주소",
-      "좌표",
-      "등급"
+    "discovery_intent_id": "src-004",
+    "source_value": "search:제주 가족 호텔 추천",
+    "source_kind": "discovery_intent",
+    "fixed_source_url": null,
+    "should_not_collapse_to_single_api": true,
+    "route_candidates": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW"
+      }
     ],
-    "execution_admission": "ADMIT_METADATA_ROUTE",
-    "reason": "공공데이터 개방 API·license 명확(자유이용)·robots 무관(API)·실 fetch는 별도 gate",
+    "route_candidate_count": 6,
     "source_fetch_performed": false,
     "network_performed": false
   },
   {
-    "old_source_id": "src-008",
-    "old_source_value": "search:장소",
-    "replacement_source_id": "rsrc-008",
-    "replacement_source_name": "공공데이터포털 제주 관광지 API",
-    "replacement_source_url": "https://api.data.go.kr/openapi/tn_pubr_public_trrsrt_api",
-    "source_type": "official_public_api",
-    "method_family": "official_public_api",
-    "route_phase": "phase0_public_endpoint",
-    "extraction_type": "structured_api",
-    "expected_data": [
-      "관광지명",
-      "주소",
-      "좌표",
-      "분류"
+    "discovery_intent_id": "src-008",
+    "source_value": "search:장소",
+    "source_kind": "discovery_intent",
+    "fixed_source_url": null,
+    "should_not_collapse_to_single_api": true,
+    "route_candidates": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW"
+      }
     ],
-    "execution_admission": "ADMIT_METADATA_ROUTE",
-    "reason": "공공데이터 개방·license 명확·route_provenance 가능",
+    "route_candidate_count": 6,
     "source_fetch_performed": false,
     "network_performed": false
   },
   {
-    "old_source_id": "src-012",
-    "old_source_value": "search:동선",
-    "replacement_source_id": "rsrc-012",
-    "replacement_source_name": "제주 대중교통 공공 API(국토부 TAGO)",
-    "replacement_source_url": "https://apis.data.go.kr/1613000/BusRouteInfoInqireService",
-    "source_type": "official_public_api",
-    "method_family": "official_public_api",
-    "route_phase": "phase0_public_endpoint",
-    "extraction_type": "structured_api",
-    "expected_data": [
-      "노선",
-      "정류장",
-      "좌표"
+    "discovery_intent_id": "src-012",
+    "source_value": "search:동선",
+    "source_kind": "discovery_intent",
+    "fixed_source_url": null,
+    "should_not_collapse_to_single_api": true,
+    "route_candidates": [
+      {
+        "method_family": "official_public_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official/public API may expose structured metadata",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "registry_api",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "public registry/open API candidate",
+        "public_route_priority": 1,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "rss",
+        "route_phase": "phase0_public_endpoint",
+        "candidate_reason": "official feed (RSS/Atom) candidate if available",
+        "public_route_priority": 2,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "json_ld",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "official portal OGP/JSON-LD/Schema.org metadata candidate",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "public_reader",
+        "route_phase": "phase2_public_route_candidate",
+        "candidate_reason": "public reader/static route candidate",
+        "public_route_priority": 4,
+        "execution_admission": "HOLD_DISCOVERY"
+      },
+      {
+        "method_family": "commercial_metadata_only",
+        "route_phase": "phase1_lightweight_metadata",
+        "candidate_reason": "hotel/review platform public metadata only",
+        "public_route_priority": 3,
+        "execution_admission": "HOLD_MANUAL_REVIEW"
+      }
     ],
-    "execution_admission": "ADMIT_METADATA_ROUTE",
-    "reason": "공공데이터 개방·교통 동선용·license 명확",
+    "route_candidate_count": 6,
     "source_fetch_performed": false,
     "network_performed": false
   },
   {
-    "old_source_id": null,
-    "old_source_value": "(추가)",
-    "replacement_source_id": "rsrc-014",
-    "replacement_source_name": "VisitJeju 공식 관광 포털",
-    "replacement_source_url": "https://www.visitjeju.net",
-    "source_type": "official_portal",
-    "method_family": "json_ld",
-    "route_phase": "phase1_lightweight_metadata",
-    "extraction_type": "metadata",
-    "expected_data": [
-      "관광지 metadata",
-      "OGP"
-    ],
-    "execution_admission": "HOLD_MANUAL_LICENSE_ROBOTS_CHECK",
-    "reason": "공식 포털이나 robots/terms 확인 권장·metadata-first",
-    "source_fetch_performed": false,
-    "network_performed": false
-  },
-  {
-    "old_source_id": "src-009",
-    "old_source_value": "https://www.example.com/unknown",
-    "replacement_source_id": null,
-    "replacement_source_name": null,
-    "replacement_source_url": null,
-    "source_type": "placeholder",
-    "method_family": null,
-    "route_phase": null,
-    "extraction_type": null,
-    "expected_data": [],
+    "source_id": "src-009",
+    "source_value": "https://www.example.com/unknown",
+    "source_kind": "placeholder",
     "execution_admission": "REJECT_PLACEHOLDER",
     "reason": "IANA 예약 예시 도메인·제거",
+    "route_candidates": [],
     "source_fetch_performed": false,
     "network_performed": false
   },
   {
-    "old_source_id": "src-013",
-    "old_source_value": "https://www.example.com/unknown",
-    "replacement_source_id": null,
-    "replacement_source_name": null,
-    "replacement_source_url": null,
-    "source_type": "placeholder",
-    "method_family": null,
-    "route_phase": null,
-    "extraction_type": null,
-    "expected_data": [],
+    "source_id": "src-013",
+    "source_value": "https://www.example.com/unknown",
+    "source_kind": "placeholder",
     "execution_admission": "REJECT_PLACEHOLDER",
     "reason": "IANA 예약 예시 도메인·제거",
+    "route_candidates": [],
     "source_fetch_performed": false,
     "network_performed": false
   }
