@@ -1,0 +1,88 @@
+{
+  "package_id": "bgpk-a9450aa942",
+  "release_state": "BINGGUPACK_RELEASE_READY",
+  "release_version": "1.0.0-rc",
+  "release_date": "2026-06-24",
+  "release_ready": true,
+  "blockers": [],
+  "layers": {
+    "layer1": "Personal Ontology AGI Core",
+    "layer2": "OpenCrab Workflow Factory / Commercial Extension"
+  },
+  "stages_done": {
+    "ci": "CI_RUN_DONE_POC_EXECUTED",
+    "readme": "APPLIED",
+    "save": "SAVE_REAL_RUN_DONE",
+    "opencrab_ingest": "OPENCRAB_INGEST_REAL_RUN_DONE",
+    "cloud_publish": "CLOUD_PUBLISH_DONE"
+  },
+  "identifiers": {
+    "save_plan_id": "splan-40b1b7246a73",
+    "save_preflight_report_id": "spfr-8d68c22f87",
+    "saved_candidates": ["c0", "c2"],
+    "ingest_product_id": "wfp-001",
+    "ingest_preflight_report_id": "ipfr-c3c355c79c",
+    "ingested_product_count": 1,
+    "admitted_source_count": 3,
+    "skipped_source_count": 9
+  },
+  "ci": {
+    "matrix": ["ubuntu-latest", "macos-latest", "windows-latest"],
+    "poc_total": 11,
+    "poc_passed": 11,
+    "wsl": "SKIP_WITH_REASON(no_distribution_installed)"
+  },
+  "included_docs": [
+    "README.md",
+    "docs/BINGGUPACK_RELEASE_NOTES_v1.md",
+    "docs/BINGGUPACK_CHANGELOG.md",
+    "docs/BINGGUPACK_PRODUCTIZATION_PACKAGE.md",
+    "docs/BINGGUPACK_WORKFLOW_PRODUCT_CATALOG.md",
+    "docs/BINGGUPACK_PRICING_AND_PACKAGING_DRAFT.md",
+    "docs/BINGGUPACK_ACTUAL_API_COLLECTION_GATE.md",
+    "docs/BINGGUPACK_OPERATOR_RUNBOOK.md",
+    "docs/BINGGUPACK_USER_ONBOARDING_GUIDE.md",
+    "docs/BINGGUPACK_RELEASE_ARTIFACT_INVENTORY.md",
+    "docs/BINGGUPACK_GITHUB_RELEASE_DRAFT.md"
+  ],
+  "included_schemas": [
+    "collection_route_candidate schema",
+    "route planner catalog/method_family catalog",
+    "workflow product preview metadata schema"
+  ],
+  "included_poc": [
+    "docs/poc/release/binggupack_cloud_publish_manifest.json",
+    "docs/poc/release/binggupack_cloud_publish_report.json",
+    "docs/poc/release/binggupack_release_ready_status.json",
+    "docs/poc/workflow_factory/api_collection_gate_readiness.py",
+    "docs/poc/release/release_bundle/"
+  ],
+  "excluded_data": [
+    "actual_api_data",
+    "actual_source_content",
+    "commercial_scraped_content",
+    "private_data",
+    "production_opencrab_store",
+    "confirmed_promotion_data",
+    "external_cloud_source_of_truth"
+  ],
+  "gates_remaining": [
+    "actual_api_data_collection",
+    "production_write",
+    "external_cloud_upload",
+    "github_release_actual_creation",
+    "paid_marketplace_listing",
+    "private_customer_data_ingestion",
+    "confirmed_promotion"
+  ],
+  "owner_approval_required_for_next_stage": true,
+  "integrity": {
+    "owner_binggupack_home_modified": false,
+    "existing_ledger_modified": false,
+    "opencrab_production_modified": false,
+    "production_write": 0,
+    "confirmed_promotion": 0,
+    "actual_external_upload_performed": false,
+    "network_performed": false
+  }
+}

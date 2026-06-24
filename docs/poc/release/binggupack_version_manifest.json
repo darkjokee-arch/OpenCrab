@@ -1,0 +1,43 @@
+{
+  "package_id": "bgpk-a9450aa942",
+  "package_title": "BingguPack Release Package",
+  "release_version": "1.0.0-rc",
+  "release_state": "BINGGUPACK_RELEASE_READY",
+  "release_date": "2026-06-24",
+  "schema_version": 1,
+  "components": [
+    { "name": "Layer1 Personal Ontology AGI Core", "version": "1.0.0-rc", "status": "release_ready" },
+    { "name": "Layer2 Workflow Factory", "version": "1.0.0-rc", "status": "release_ready" },
+    { "name": "Public Route Planning Add-on", "version": "1.0.0-rc", "status": "release_ready" }
+  ],
+  "products": [
+    { "id": "WP-CORE", "name": "Personal Ontology Core Kit", "layer": 1 },
+    { "id": "WP-FACTORY", "name": "Workflow Factory Builder", "layer": 2, "product_id": "wfp-001" },
+    { "id": "WP-ROUTE", "name": "Public Route Planning Add-on", "layer": 2 }
+  ],
+  "compatibility": {
+    "ci_os_matrix": ["ubuntu-latest", "macos-latest", "windows-latest"],
+    "wsl": "optional_skip"
+  },
+  "data_classes_included": [
+    "owner_declared_public_principle",
+    "metadata",
+    "route_descriptor",
+    "audit_reference"
+  ],
+  "data_classes_excluded": [
+    "private",
+    "secret",
+    "raw_private_evidence",
+    "actual_source_content",
+    "api_response_body",
+    "commercial_scraped",
+    "production_store"
+  ],
+  "cloud_is_source_of_truth": false,
+  "owner_token_required": true,
+  "next_version_candidates": {
+    "1.0.0": "actual API collection gate 통과 + GitHub release 실제 생성 후",
+    "1.1.0": "paid marketplace listing / 결제 연동 후"
+  }
+}
