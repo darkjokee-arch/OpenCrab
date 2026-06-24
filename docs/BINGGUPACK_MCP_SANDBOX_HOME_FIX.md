@@ -62,6 +62,13 @@ sandbox/CI 테스트용 MCP 등록 예시 (owner 운영 행위 — 등록은 own
 - **런타임: 조건부 `MCP_OPERATIONAL_READY_SANDBOX`** — MCP config `env.BINGGU_HOME` 주입 + 재시작 시 달성.
   (이번 턴은 config 미수정·문서화까지 → 현 세션 MCP는 여전히 실제 홈 사용.)
 
+## 7-1. 격리 실증 완료 (2026-06-24 후속)
+- sandbox MCP 엔트리 `openbinggu-local-sandbox`(env.BINGGU_HOME 주입) 등록·기동 후 실테스트로 **격리 성공 실증**.
+- 실제 sandbox home: `C:\Users\PC\binggupack_sandbox_home` (§5 예시 경로와 무관, owner 등록값).
+- 증거: preview 부작용(`last_preview_candidates.json`)이 **sandbox home에서만** 갱신(151→113, 19:31→19:36), 운영 `~/.binggupack`은 ledger 본체·wal·shm·last_preview 전부 **불변**.
+- 런타임 판정 `MCP_OPERATIONAL_READY_SANDBOX` 조건(env 주입+재시작) 충족 → §6 "조건부" 해소.
+- save-gate 실증: `save_candidate` actual write는 `G4_no_auto`(AI=reader actor 자동저장 차단)로 BLOCK = 설계대로. 상세 `BINGGUPACK_MCP_OPERATIONAL_E2E_TEST_REPORT.md §8`.
+
 ## 7. 무결성
 - **사장님 BingguPack 코드 수정 0** (패치 불필요 — 이미 지원).
 - 실증은 `binggu_home()` 경로 계산만(파일 생성 0). `ledger.sqlite` 본체·`-wal` 미변경 = 데이터 write 0.

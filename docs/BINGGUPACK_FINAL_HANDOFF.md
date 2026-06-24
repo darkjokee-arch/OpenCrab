@@ -7,8 +7,10 @@
 > stable queue 11개(schema 4·backtest 4·REGRESSION·NEW_USER·SAVE_APPROVAL_FLOW) 검증 통과 → `BINGGUPACK_V1_8_0_STABLE_READY`.
 > **신규 사용자 E2E:** `NEW_USER_E2E_PARTIAL_DOCS_FIXED` (offline 동작·문서 보정 / WSL Ubuntu·macOS actual PASS는 `CROSS_PLATFORM_E2E_PENDING`).
 > 후속 과제: 전용 CLI(`BINGGUPACK_CLI_DESIGN.md`, `CLI_DESIGN_RECORDED`), cross-platform 실행(`BINGGUPACK_CROSS_PLATFORM_E2E_PLAN.md`). v1.8.0 stable 유지 가능.
-> **MCP 실사용 테스트:** `MCP_OPERATIONAL_PARTIAL_HOME_NOT_ISOLATED` (`BINGGUPACK_MCP_OPERATIONAL_E2E_TEST_REPORT.md`). 도구 흐름(preview→save dry-run→build→validate→consumer) 동작·ledger write 0.
-> ⚠️ **결함→해결:** 실제 `~/.binggupack` 흔적의 원인은 코드 결함이 아니라 테스트 env 이름 오류였음. 올바른 env = **`BINGGU_HOME`**(이미 `binggu_platform.binggu_home()`이 지원, 25개 모듈 공유, 실증 완료). 해결: MCP config `env.BINGGU_HOME` 주입+재시작(owner 운영). 코드 패치 0. 상세: `BINGGUPACK_MCP_SANDBOX_HOME_FIX.md`. 상태: `MCP_SANDBOX_HOME_SUPPORTED`.
+> **MCP 실사용 테스트 (2026-06-24 최종):** sandbox MCP `openbinggu-local-sandbox`로 8도구+실저장 테스트 완료. 격리 성공·save-gate 실증. 상세 `BINGGUPACK_MCP_OPERATIONAL_E2E_TEST_REPORT.md §8`.
+>   판정: `MCP_OPERATIONAL_READY_SANDBOX_FOR_PREVIEW_DRYRUN` · `SAVE_GATE_ENFORCED` · `AI_AUTO_SAVE_BLOCKED_BY_DESIGN` · `G4_NO_AUTO_CONFIRMED` · `REAL_HOME_UNCHANGED` · `PRODUCTION_WRITE_0`.
+>   의미: AI는 preview/dry-run/build/validate/consumer까지 가능, **실저장/write는 human actor 승인 경로에서만**(`save_candidate` actual write는 `G4_no_auto`로 AI 차단). sandbox home(`C:\Users\PC\binggupack_sandbox_home`)만 사용, 운영 `~/.binggupack` 불변.
+> ⚠️ **이전 결함→해결:** 초기 `MCP_OPERATIONAL_PARTIAL_HOME_NOT_ISOLATED`의 원인은 코드 결함이 아니라 테스트 env 이름 오류였음. 올바른 env = **`BINGGU_HOME`**(이미 `binggu_platform.binggu_home()`이 지원, 25개 모듈 공유). 해결: sandbox MCP config `env.BINGGU_HOME` 주입+재시작(owner 운영, 완료). 코드 패치 0. 상세: `BINGGUPACK_MCP_SANDBOX_HOME_FIX.md`. 상태: `MCP_SANDBOX_HOME_SUPPORTED` → 격리 실증 완료.
 
 ## BingguPack 정의
 Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 commercial·Layer2).
