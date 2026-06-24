@@ -12,7 +12,7 @@
 | insane-search 오해 위험 | MITIGATED | route planner 개념만. execution engine 아님 README/문서 명시. TLS/browser/WAF/dep-install disabled. |
 | WSL optional SKIP | ACCEPTED | GitHub windows runner 배포판 미설치 → SKIP_WITH_REASON. main 3-OS PASS와 분리. PASS로 표기 안 함. |
 | README가 OpenCrab upstream 원본 대체 → 정보 손실 | MITIGATED | 원본 `docs/UPSTREAM_OPENCRAB_README.md` 보존(sha256 일치) + git history 복구 가능 + README 하단 링크. |
-| Cloud/Publish 미개방 | HOLD | packaging plan만. 실제 publish 0. owner approval token 필요. |
+| Cloud/Publish | DONE(2026-06-24·격리) | owner token 후 CLOUD_PUBLISH_DONE·**fork 격리 release bundle·실제 외부 Cloud 업로드 0(owner 직접 영역)**·cloud_is_source_of_truth=false·private/source/API/production 제외. release_ready=true. |
 | source/evidence/private data 삭제 | PROHIBITED | 전 단계 삭제 0. read-only adapter만. |
 | promotion 위험 | BLOCKED | promotion_allowed=false 기본. promotion 0. |
 | production write | BLOCKED | 전 단계 production write 0. owner approval 전 불가. |

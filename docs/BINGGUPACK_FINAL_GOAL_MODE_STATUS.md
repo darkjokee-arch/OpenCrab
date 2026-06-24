@@ -59,6 +59,15 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-23. Cloud Publish Final Run — BINGGUPACK_RELEASE_READY (2026-06-24) ✅
+- owner token(package_id bgpk-a9450aa942) 검증 통과·final review PASS(Option 1~4 DONE·exclusion 확인)→**CLOUD_PUBLISH_DONE**.
+- **안전 패턴 동일**: 실제 외부 Cloud 업로드는 owner 직접 영역(외부 발송 원칙)→**fork 격리 release bundle**(release_bundle/) 패키징.
+  **actual_external_upload_performed=false·network 0**·cloud_is_source_of_truth=false.
+- included: README/canonical docs/CI status/schema/route planner catalog/product preview metadata/fork SAVE·ingest metadata/audit ref/owner-declared principle evidence metadata.
+  excluded: private/secret/raw evidence/actual source content/API response/commercial scraped/production store/confirmed promotion.
+- **release_ready=true·release_state=BINGGUPACK_RELEASE_READY·blockers []**. private_data/production_write 0.
+- **전체 완료**: Option 1 CI ✅ / Option 2 README ✅ / Option 3 SAVE ✅ / Option 4 ingest ✅ / Cloud publish ✅.
+
 ## 11-22. Option 4 OpenCrab Ingest Real Run — DONE (2026-06-24, metadata-only·fork 격리)
 - owner final token(wfp-001:ipfr-c3c355c79c) 검증 통과 → **OPENCRAB_INGEST_REAL_RUN_DONE**.
 - **기존 OpenCrab ingest adapter contract 재사용**(신규 엔진 안만듦)·**실제 OpenCrab production/MCP ontology store 미변경**

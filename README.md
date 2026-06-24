@@ -13,8 +13,8 @@ as a secondary commercial extension.**
 사용자의 대화·판단·취향·원칙·작업방식·의사결정 기준·권한 경계·반복 업무 패턴을
 `evidence — node — edge`로 축적해 사용자 온톨로지 기반 개인 지능 코어로 간다.
 
-> 현재 단계: **preview / dry-run / productization-ready**. 상태 **OWNER_REVIEW_READY**.
-> 실제 SAVE / OpenCrab ingest / production write는 owner 승인 전까지 열리지 않는다.
+> 상태: **BINGGUPACK_RELEASE_READY** (2026-06-24). Option 1 CI / 2 README / 3 SAVE / 4 OpenCrab ingest / Cloud publish 전부 완료.
+> 모든 실행은 owner token + fork 격리(사장님 실제 ~/.binggupack·BingguPack ledger·OpenCrab production 미변경). 외부 Cloud 실업로드·실 API data·production write 0.
 
 ---
 
@@ -85,9 +85,9 @@ WSL optional:   SKIP_WITH_REASON(no_distribution_installed)
 - save_gate / OpenCrab ingest real run requires **owner token + final confirmation token**.
 - **Fast Execution Mode**: 문서·스키마·러너 정리는 바로 진행하고, 실제 write/network/ingest/publish만 owner gate가 필요하다.
   (docs/schema/runner cleanup proceeds directly; only real write/network/ingest/publish requires owner gate.)
-- **overall: BINGGUPACK_RELEASE_READY_CANDIDATE** (2026-06-24): Option 3 SAVE = **SAVE_REAL_RUN_DONE**(fork 격리·~/.binggupack 미변경).
-  Option 4 OpenCrab ingest = **OPENCRAB_INGEST_REAL_RUN_DONE**(metadata-only·fork 격리·OpenCrab production 미변경·실 API/source content 0).
-  잔존 blocker: **cloud_publish_not_approved**만. release_ready_candidate=true·cloud_publish_ready_candidate=true. 실 publish/production write 0.
+- **overall: BINGGUPACK_RELEASE_READY** ✅ (2026-06-24): Option 1 CI / 2 README / 3 SAVE(fork 격리) / 4 OpenCrab ingest(metadata-only·fork 격리) /
+  Cloud publish(fork 격리 release bundle·외부 실업로드 0) 전부 DONE. **release_ready=true·blockers []**.
+  단일 상태: `docs/poc/release/binggupack_release_ready_status.json`. 실 외부 Cloud 업로드는 owner 직접 영역.
 - **release_ready=false** — ingest BLOCKED + Cloud 미승인. 단일 상태:
   `docs/poc/release/binggupack_release_ready_status.json`. blocker: evidence_capture_required ·
   source_hold_manual_decision_required · cloud_publish_not_approved.

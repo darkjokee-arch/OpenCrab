@@ -1,0 +1,22 @@
+{
+  "status": "cloud publish final review (no publish)",
+  "final_review_status": "CLOUD_PUBLISH_FINAL_REVIEW_PASS",
+  "checks": {
+    "option1_ci_done": true,
+    "option2_readme_done": true,
+    "option3_save_done": true,
+    "option4_ingest_done": true,
+    "release_ready_candidate": true,
+    "cloud_publish_ready_candidate": true,
+    "private_data_excluded": true,
+    "source_content_excluded": true,
+    "api_response_excluded": true,
+    "production_write_excluded": true,
+    "cloud_not_source_of_truth": true,
+    "manifest_ready": true
+  },
+  "all_passed": true,
+  "package_id": "bgpk-a9450aa942",
+  "publish_performed": false,
+  "network_performed": false
+}

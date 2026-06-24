@@ -1,0 +1,11 @@
+{
+  "status": "cloud publish token preview (no publish)",
+  "token_present": true,
+  "token_format_valid": true,
+  "manifest_package_id": "bgpk-a9450aa942",
+  "token_package_id": "bgpk-a9450aa942",
+  "package_id_match": true,
+  "publish_allowed_preview": true,
+  "publish_performed": false,
+  "network_performed": false
+}

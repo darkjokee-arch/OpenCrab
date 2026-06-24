@@ -6,10 +6,12 @@
 Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 commercial·Layer2).
 사용자 온톨로지를 evidence-node-edge로 축적해 개인 AGI화. fork: darkjokee-arch/OpenCrab(upstream push 금지).
 
-## 현재 상태
-- preview/dry-run/productization-ready. **OWNER_REVIEW_READY**.
-- Option 1 CI 완료(3-OS 11/11 PASS·WSL SKIP). Option 2 README 반영 완료.
-- Option 3 SAVE preflight **BLOCKED**(evidence mock_fallback). Option 4 ingest preflight **BLOCKED**(SOURCE_HOLD).
+## 현재 상태 (2026-06-24)
+- **BINGGUPACK_RELEASE_READY · release_ready=true · blockers []**.
+- Option 1 CI ✅ / Option 2 README ✅ / Option 3 SAVE ✅(SAVE_REAL_RUN_DONE·fork 격리) /
+  Option 4 OpenCrab ingest ✅(metadata-only·fork 격리) / Cloud publish ✅(fork 격리 bundle).
+- 모든 real run은 owner token + fork 격리: 사장님 실제 ~/.binggupack·BingguPack ledger·OpenCrab production 미변경.
+  외부 Cloud 실업로드·실 API data·production write·confirmed promotion 0.
 
 ## 어떤 파일을 보면 되는지
 - 전체 색인: `docs/BINGGUPACK_DOC_INDEX.md`

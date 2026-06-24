@@ -1,0 +1,30 @@
+{
+  "token_valid": true,
+  "package_id": "bgpk-a9450aa942",
+  "cloud_publish_status": "CLOUD_PUBLISH_DONE",
+  "release_state": "BINGGUPACK_RELEASE_READY",
+  "cloud_publish_done": true,
+  "bundle_path": "docs/poc/release/release_bundle/",
+  "included_data_classes": [
+    "owner_declared_public_principle",
+    "metadata",
+    "route_descriptor",
+    "audit_reference"
+  ],
+  "excluded_data_classes": [
+    "private",
+    "secret",
+    "raw_private_evidence",
+    "actual_source_content",
+    "api_response_body",
+    "commercial_scraped",
+    "production_store"
+  ],
+  "cloud_is_source_of_truth": false,
+  "private_data_included": false,
+  "production_write_included": false,
+  "actual_external_upload_performed": false,
+  "confirmed_promotion": false,
+  "network_performed": false,
+  "note": "fork 격리 bundle 패키징. 실 외부 업로드는 owner 직접."
+}

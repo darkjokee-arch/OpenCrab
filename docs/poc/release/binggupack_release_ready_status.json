@@ -1,14 +1,12 @@
 {
   "status": "FINAL_RELEASE_CANDIDATE_READY",
-  "overall_status": "BINGGUPACK_RELEASE_READY_CANDIDATE",
-  "release_ready": false,
+  "overall_status": "BINGGUPACK_RELEASE_READY",
+  "release_ready": true,
   "release_ready_candidate": true,
-  "cloud_publish_ready": false,
+  "cloud_publish_ready": true,
   "save_preflight_status": "SAVE_PREFLIGHT_READY",
   "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY",
-  "blockers": [
-    "cloud_publish_not_approved"
-  ],
+  "blockers": [],
   "resolved": [
     "evidence_capture(owner_declared·SAVE_PREFLIGHT_READY)"
   ],
@@ -36,7 +34,10 @@
   "opencrab_ingest_done": true,
   "opencrab_ingest_real_run_status": "OPENCRAB_INGEST_REAL_RUN_DONE",
   "cloud_publish_ready_candidate": true,
-  "remaining_blockers": [
-    "cloud_publish_not_approved"
-  ]
+  "remaining_blockers": [],
+  "release_state": "BINGGUPACK_RELEASE_READY",
+  "cloud_publish_done": true,
+  "cloud_is_source_of_truth": false,
+  "private_data_included": false,
+  "production_write_included": false
 }

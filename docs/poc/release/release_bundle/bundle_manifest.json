@@ -1,0 +1,25 @@
+{
+  "package_id": "bgpk-a9450aa942",
+  "package_version": "1.0.0-rc",
+  "release_state": "BINGGUPACK_RELEASE_READY",
+  "included_data_classes": [
+    "owner_declared_public_principle",
+    "metadata",
+    "route_descriptor",
+    "audit_reference"
+  ],
+  "excluded_data_classes": [
+    "private",
+    "secret",
+    "raw_private_evidence",
+    "actual_source_content",
+    "api_response_body",
+    "commercial_scraped",
+    "production_store"
+  ],
+  "cloud_is_source_of_truth": false,
+  "private_data_included": false,
+  "production_write_included": false,
+  "actual_external_upload_performed": false,
+  "note": "fork 격리 release artifact bundle. 실제 외부 Cloud 업로드는 owner 직접(외부 발송 원칙). network 0."
+}
