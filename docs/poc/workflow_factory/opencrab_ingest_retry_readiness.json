@@ -1,17 +1,18 @@
 {
-  "current_ingest_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
-  "manual_check_required_count": 5,
-  "admitted_source_count": 0,
-  "rejected_source_count": 4,
+  "current_ingest_status": "OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY",
+  "admitted_source_count": 3,
+  "manual_check_required_count": 0,
   "metadata_only_count": 3,
-  "retry_possible_now": false,
+  "rejected_source_count": 4,
+  "still_hold_count": 3,
+  "retry_possible_now": true,
   "retry_blockers": [
-    "manual_check_required_sources_remaining",
-    "no_admitted_source"
+    "source_still_hold(3)"
   ],
+  "preflight_report_id": "ipfr-330e0e18b6",
   "required_owner_actions": [
-    "source_manual_check_5(license/robots)",
-    "then OpenCrab ingest preflight retry"
+    "ingest final confirmation token(ADMIT_METADATA_ROUTE 3 대상)",
+    "metadata_only 3은 제한 route"
   ],
   "opencrab_ingest_performed": false,
   "source_fetch_performed": false

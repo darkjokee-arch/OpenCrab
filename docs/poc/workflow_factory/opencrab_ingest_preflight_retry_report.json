@@ -2,23 +2,24 @@
   "status": "opencrab ingest preflight retry (no ingest)",
   "product_id": "wfp-001",
   "decision_distribution": {
-    "REJECT_CANDIDATE": 5,
+    "ADMIT_METADATA_ROUTE": 3,
+    "HOLD_MANUAL_LICENSE_ROBOTS_CHECK": 1,
+    "REJECT_PLACEHOLDER": 2,
+    "REJECT_CANDIDATE": 3,
     "HOLD_METADATA_ONLY": 3,
-    "KEEP_HOLD": 3,
     "TERMINAL_REJECT": 1
   },
-  "admitted_source_count": 0,
+  "admitted_source_count": 3,
   "manual_check_required_count": 0,
   "metadata_only_count": 3,
-  "rejected_count": 6,
+  "rejected_count": 4,
   "still_hold_count": 3,
   "evidence_plan_ready": true,
   "schema_compatible": true,
   "blockers": [
-    "source_still_hold(3)",
-    "no_admitted_source(manual_check 전)"
+    "source_still_hold(3)"
   ],
-  "ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
+  "ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY",
   "final_confirmation_required": true,
   "opencrab_ingest_performed": false,
   "production_write_performed": false,

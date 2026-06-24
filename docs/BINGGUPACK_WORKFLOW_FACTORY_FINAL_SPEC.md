@@ -3,6 +3,13 @@
 > 2026-06-23. Layer2 = OpenCrab Workflow Factory commercial extension. 사용자 개인 온톨로지(Layer1)와
 > **독립 가능**. 설계/preview only — 실제 crawl/fetch/ingest/production write 0. 상위: `BINGGUPACK_FINAL_CONCEPT.md`.
 
+## 0-1. Real Source 우선순위 (2026-06-24)
+- placeholder(search 쿼리·example.com) 금지. 실 운영 source는 **공식/공공 우선**:
+  ① official_public_api(한국관광공사 TourAPI·공공데이터포털 data.go.kr·TAGO 교통) → ADMIT_METADATA_ROUTE(license 명확).
+  ② public metadata(공식 포털 OGP/JSON-LD·RSS) → HOLD_MANUAL_LICENSE_ROBOTS_CHECK / METADATA_ONLY.
+  ③ commercial/review → source candidate 가능하나 execution HOLD·metadata-first·license/robots 확인 전 ADMIT 금지.
+- 산출: `docs/poc/workflow_factory/real_source_candidate_replacement.json`. 실 fetch/network 0.
+
 ## 1. 목적
 
 사용자 목표를 입력하면 OpenCrab용 유료 워크플로우 상품을 만들기 위해 필요한 팩·데이터·source 후보·

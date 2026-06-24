@@ -59,6 +59,16 @@ production write 0 / store·evidence·private data 삭제 0 / 기존 BingguPack 
 - token 형식: `OWNER_APPROVES_BINGGUPACK_{CI_RUN|README_APPLY|SAVE_GATE_REAL_RUN|OPENCRAB_INGEST_REAL_RUN}:...`.
 - 실제 실행은 아직 **0** (token 있어도 preflight+final confirmation 필요).
 
+## 11-17. Real Source Replacement → INGEST PARTIAL_READY → RELEASE_READY_CANDIDATE (2026-06-23)
+- placeholder 교체(실 fetch 0·network 0): src-004/008/012 search 쿼리→**공공 API**(TourAPI 숙박·data.go.kr 관광지·TAGO 교통)·
+  src-009/013 example.com→REJECT_PLACEHOLDER 제거·추가 VisitJeju 공식(json_ld·HOLD_MANUAL_LICENSE_ROBOTS_CHECK).
+- **real candidate 4**(official_public_api 3·official_portal 1). execution_admission: **ADMIT_METADATA_ROUTE 3**(공공데이터 개방·license 명확·robots 무관 API·실 fetch 별도 gate)·HOLD 1·REJECT_PLACEHOLDER 2.
+- ingest preflight retry → **OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY**(admitted 3·still_hold 3 metadata_only). ingest 0.
+- **release 재판정**: release_ready=false·**release_ready_candidate=true**·overall **BINGGUPACK_RELEASE_READY_CANDIDATE**.
+  잔존: cloud_publish_not_approved·opencrab_ingest_final_confirmation_pending.
+- ingest final token: `OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:ipfr-330e0e18b6:<op>`.
+- insane-search 원칙: public API/metadata-first/method_family/route_provenance/No-Site-Name·TLS/browser/scraping 0.
+
 ## 11-16. Option 4 Source Manual Check + Ingest Preflight Retry (2026-06-23) — ingest BLOCKED 유지(정직)
 - source 5 manual check **정적 판정**(실 URL fetch 0·network 0·manual_check_performed=true):
   src-004/008/012=`search:` 쿼리(구체 source 미정)→KEEP_HOLD·src-009/013=`example.com/unknown`(IANA 예약 예시 도메인 placeholder)→REJECT_SOURCE.

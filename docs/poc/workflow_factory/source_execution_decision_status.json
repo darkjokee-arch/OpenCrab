@@ -1,5 +1,44 @@
 [
   {
+    "source_id": "rsrc-004",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
+    "manual_check_performed": true,
+    "note": "metadata route preflight 가능·실 fetch 별도 gate"
+  },
+  {
+    "source_id": "rsrc-008",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
+    "manual_check_performed": true,
+    "note": "metadata route preflight 가능·실 fetch 별도 gate"
+  },
+  {
+    "source_id": "rsrc-012",
+    "decision_status": "ADMIT_METADATA_ROUTE",
+    "execution_admission_now": "ADMIT",
+    "manual_check_performed": true,
+    "note": "metadata route preflight 가능·실 fetch 별도 gate"
+  },
+  {
+    "source_id": "rsrc-014",
+    "decision_status": "HOLD_MANUAL_LICENSE_ROBOTS_CHECK",
+    "execution_admission_now": "HOLD",
+    "manual_check_performed": true
+  },
+  {
+    "source_id": "src-009",
+    "decision_status": "REJECT_PLACEHOLDER",
+    "execution_admission_now": "REJECT",
+    "manual_check_performed": true
+  },
+  {
+    "source_id": "src-013",
+    "decision_status": "REJECT_PLACEHOLDER",
+    "execution_admission_now": "REJECT",
+    "manual_check_performed": true
+  },
+  {
     "source_id": "src-002",
     "decision_status": "REJECT_CANDIDATE",
     "execution_admission_now": "HOLD",
@@ -10,13 +49,6 @@
     "decision_status": "HOLD_METADATA_ONLY",
     "execution_admission_now": "HOLD",
     "metadata_only_candidate": true
-  },
-  {
-    "source_id": "src-004",
-    "decision_status": "KEEP_HOLD",
-    "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true,
-    "manual_check_performed": true
   },
   {
     "source_id": "src-005",
@@ -37,20 +69,6 @@
     "metadata_only_candidate": true
   },
   {
-    "source_id": "src-008",
-    "decision_status": "KEEP_HOLD",
-    "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true,
-    "manual_check_performed": true
-  },
-  {
-    "source_id": "src-009",
-    "decision_status": "REJECT_CANDIDATE",
-    "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true,
-    "manual_check_performed": true
-  },
-  {
     "source_id": "src-010",
     "decision_status": "HOLD_METADATA_ONLY",
     "execution_admission_now": "HOLD",
@@ -61,19 +79,5 @@
     "decision_status": "TERMINAL_REJECT",
     "execution_admission_now": "HOLD",
     "metadata_only_candidate": false
-  },
-  {
-    "source_id": "src-012",
-    "decision_status": "KEEP_HOLD",
-    "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true,
-    "manual_check_performed": true
-  },
-  {
-    "source_id": "src-013",
-    "decision_status": "REJECT_CANDIDATE",
-    "execution_admission_now": "HOLD",
-    "metadata_only_candidate": true,
-    "manual_check_performed": true
   }
 ]

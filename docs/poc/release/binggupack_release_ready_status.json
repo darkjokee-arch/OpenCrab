@@ -1,14 +1,14 @@
 {
   "status": "FINAL_RELEASE_CANDIDATE_READY",
-  "overall_status": "BINGGUPACK_FAST_MODE_BLOCKERS_REMAIN",
+  "overall_status": "BINGGUPACK_RELEASE_READY_CANDIDATE",
   "release_ready": false,
-  "release_ready_candidate": false,
+  "release_ready_candidate": true,
   "cloud_publish_ready": false,
   "save_preflight_status": "SAVE_PREFLIGHT_READY",
-  "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_BLOCKED",
+  "opencrab_ingest_preflight_status": "OPENCRAB_INGEST_PREFLIGHT_PARTIAL_READY",
   "blockers": [
-    "opencrab_ingest_preflight_blocked(no_admitted_source·manual check후 전부 HOLD/REJECT)",
-    "cloud_publish_not_approved"
+    "cloud_publish_not_approved",
+    "opencrab_ingest_final_confirmation_pending"
   ],
   "resolved": [
     "evidence_capture(owner_declared·SAVE_PREFLIGHT_READY)"
@@ -28,6 +28,6 @@
   "save_real_run_status": "SAVE_REAL_RUN_DONE",
   "saved_candidate_count": 2,
   "source_manual_check_done": true,
-  "admitted_source_count": 0,
-  "ingest_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:<preflight_report_id>:BingGu"
+  "admitted_source_count": 3,
+  "ingest_final_token_template": "OWNER_FINAL_CONFIRMS_BINGGUPACK_OPENCRAB_INGEST_REAL_RUN:2026-06-23:wfp-001:ipfr-330e0e18b6:BingGu"
 }
