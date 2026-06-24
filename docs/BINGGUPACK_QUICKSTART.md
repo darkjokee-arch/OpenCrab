@@ -16,8 +16,10 @@ git checkout v1.8.0
 - **prerequisite:** Python 3.10+ · Git. (WSL Ubuntu / macOS / Linux 공통. Windows는 Git Bash 또는 WSL 권장.)
 - **출력 위치는 항상 temp/지정 경로.** 사용자 실제 `~/.binggupack`을 건드리지 않으려면 임시 home 사용:
   ```bash
-  export BINGGUPACK_HOME="$(mktemp -d)"
+  export BINGGU_HOME="$(mktemp -d)"   # 올바른 env 이름은 BINGGU_HOME (BINGGUPACK_HOME 아님)
   ```
+  - **MCP 경유 시 주의:** MCP 서버는 별도 프로세스라 셸 `export`가 전달되지 않는다. temp 격리하려면
+    MCP config의 `env` 블록에 `"BINGGU_HOME": "<temp>"`를 넣고 재시작한다. 상세: `BINGGUPACK_MCP_SANDBOX_HOME_FIX.md`.
 
 ## 첫 실행 (offline, 안전)
 

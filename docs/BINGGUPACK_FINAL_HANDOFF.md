@@ -8,7 +8,7 @@
 > **신규 사용자 E2E:** `NEW_USER_E2E_PARTIAL_DOCS_FIXED` (offline 동작·문서 보정 / WSL Ubuntu·macOS actual PASS는 `CROSS_PLATFORM_E2E_PENDING`).
 > 후속 과제: 전용 CLI(`BINGGUPACK_CLI_DESIGN.md`, `CLI_DESIGN_RECORDED`), cross-platform 실행(`BINGGUPACK_CROSS_PLATFORM_E2E_PLAN.md`). v1.8.0 stable 유지 가능.
 > **MCP 실사용 테스트:** `MCP_OPERATIONAL_PARTIAL_HOME_NOT_ISOLATED` (`BINGGUPACK_MCP_OPERATIONAL_E2E_TEST_REPORT.md`). 도구 흐름(preview→save dry-run→build→validate→consumer) 동작·ledger write 0.
-> ⚠️ **결함:** `openbinggu-local` MCP가 `BINGGUPACK_HOME` override를 못 받아 실제 `~/.binggupack`에 preview 캐시/sqlite shm 흔적 발생(데이터 손상 0). 차기: MCP 서버 temp-home env 지원.
+> ⚠️ **결함→해결:** 실제 `~/.binggupack` 흔적의 원인은 코드 결함이 아니라 테스트 env 이름 오류였음. 올바른 env = **`BINGGU_HOME`**(이미 `binggu_platform.binggu_home()`이 지원, 25개 모듈 공유, 실증 완료). 해결: MCP config `env.BINGGU_HOME` 주입+재시작(owner 운영). 코드 패치 0. 상세: `BINGGUPACK_MCP_SANDBOX_HOME_FIX.md`. 상태: `MCP_SANDBOX_HOME_SUPPORTED`.
 
 ## BingguPack 정의
 Personal Ontology AGI Core(본체·Layer1) + OpenCrab Workflow Factory(2차 commercial·Layer2).

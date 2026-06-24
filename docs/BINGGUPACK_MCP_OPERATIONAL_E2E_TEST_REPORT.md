@@ -33,6 +33,11 @@
 - **그러나 temp-home sandbox 격리 전제가 깨짐** → 요청한 `MCP_OPERATIONAL_READY_SANDBOX` **미달**.
 - **판정: `MCP_OPERATIONAL_PARTIAL_HOME_NOT_ISOLATED`** — 기능은 동작하나, MCP write/preview 계열은 실제 홈을 사용하므로 진정한 sandbox 실행 불가.
 
+### 4-1. 원인 규명 (2026-06-24 후속 — `BINGGUPACK_MCP_SANDBOX_HOME_FIX.md`)
+- **코드 결함 아님.** `binggu_platform.binggu_home()`은 `BINGGU_HOME` env opt-in을 이미 완전 지원(25개 모듈 공유). 실증 완료(BINGGU_HOME=temp → 전 경로 temp 격리).
+- 실제 원인: ① 테스트 env 이름 오류(`BINGGUPACK_HOME` → 정답 `BINGGU_HOME`) ② 세션 Bash export는 MCP 프로세스에 전달 안 됨(MCP config `env` 블록 필요).
+- 해결: MCP config `env.BINGGU_HOME` 주입 + 재시작(owner 운영 행위). 코드 `MCP_SANDBOX_HOME_SUPPORTED`.
+
 ## 5. 권고 (차기)
 - `openbinggu-local` MCP 서버가 `BINGGUPACK_HOME` env override를 읽도록 설정/패치 → 그래야 temp-home 실사용 테스트가 안전.
 - 그 전까지 **write/preview 계열 MCP 도구는 실제 홈에 흔적을 남김**을 전제로 사용. 순수 read(selftest/pack_validate/consumer_smoke)는 ledger 데이터 변경 0.
